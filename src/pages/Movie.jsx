@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './MoviesGrid.css';
+
 const Movie = () => {
   return <div>Movie</div>;
 };

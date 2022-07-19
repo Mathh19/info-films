@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { BsFillStarFill } from 'react-icons/bs';
 
+import './MovieCard.css';
+
 const imageUrl = import.meta.env.VITE_IMG;
 
 const MovieCard = ({ movie, showLink = true }) => {
