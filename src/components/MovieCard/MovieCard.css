@@ -13,13 +13,13 @@
     max-width: 100%;
 }
 
-.movie-card img,
-.movie-card h2,
-.movie-card p {
+.movie-card .img-movie,
+.movie-card .title-movie,
+.movie-card .container-star {
     margin-bottom: 1rem;
 }
 
-.movie-card svg {
+.movie-card .star {
     color: #f7d354;
 }
 

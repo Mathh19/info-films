@@ -24,7 +24,7 @@ const Navbar = () => {
       <h2>
         <Link to="/">
           <BiVideoRecording />
-          Start Films
+          InfoFilms
         </Link>
       </h2>
       <form onSubmit={handleSubmit}>

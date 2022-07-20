@@ -3,6 +3,7 @@ import MovieCard from '../components/MovieCard/MovieCard';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
+
 const Home = () => {
   const [bestMovies, setBestMovies] = useState([]);
 
