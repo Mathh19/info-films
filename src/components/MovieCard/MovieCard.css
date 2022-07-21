@@ -9,6 +9,12 @@
     padding: 1rem;
 }
 
+.movie-card:hover {
+    transition: ease-in-out all 300ms;
+    transform: scale(1.05);
+    box-shadow: 0 0 2em #0b36cd;
+}
+
 .movie-card img {
     max-width: 100%;
 }

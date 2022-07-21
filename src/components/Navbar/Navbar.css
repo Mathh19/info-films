@@ -9,7 +9,12 @@
 #navbar h2 a {
     display: flex;
     align-items: center;
+    font-size: 40px;
     gap: 0.5rem;
+}
+
+#navbar h2 a svg {
+    font-size: 45px;
 }
 
 #navbar form {

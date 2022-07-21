@@ -9,6 +9,12 @@
     text-align: center;
 }
 
+.movie-page .movie-card:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+}
+
 .movie-page .movie-card img,
 .movie-page .movie-card h2,
 .movie-page .movie-card p {
@@ -54,7 +60,7 @@
 }
 
 .description {
-    padding-bottom: 21rem;
+    padding-bottom: 10rem;
 }
 
 .description p {
