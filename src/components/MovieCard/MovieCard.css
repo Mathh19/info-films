@@ -12,7 +12,6 @@
 .movie-card:hover {
     transition: ease-in-out all 300ms;
     transform: scale(1.05);
-    box-shadow: 0 0 2em #0b36cd;
 }
 
 .movie-card img {
@@ -44,4 +43,5 @@
 .movie-card a:hover {
     background-color: transparent;
     color: #0b36cd;
+    box-shadow: 0 0 1em #0b36cd;
 }
