@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { BiWalletAlt } from 'react-icons/bi';
 import { MdTrendingUp, MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
+import { FaListUl } from 'react-icons/fa';
 
 import MovieCard from '../components/MovieCard/MovieCard';
 
@@ -51,6 +52,16 @@ const Movie = () => {
                 <MdTrendingUp /> Receita:
               </h3>
               <p>{formatCurrency(movie.revenue)}</p>
+            </div>
+            <div className="info">
+              <h3>
+                <FaListUl /> Genêro:
+              </h3>
+              {movie.genres.map((genre) => (
+                <p className="genres" key={genre.id}>
+                  {genre.name}
+                </p>
+              ))}
             </div>
             <div className="info">
               <h3>

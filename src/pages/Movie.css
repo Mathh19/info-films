@@ -59,6 +59,10 @@
     gap: 0.5rem;
 }
 
+.info .genres {
+    margin-bottom: 0.5rem;
+}
+
 .description {
     padding-bottom: 10rem;
 }
