@@ -17,3 +17,12 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.movies-container .error-search {
+  font-size: xx-large;
+  margin: 5rem auto;
+}
+
+.movies-container .error-search span {
+  color: #0b36cd;
+}
