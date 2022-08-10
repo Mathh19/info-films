@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     background-color: #121212;
 }
 
@@ -20,6 +20,11 @@
 #navbar form {
     display: flex;
     gap: 0.5rem;
+}
+
+#navbar input::placeholder {
+  color: darkgrey;
+  font-weight: 700;
 }
 
 #navbar input {
@@ -44,4 +49,10 @@
 #navbar form button:hover {
     background-color: transparent;
     color: #0b36cd;
+}
+
+#navbar .box-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

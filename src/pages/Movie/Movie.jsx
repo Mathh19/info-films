@@ -4,7 +4,7 @@ import { BiWalletAlt } from 'react-icons/bi';
 import { MdTrendingUp, MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { FaListUl } from 'react-icons/fa';
 
-import MovieCard from '../components/MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 import './Movie.css';
 

@@ -10,8 +10,8 @@
 }
 
 .movie-card:hover {
-    transition: ease-in-out all 300ms;
-    transform: scale(1.05);
+    transition: ease-in-out all 200ms;
+    transform: scale(1.02);
 }
 
 .movie-card img {

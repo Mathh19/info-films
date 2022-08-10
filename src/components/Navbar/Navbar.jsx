@@ -27,17 +27,21 @@ const Navbar = () => {
           InfoFilms
         </Link>
       </h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Busque um filme"
-          onChange={(e) => setSearch(e.target.value)}
-          value={search}
-        />
-        <button type="submit">
-          <BiSearchAlt2 />
-        </button>
-      </form>
+      <div className="box-search">
+        <div>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Busque um filme"
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+            />
+            <button type="submit">
+              <BiSearchAlt2 />
+            </button>
+          </form>
+        </div>
+      </div>
     </nav>
   );
 };
