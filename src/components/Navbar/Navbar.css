@@ -2,8 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     background-color: #121212;
+    width: 100%;
+}
+
+#navbar h2 {
+  margin: 0 1rem;
 }
 
 #navbar h2 a {
@@ -55,4 +60,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  #navbar {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 595px) {
+  #navbar {
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navbar .box-search {
+    margin-top: 1rem;
+  }
 }
