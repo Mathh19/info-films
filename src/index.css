@@ -5,9 +5,14 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #000;
+  background-color: #0c0b0f;
   color: #fff;
+
 }
 
 a {
@@ -16,6 +21,3 @@ a {
   transition: .5s;
 }
 
-a:hover {
-  color: #061f79;
-}
