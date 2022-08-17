@@ -15,7 +15,7 @@ const MovieCard = ({ movie, showLink = true }) => {
       />
       <h2 className="title-movie">{movie.title}</h2>
       <p className="container-star">
-        <BsFillStarFill className="star" /> {movie.vote_average}
+        <BsFillStarFill className="star" /> {movie.vote_average.toFixed(1)}
       </p>
       {showLink && <Link to={`/movie/${movie.id}`}>Detalhes</Link>}
     </div>
