@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="search" element={<Search />} />
-          <Route path="category/" element={<Category />} />
+          <Route path="category" element={<Category />} />
         </Route>
       </Routes>
     </BrowserRouter>
