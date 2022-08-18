@@ -5,11 +5,11 @@
   z-index: 10;
   position: fixed;
   cursor: pointer;
-  bottom: 50px;
+  bottom: 40px;
   right: 80px;
-  border: 2px solid #fff;
+  border: 1px solid #fff;
   border-radius: 50%;
-  background-color: #0b35cd93;
+  background-color: #0b35cd60;
 }
 
 .GoTop:hover {

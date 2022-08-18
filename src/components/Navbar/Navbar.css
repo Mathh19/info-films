@@ -1,44 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&display=swap');
+
 #navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0.5rem 2rem;
+    background-image: url('/bg-navbar.svg');
     background-color: #121212;
     width: 100%;
 }
 
-#navbar h2 {
-  margin: 0 1rem;
+#navbar .logo-title {
+  width: 240px;
+  height: 120px;
 }
 
-#navbar h2 a {
+#navbar .logo-title {
+  display: flex;
+  justify-content: start;
+  letter-spacing: 0.1rem;
+}
+
+#navbar .logo-title a {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    font-size: 40px;
-    gap: 0.5rem;
+    font-family: 'Merienda', cursive;
+    font-size: 50px;
+    font-style: italic;
+    color: #0b35cdc5;
 }
 
-#navbar h2 a svg {
-    font-size: 45px;
+#navbar h2 a .link-name-films {
+  position: relative;
+  left: 35px;
+  bottom: 20px;
+  font-family: 'Merienda', cursive;
+}
+
+#navbar h2 a .info-logo .i {
+  font-family: 'Merienda', cursive;
+  color: rgba(255, 255, 255, 0.719);
+}
+
+#navbar h2 a .info-logo span {
+  font-family: 'Merienda', cursive;
+  color: #0b35cdc5;
 }
 
 #navbar form {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
+    margin: 0 0.5rem;
 }
 
 #navbar input::placeholder {
-  color: darkgrey;
+  color: rgba(169, 169, 169, 0.473);
   font-weight: 700;
 }
 
 #navbar input {
-    padding: 0.2rem 0.8rem;
-    border-radius: 4px;
-    border: none;
+    padding: 0.1rem 0.8rem;
+    border-radius: 30px;
+    border: 2px solid #082032;
+    width: 16rem;
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #082032;
 }
 
-#navbar form button {
+#navbar input:hover {
+  border: 2px solid #2C394B;
+}
+
+#navbar input:focus{
+  background-color: #2C394B;
+}
+
+#navbar form button, .box-search button {
     background-color: #0b36cd;
     border: 2px solid #0b36cd;
     border-radius: 4px;
@@ -51,7 +91,7 @@
     transition: 0.4s;
 }
 
-#navbar form button:hover {
+#navbar form button:hover, .box-search button:hover {
     background-color: transparent;
     color: #0b36cd;
 }
@@ -59,6 +99,7 @@
 #navbar .box-search {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
   margin: 0 1rem;
 }
@@ -66,16 +107,20 @@
 @media (max-width: 768px) {
   #navbar {
     flex-wrap: wrap;
+    justify-content: space-around;
   }
 }
 
-@media (max-width: 595px) {
-  #navbar {
-    justify-content: center;
-    align-items: center;
+@media (max-width: 410px) {
+  #navbar .box-search .component-list {
+    margin: 0.8rem 0;
   }
 
-  #navbar .box-search {
-    margin-top: 1rem;
+  #navbar form {
+    justify-content: center;
+  }
+
+  #navbar form input {
+    height: 2.5rem;
   }
 }

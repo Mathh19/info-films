@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h2 className="title">Filmes com melhor avaliação</h2>
+      <h2 className="title">Filmes mais bem avaliados</h2>
       <div className="movies-container">
         {bestMovies.length <= 0 && <LoadingMovies />}
         {bestMovies.length > 0 &&
