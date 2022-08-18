@@ -32,7 +32,7 @@ const ListGenres = () => {
     const genresFilmsUrl = `${genresUrl}list?${apiKey}`;
 
     getGenresFilms(genresFilmsUrl);
-  });
+  }, []);
 
   return (
     <div className="component-list">
