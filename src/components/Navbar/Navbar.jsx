@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 
-import { Link, useNavigate } from 'react-router-dom';
-import { BiVideoRecording, BiSearchAlt2 } from 'react-icons/bi';
+import { useNavigate } from 'react-router-dom';
 
 import './Navbar.css';
+import ListGenres from '../ListGenres/ListGenres';
+import LogoPage from '../LogoPage/LogoPage';
+import { BiSearchAlt2 } from 'react-icons/bi';
 
 const Navbar = () => {
   const [search, setSearch] = useState('');
@@ -21,18 +23,14 @@ const Navbar = () => {
 
   return (
     <nav id="navbar">
-      <h2>
-        <Link to="/">
-          <BiVideoRecording />
-          InfoFilms
-        </Link>
-      </h2>
+      <LogoPage />
       <div className="box-search">
+        <ListGenres />
         <div>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Busque um filme"
+              placeholder="Buscar um filme..."
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
