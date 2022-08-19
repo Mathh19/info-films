@@ -9,7 +9,7 @@ const Category = () => {
   const [movies, setMovies] = useState([]);
   const [genresParams] = useSearchParams();
   const query = genresParams.get('q');
-  const category = localStorage.getItem('category');
+  const categoryValue = localStorage.getItem('category');
 
   const getMoviesPerGenres = async (url) => {
     const res = await fetch(url);
@@ -25,7 +25,8 @@ const Category = () => {
   return (
     <div className="container">
       <h2 className="title">
-        Filmes com a categoria: <span className="query-text">{category}</span>
+        Filmes com a categoria:{' '}
+        <span className="query-text">{categoryValue}</span>
       </h2>
       <div className="movies-container">
         {movies.length === 0 && (
