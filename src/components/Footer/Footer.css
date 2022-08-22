@@ -1,0 +1,26 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px #9c9c9c solid;
+  padding: 15px 10px;
+}
+
+.footer div {
+  padding: 10px;
+}
+
+.footer a {
+  margin: 0 30px;
+  color: #b3b3b3;
+  transition: linear;
+}
+
+.footer a:hover {
+  color: #334756;
+}
+
+.footer svg {
+  width: 35px;
+  height: 35px;
+}
