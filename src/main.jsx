@@ -8,6 +8,7 @@ import './index.css';
 import Category from './pages/Category/Category';
 import Home from './pages/Home/Home';
 import Movie from './pages/Movie/Movie';
+import PageNotFound from './pages/Page404/Page404';
 import Search from './pages/Search/Search';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route element={<App />}>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="search" element={<Search />} />
           <Route path="category" element={<Category />} />
