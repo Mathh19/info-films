@@ -19,7 +19,7 @@ const Category = () => {
   };
 
   useEffect(() => {
-    const genresQueryUrl = `${searchGenres}?${apiKey}&with_genres=${query}`;
+    const genresQueryUrl = `${searchGenres}?${apiKey}&with_genres=${query}&language=pt-BR`;
     getMoviesPerGenres(genresQueryUrl);
   }, [query]);
   return (

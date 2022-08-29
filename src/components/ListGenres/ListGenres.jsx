@@ -29,7 +29,7 @@ const ListGenres = () => {
   localStorage.setItem('category', category);
 
   useEffect(() => {
-    const genresFilmsUrl = `${genresUrl}list?${apiKey}`;
+    const genresFilmsUrl = `${genresUrl}list?${apiKey}&language=pt-BR`;
 
     getGenresFilms(genresFilmsUrl);
   }, []);
