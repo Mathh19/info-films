@@ -11,7 +11,6 @@ const apiKey = import.meta.env.VITE_API_KEY;
 const ListGenres = () => {
   const [genresFilms, setGenresFilms] = useState([]);
   const [isClosed, setIsClosed] = useState(true);
-  const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
   const getGenresFilms = async (url) => {
@@ -22,11 +21,11 @@ const ListGenres = () => {
   };
 
   const searchGenres = (genre) => {
-    setCategory(genre.name);
+    const category = genre.name;
+    localStorage.setItem('category', category);
     navigate(`category?q=${genre.id}`);
     setIsClosed(true);
   };
-  localStorage.setItem('category', category);
 
   useEffect(() => {
     const genresFilmsUrl = `${genresUrl}list?${apiKey}&language=pt-BR`;
