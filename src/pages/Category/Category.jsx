@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import LoadingMovie from '../../components/LoadingMovie/LoadingMovies';
 import MovieCard from '../../components/MovieCard/MovieCard';
 
 const searchGenres = import.meta.env.VITE_DISCOVER;
@@ -25,13 +26,11 @@ const Category = () => {
   return (
     <div className="container">
       <h2 className="title">
-        Filmes com a categoria:{' '}
+        {movies.length > 0 && <span>Filmes com a categoria: </span>}
         <span className="query-text">{categoryValue}</span>
       </h2>
       <div className="movies-container">
-        {movies.length === 0 && (
-          <p className="error-search">Não encontramos essa categoria :(</p>
-        )}
+        {movies.length <= 0 && <LoadingMovie />}
         {movies.length > 0 &&
           movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
