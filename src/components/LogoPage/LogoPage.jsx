@@ -14,9 +14,12 @@ const LogoPage = () => {
               <span translate="no">nfo</span>
             </div>
           </div>
-          <span className="link-name-films" translate="no">
-            Films
-          </span>
+          <div>
+            <span className="link-name-films F">F</span>
+            <span className="link-name-films" translate="no">
+              ilms
+            </span>
+          </div>
         </Link>
       </h2>
     </div>
