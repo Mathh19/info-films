@@ -10,44 +10,6 @@
     width: 100%;
 }
 
-#navbar .logo-title {
-  width: 240px;
-  height: 120px;
-}
-
-#navbar .logo-title {
-  display: flex;
-  justify-content: start;
-  letter-spacing: 0.1rem;
-}
-
-#navbar .logo-title a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Merienda', cursive;
-    font-size: 50px;
-    font-style: italic;
-    color: #0b35cdc5;
-}
-
-#navbar h2 a .link-name-films {
-  position: relative;
-  left: 35px;
-  bottom: 20px;
-  font-family: 'Merienda', cursive;
-}
-
-#navbar h2 a .info-logo .i {
-  font-family: 'Merienda', cursive;
-  color: rgba(255, 255, 255, 0.719);
-}
-
-#navbar h2 a .info-logo span {
-  font-family: 'Merienda', cursive;
-  color: #0b35cdc5;
-}
-
 #navbar form {
     display: flex;
     flex-wrap: wrap;
