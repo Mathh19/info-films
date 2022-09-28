@@ -7,6 +7,12 @@
   background-color: #0b36cd;
   border-radius: 5%;
   z-index: 5;
+  scrollbar-color: #0b36cd rgb(194, 192, 192);
+  scrollbar-width: thin;
+}
+
+.list-genres:hover {
+  scrollbar-color: #061f79 rgb(194, 192, 192);
 }
 
 .list-genres ul {
@@ -14,6 +20,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
+  list-style: none;
 }
 
 .list-genres ul li  {
