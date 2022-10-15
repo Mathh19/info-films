@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FaThList } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5';
+import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 import './ListGenres.css';
@@ -36,9 +35,13 @@ const ListGenres = () => {
   return (
     <div className="component-list">
       <div>
-        <button onClick={() => setIsClosed(!isClosed)}>
-          {isClosed && <FaThList />}
-          {!isClosed && <IoClose />}
+        <button
+          className="btn-categories"
+          onClick={() => setIsClosed(!isClosed)}
+        >
+          Categorias
+          {isClosed && <MdArrowDropDown />}
+          {!isClosed && <MdArrowDropUp />}
         </button>
       </div>
       {!isClosed && (

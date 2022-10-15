@@ -11,6 +11,22 @@
   scrollbar-width: thin;
 }
 
+.btn-categories {
+  color: #ffffff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 2px;
+  background: transparent;
+}
+
+.btn-categories svg {
+  width: 20px;
+  height: 20px;
+}
+
 .list-genres:hover {
   scrollbar-color: #061f79 rgb(194, 192, 192);
 }

@@ -10,7 +10,7 @@
 
 #navbar form {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     gap: 0.5rem;
     margin: 0 0.5rem;
 }
@@ -38,9 +38,9 @@
   background-color: #2C394B;
 }
 
-#navbar form button, .box-search button {
-    background-color: #0b36cd;
-    border: 2px solid #0b36cd;
+#navbar form button {
+    background-color: transparent;
+    border: none;
     border-radius: 4px;
     color: #fff;
     padding: 0.3rem;
@@ -51,8 +51,7 @@
     transition: 0.4s;
 }
 
-#navbar form button:hover, .box-search button:hover {
-    background-color: transparent;
+#navbar form button:hover, #navbar form button:focus{
     color: #0b36cd;
 }
 
