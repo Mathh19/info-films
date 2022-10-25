@@ -1,7 +1,6 @@
 #navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 0.5rem 2rem;
     background-image: url('/bg-navbar.svg');
     background-color: #121212;
@@ -10,7 +9,6 @@
 
 #navbar form {
     display: flex;
-    /* flex-wrap: wrap; */
     gap: 0.5rem;
     margin: 0 0.5rem;
 }
@@ -66,7 +64,7 @@
 @media (max-width: 768px) {
   #navbar {
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: center;
   }
 }
 

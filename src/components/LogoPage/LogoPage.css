@@ -1,8 +1,10 @@
-.logo-title {
+.logo {
   width: 240px;
-  height: 120px;
   display: flex;
-  justify-content: start;
+  align-items: center;
+}
+
+.logo-title {
   letter-spacing: 0.1rem;
 }
 

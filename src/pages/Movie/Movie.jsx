@@ -45,13 +45,21 @@ const Movie = () => {
               <h3>
                 <BiWalletAlt /> Orçamento:
               </h3>
-              <p>{formatCurrency(movie.budget)}</p>
+              {movie.budget === 0 ? (
+                <span>-</span>
+              ) : (
+                <p>{formatCurrency(movie.budget)}</p>
+              )}
             </div>
             <div className="info">
               <h3>
                 <MdTrendingUp /> Receita:
               </h3>
-              <p>{formatCurrency(movie.revenue)}</p>
+              {movie.revenue === 0 ? (
+                <span>-</span>
+              ) : (
+                <p>{formatCurrency(movie.revenue)}</p>
+              )}
             </div>
             <div className="info">
               <h3>
