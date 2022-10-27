@@ -1,7 +1,7 @@
 #navbar {
     display: flex;
     justify-content: space-between;
-    padding: 0.5rem 2rem;
+    padding: 0.5rem 2rem 0;
     background-image: url('/bg-navbar.svg');
     background-color: #121212;
     width: 100%;
@@ -65,19 +65,6 @@
   #navbar {
     flex-wrap: wrap;
     justify-content: center;
-  }
-}
-
-@media (max-width: 410px) {
-  #navbar .box-search .component-list {
-    margin: 0.8rem 0;
-  }
-
-  #navbar form {
-    justify-content: center;
-  }
-
-  #navbar form input {
-    height: 2.5rem;
+    padding-bottom: 0.5rem;
   }
 }
