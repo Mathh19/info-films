@@ -23,6 +23,7 @@ const Category = () => {
     const genresQueryUrl = `${searchGenres}?${apiKey}&with_genres=${query}&language=pt-BR`;
     getMoviesPerGenres(genresQueryUrl);
   }, [query]);
+
   return (
     <div className="container">
       <h2 className="title">

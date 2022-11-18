@@ -8,7 +8,7 @@ import './index.css';
 import Category from './pages/Category/Category';
 import Home from './pages/Home/Home';
 import Movie from './pages/Movie/Movie';
-import PageNotFound from './pages/Page404/Page404';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 import Search from './pages/Search/Search';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
