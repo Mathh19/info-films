@@ -10,6 +10,7 @@ import './Movie.css';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
+const imageUrl = import.meta.env.VITE_IMG;
 
 const Movie = () => {
   const { id } = useParams();
@@ -33,14 +34,22 @@ const Movie = () => {
     const movieUrl = `${moviesUrl}${id}?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
   }, [id]);
-  console.log(movie);
 
   return (
     <div className="movie-page">
       {movie && (
         <>
-          <MovieCard movie={movie} showLink={false} />
-          <div className="container-info">
+          <section
+            className="container-background"
+            style={{
+              backgroundImage: `url(${imageUrl}${movie.backdrop_path})`,
+            }}
+          >
+            <div className="container-movie">
+              <MovieCard movie={movie} showLink={false} />
+            </div>
+          </section>
+          <section className="container-info">
             <p className="tagline">{movie.tagline}</p>
             <div className="info">
               <h3>
@@ -84,7 +93,7 @@ const Movie = () => {
               </h3>
               <p>{movie.overview}</p>
             </div>
-          </div>
+          </section>
         </>
       )}
     </div>
