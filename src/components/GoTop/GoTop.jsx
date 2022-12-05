@@ -3,7 +3,7 @@ import './GoTop.css';
 
 const GoTop = () => {
   return (
-    <a className="GoTop" href="#">
+    <a className="GoTop" href="#" aria-label="Volta para o top da página">
       <ImCtrl />
     </a>
   );
