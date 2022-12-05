@@ -14,10 +14,6 @@
     transform: scale(1.02);
 }
 
-/* .movie-card img {
-    max-width: 100%;
-} */
-
 .movie-card .img-movie,
 .movie-card .title-movie,
 .movie-card .container-star {

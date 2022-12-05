@@ -5,8 +5,6 @@ import './MovieCard.css';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-console.log(imageUrl);
-
 const MovieCard = ({ movie, showLink = true }) => {
   return (
     <div className="movie-card">

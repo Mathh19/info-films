@@ -33,6 +33,7 @@ const Movie = () => {
     const movieUrl = `${moviesUrl}${id}?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
   }, [id]);
+  console.log(movie);
 
   return (
     <div className="movie-page">

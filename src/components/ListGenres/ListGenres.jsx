@@ -37,6 +37,7 @@ const ListGenres = () => {
       <div>
         <button
           className="btn-categories"
+          aria-label="Botão de pesquisar por catgorias"
           onClick={() => setIsClosed(!isClosed)}
         >
           Categorias
@@ -46,10 +47,14 @@ const ListGenres = () => {
       </div>
       {!isClosed && (
         <div className="list-genres">
-          <ul>
+          <ul aria-label="Lista de categorias dos filmes">
             {genresFilms.length > 0 &&
               genresFilms.map((genre) => (
-                <li key={genre.id} onClick={() => searchGenres(genre)}>
+                <li
+                  aria-label={genre.name}
+                  key={genre.id}
+                  onClick={() => searchGenres(genre)}
+                >
                   {genre.name}
                 </li>
               ))}

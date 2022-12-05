@@ -34,7 +34,7 @@ const Navbar = () => {
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
-            <button type="submit" alt="Botão para pesquisa de filme">
+            <button type="submit" aria-label="Botão para pesquisa de filme">
               <BiSearchAlt2 />
             </button>
           </form>
