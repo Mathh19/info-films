@@ -24,7 +24,6 @@ const Tv = () => {
     getMovie(movieUrl);
   }, [id]);
 
-  console.log(movieTv);
   return (
     <div className="movie-page">
       {movieTv && (

@@ -10,7 +10,7 @@ const MovieCard = ({ movie, showLink = true }) => {
     <div className="movie-card">
       <img
         src={imageUrl + movie.poster_path}
-        alt={movie.title}
+        alt={`${movie.media_type === 'movie' ? movie.title : movie.name}`}
         className="img-movie"
       />
       {movie.media_type === 'movie' ? (
