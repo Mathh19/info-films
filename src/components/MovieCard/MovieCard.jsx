@@ -13,12 +13,20 @@ const MovieCard = ({ movie, showLink = true }) => {
         alt={movie.title}
         className="img-movie"
       />
-      <h2 className="title-movie">{movie.title}</h2>
+      {movie.media_type === 'movie' ? (
+        <h2 className="title-movie">{movie.title}</h2>
+      ) : (
+        <h2 className="title-movie">{movie.name}</h2>
+      )}
       <p className="container-star">
         <BsFillStarFill className="star" />{' '}
         {`${movie.vote_average.toFixed(1)} (${movie.vote_count})`}
       </p>
-      {showLink && <Link to={`/movie/${movie.id}`}>Detalhes</Link>}
+      {showLink && (
+        <Link to={`/${movie.media_type === 'tv' ? 'tv' : 'movie'}/${movie.id}`}>
+          Detalhes
+        </Link>
+      )}
     </div>
   );
 };

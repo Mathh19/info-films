@@ -2,7 +2,7 @@ import './PageNotFound.css';
 
 const PageNotFound = () => {
   return (
-    <div className="container">
+    <div className="container-error">
       <div className="page-error">
         <h1>Error 404</h1>
         <img

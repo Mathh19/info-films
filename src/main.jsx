@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Movie from './pages/Movie/Movie';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import Search from './pages/Search/Search';
+import Tv from './pages/Tv/Tv';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path="/" element={<Home />} />
           <Route path="*" element={<PageNotFound />} />
           <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/tv/:id" element={<Tv />} />
           <Route path="search" element={<Search />} />
           <Route path="category" element={<Category />} />
         </Route>
