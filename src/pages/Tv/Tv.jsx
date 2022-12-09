@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FaListUl } from 'react-icons/fa';
 import { MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
-import MovieCard from '../../components/MovieCard/MovieCard';
+import TvCard from '../../components/TvCard/TvCard';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -23,7 +23,6 @@ const Tv = () => {
     const movieUrl = `${moviesUrl}tv/${id}?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
   }, [id]);
-
   return (
     <div className="movie-page">
       {movieTv && (
@@ -35,7 +34,7 @@ const Tv = () => {
             }}
           >
             <div className="container-movie">
-              <MovieCard movie={movieTv} showLink={false} />
+              <TvCard tv={movieTv} />
             </div>
           </section>
           <section className="container-info">

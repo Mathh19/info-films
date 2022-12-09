@@ -46,7 +46,7 @@ const Home = () => {
   return (
     <>
       <section className="container">
-        <h2 className="title">Filmes em alta nesta semana</h2>
+        <h2 className="title">Em alta nesta semana</h2>
         <MoviesContainer movies={trendingMovies} />
       </section>
       <section className="container">

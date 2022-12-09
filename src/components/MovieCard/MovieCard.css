@@ -40,3 +40,10 @@
     color: #0b36cd;
     box-shadow: 0 0 1em #0b36cd;
 }
+
+@media (max-width: 768px) {
+    .movie-card {
+        width: 300px;
+        font-size: 1rem;
+    }
+}
