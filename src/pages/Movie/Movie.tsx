@@ -16,14 +16,14 @@ const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
 
-  const getMovie = async (url) => {
+  const getMovie = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 
     setMovie(data);
   };
 
-  const formatCurrency = (number) => {
+  const formatCurrency = (number: number) => {
     return number.toLocaleString('en-Us', {
       style: 'currency',
       currency: 'USD',

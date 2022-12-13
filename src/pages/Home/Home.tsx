@@ -12,21 +12,21 @@ const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [trendingMovies, setTrendingMovies] = useState([]);
 
-  const getBestRatedMovies = async (url) => {
+  const getBestRatedMovies = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 
     setBestMovies(data.results);
   };
 
-  const getPopularMovies = async (url) => {
+  const getPopularMovies = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 
     setPopularMovies(data.results);
   };
 
-  const getTrendingMovies = async (url) => {
+  const getTrendingMovies = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 

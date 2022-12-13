@@ -2,7 +2,29 @@ import { BsFillStarFill } from 'react-icons/bs';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-const TvCard = ({ tv }) => {
+type GenresProps = {
+  id: number;
+  name: string;
+}
+
+export type TvProps = {
+  name: string;
+  poster_path: string;
+  backdrop_path: string;
+  tagline: string;
+  number_of_seasons: number;
+  number_of_episodes: number;
+  overview: string;
+  vote_average: number;
+  vote_count: number;
+  genres: GenresProps[];
+}
+
+type TvCardProps = {
+  tv: TvProps;
+}
+
+const TvCard = ({ tv }: TvCardProps) => {
   return (
     <div className="movie-card">
       <img

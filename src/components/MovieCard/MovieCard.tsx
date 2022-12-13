@@ -5,7 +5,23 @@ import './MovieCard.css';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-const MovieCard = ({ movie, showLink = true }) => {
+export type MovieProps = {
+  poster_path: string;
+  media_type: string;
+  title: string;
+  name: string;
+  id: number;
+  vote_average: number;
+  vote_count: number;
+}
+
+export type MovieCardProps = {
+  movie: MovieProps;
+  showLink?: boolean;
+}
+
+const MovieCard = ({ movie, showLink = true }: MovieCardProps) => {
+
   return (
     <div className="movie-card">
       <img

@@ -12,7 +12,7 @@ const ListGenres = () => {
   const [isClosed, setIsClosed] = useState(true);
   const navigate = useNavigate();
 
-  const getGenresFilms = async (url) => {
+  const getGenresFilms = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 
