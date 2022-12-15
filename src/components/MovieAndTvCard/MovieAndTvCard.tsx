@@ -8,7 +8,7 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 export type MovieCardProps = {
   movie: MovieProps;
-}
+};
 
 const MovieAndTvCard = ({ movie }: MovieCardProps) => {
 
@@ -28,7 +28,7 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
           <h2 className="title-movie">{movie.name}</h2>
         </Link>
       ) : (
-        <Link to={`movie/${movie.id}`}>
+        <Link to={`/movie/${movie.id}`}>
           <h2 className="title-movie">{movie.title}</h2>
         </Link>
       )}

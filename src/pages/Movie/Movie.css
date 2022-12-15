@@ -7,6 +7,13 @@
 .movie-page .movie-card {
     background-color: unset;
     text-align: center;
+    align-items: center;
+}
+
+.movie-card .img-movie,
+.movie-card .title-movie,
+.movie-card .container-star {
+    margin-bottom: 1rem;
 }
 
 .movie-page .movie-card:hover {
@@ -17,7 +24,9 @@
 
 .movie-page .movie-card img {
   border-radius: 15px;
+  max-width: 500px;
   width: 100%;
+  height: auto;
 }
 
 .movie-page .movie-card h2 {
@@ -82,6 +91,10 @@
 }
 
 @media (max-width: 768px) {
+  .movie-card {
+    width: 300px;
+    font-size: 1rem;
+  }
   .container-info {
     padding: 0 1rem;
   }

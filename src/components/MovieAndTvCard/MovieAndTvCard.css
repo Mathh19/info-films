@@ -1,7 +1,6 @@
 .movie-card {
-    width: 30%;
     color: #fff;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,10 +12,8 @@
     transform: scale(1.02);
 }
 
-.movie-card .img-movie,
-.movie-card .title-movie,
-.movie-card .container-star {
-    margin-bottom: 1rem;
+.movie-card .img-movie {
+  height: 400px;
 }
 
 .movie-card .star {
@@ -30,11 +27,4 @@
 
 .movie-card a:hover {
     color: #0b36cd;
-}
-
-@media (max-width: 768px) {
-    .movie-card {
-        width: 300px;
-        font-size: 1rem;
-    }
 }
