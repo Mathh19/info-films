@@ -2,20 +2,11 @@ import { Link } from 'react-router-dom';
 import { BsFillStarFill } from 'react-icons/bs';
 
 import './MovieCard.css';
+import { MovieProps } from '../../shared-types/movie';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-export type MovieProps = {
-  poster_path: string;
-  media_type: string;
-  title: string;
-  name: string;
-  id: number;
-  vote_average: number;
-  vote_count: number;
-}
-
-export type MovieCardProps = {
+type MovieCardProps = {
   movie: MovieProps;
   showLink?: boolean;
 }

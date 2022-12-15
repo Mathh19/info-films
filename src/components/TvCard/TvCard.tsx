@@ -1,24 +1,7 @@
 import { BsFillStarFill } from 'react-icons/bs';
+import { TvProps } from '../../shared-types/tv';
 
 const imageUrl = import.meta.env.VITE_IMG;
-
-type GenresProps = {
-  id: number;
-  name: string;
-}
-
-export type TvProps = {
-  name: string;
-  poster_path: string;
-  backdrop_path: string;
-  tagline: string;
-  number_of_seasons: number;
-  number_of_episodes: number;
-  overview: string;
-  vote_average: number;
-  vote_count: number;
-  genres: GenresProps[];
-}
 
 type TvCardProps = {
   tv: TvProps;

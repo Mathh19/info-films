@@ -1,8 +1,13 @@
+import { MovieProps } from '../../shared-types/movie';
 import LoadingMovies from '../LoadingMovie/LoadingMovies';
-import MovieCard, { MovieProps } from '../MovieCard/MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import './MoviesContainer.css';
 
-const MoviesContainer = ({ movies }) => {
+type MoviesContainerProps = {
+  movies: MovieProps[];
+}
+
+const MoviesContainer = ({ movies }: MoviesContainerProps) => {
   return (
     <div className="movies-container">
       {movies.length <= 0 && <LoadingMovies />}

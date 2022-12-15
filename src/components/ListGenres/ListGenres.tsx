@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MdArrowDropDown, MdArrowDropUp } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { GenreProps } from '../../shared-types/genre';
 
 import './ListGenres.css';
 
@@ -19,7 +20,7 @@ const ListGenres = () => {
     setGenresFilms(data.genres);
   };
 
-  const searchGenres = (genre) => {
+  const searchGenres = (genre: GenreProps) => {
     const category = genre.name;
     localStorage.setItem('category', category);
     navigate(`category?q=${genre.id}`);
@@ -49,7 +50,7 @@ const ListGenres = () => {
         <div className="list-genres">
           <ul aria-label="Lista de categorias dos filmes">
             {genresFilms.length > 0 &&
-              genresFilms.map((genre) => (
+              genresFilms.map((genre: GenreProps) => (
                 <li
                   aria-label={genre.name}
                   key={genre.id}
