@@ -1,6 +1,4 @@
 import { BsFillStarFill } from 'react-icons/bs';
-import { MovieProps } from '../../shared-types/movie';
-import { TvProps } from '../../shared-types/tv';
 import { MovieCardProps } from '../MovieAndTvCard/MovieAndTvCard';
 
 const imageUrl = import.meta.env.VITE_IMG;
