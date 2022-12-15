@@ -51,7 +51,7 @@ const Movie = () => {
             </div>
           </section>
           <section className="container-info">
-            <p className="tagline">{movie.tagline}</p>
+            {movie.tagline && (<p className="tagline">{movie.tagline}</p>)}
             <div className="info">
               <h3>
                 <BiWalletAlt /> Orçamento:

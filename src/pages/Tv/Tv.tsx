@@ -39,7 +39,7 @@ const Tv = () => {
             </div>
           </section>
           <section className="container-info">
-            <p className="tagline">{movieTv.tagline}</p>
+            {movieTv.tagline && (<p className="tagline">{movieTv.tagline}</p>)}
             <div className="info">
               <h3>
                 <FaListUl /> Genêro:
