@@ -3,6 +3,7 @@ import { FaListUl } from 'react-icons/fa';
 import { MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
 import TvCard from '../../components/TvCard/TvCard';
+import { TvProps } from '../../shared-types/tv';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -10,9 +11,9 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 const Tv = () => {
   const { id } = useParams();
-  const [movieTv, setMovieTv] = useState(null);
+  const [movieTv, setMovieTv] = useState<TvProps>();
 
-  const getMovie = async (url) => {
+  const getMovie = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 

@@ -1,8 +1,13 @@
 import { BsFillStarFill } from 'react-icons/bs';
+import { TvProps } from '../../shared-types/tv';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-const TvCard = ({ tv }) => {
+type TvCardProps = {
+  tv: TvProps;
+}
+
+const TvCard = ({ tv }: TvCardProps) => {
   return (
     <div className="movie-card">
       <img

@@ -7,6 +7,7 @@ import { FaListUl } from 'react-icons/fa';
 import MovieCard from '../../components/MovieCard/MovieCard';
 
 import './Movie.css';
+import { MovieProps } from '../../shared-types/movie';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -14,16 +15,16 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 const Movie = () => {
   const { id } = useParams();
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState<MovieProps>();
 
-  const getMovie = async (url) => {
+  const getMovie = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 
     setMovie(data);
   };
 
-  const formatCurrency = (number) => {
+  const formatCurrency = (number: number) => {
     return number.toLocaleString('en-Us', {
       style: 'currency',
       currency: 'USD',

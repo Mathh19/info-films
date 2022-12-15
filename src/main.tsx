@@ -12,7 +12,7 @@ import PageNotFound from './pages/PageNotFound/PageNotFound';
 import Search from './pages/Search/Search';
 import Tv from './pages/Tv/Tv';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>

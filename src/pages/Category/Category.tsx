@@ -11,7 +11,7 @@ const Category = () => {
   const query = genresParams.get('q');
   const categoryValue = localStorage.getItem('category');
 
-  const getMoviesPerGenres = async (url) => {
+  const getMoviesPerGenres = async (url: string) => {
     const res = await fetch(url);
     const data = await res.json();
 

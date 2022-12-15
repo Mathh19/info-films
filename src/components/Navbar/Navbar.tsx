@@ -12,7 +12,7 @@ const Navbar = () => {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!search) return;
