@@ -4,10 +4,9 @@ import { BiWalletAlt } from 'react-icons/bi';
 import { MdTrendingUp, MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { FaListUl } from 'react-icons/fa';
 
-import MovieCard from '../../components/MovieCard/MovieCard';
-
 import './Movie.css';
 import { MovieProps } from '../../shared-types/movie';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -47,7 +46,7 @@ const Movie = () => {
             }}
           >
             <div className="container-movie">
-              <MovieCard movie={movie} showLink={false} />
+              <MovieCard movie={movie} />
             </div>
           </section>
           <section className="container-info">

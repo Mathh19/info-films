@@ -24,21 +24,12 @@
 }
 
 .movie-card a {
-    background-color: #0b36cd;
-    border: 2px solid #0b36cd;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: bold;
     color: #fff;
-    padding: 1rem 0.5rem;
-    align-items: center;
-    transition: 0.4s;
+    transition: ease-in-out all 100ms;
 }
 
 .movie-card a:hover {
-    background-color: transparent;
     color: #0b36cd;
-    box-shadow: 0 0 1em #0b36cd;
 }
 
 @media (max-width: 768px) {
