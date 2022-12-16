@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
+import Wrapper from '../../components/Wrapper/Wrapper';
 
 import './Home.css';
 
@@ -44,7 +45,7 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <Wrapper>
       <section className="container">
         <h2 className="title">Em alta nesta semana</h2>
         <MoviesContainer movies={trendingMovies} />
@@ -57,7 +58,7 @@ const Home = () => {
         <h2 className="title">Filmes populares</h2>
         <MoviesContainer movies={popularMovies} />
       </section>
-    </>
+    </Wrapper>
   );
 };
 

@@ -7,6 +7,7 @@ import { FaListUl } from 'react-icons/fa';
 import './Movie.css';
 import { MovieProps } from '../../shared-types/movie';
 import MovieCard from '../../components/MovieCard/MovieCard';
+import Wrapper from '../../components/Wrapper/Wrapper';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -36,67 +37,67 @@ const Movie = () => {
   }, [id]);
 
   return (
-    <div className="movie-page">
-      {movie && (
-        <>
-          <section
-            className="container-background"
-            style={{
-              backgroundImage: `url(${imageUrl}${movie.backdrop_path})`,
-            }}
-          >
-            <div className="container-movie">
-              <MovieCard movie={movie} />
-            </div>
-          </section>
-          <section className="container-info">
-            {movie.tagline && (<p className="tagline">{movie.tagline}</p>)}
-            <div className="info">
-              <h3>
-                <BiWalletAlt /> Orçamento:
-              </h3>
-              {movie.budget === 0 ? (
-                <span>-</span>
-              ) : (
-                <p>{formatCurrency(movie.budget)}</p>
-              )}
-            </div>
-            <div className="info">
-              <h3>
-                <MdTrendingUp /> Receita:
-              </h3>
-              {movie.revenue === 0 ? (
-                <span>-</span>
-              ) : (
-                <p>{formatCurrency(movie.revenue)}</p>
-              )}
-            </div>
-            <div className="info">
-              <h3>
-                <FaListUl /> Genêro:
-              </h3>
-              {movie.genres.map((genre) => (
-                <p className="genres" key={genre.id}>
-                  {genre.name}
-                </p>
-              ))}
-            </div>
-            <div className="info">
-              <h3>
-                <MdAvTimer /> Duração:
-              </h3>
-              <p>{movie.runtime} minutos</p>
-            </div>
-            <div className="info description">
-              <h3>
-                <MdChromeReaderMode /> Descrição:
-              </h3>
-              <p>{movie.overview}</p>
-            </div>
-          </section>
-        </>
-      )}
-    </div>
+      <div className="movie-page">
+        {movie && (
+          <>
+            <section
+              className="container-background"
+              style={{
+                backgroundImage: `url(${imageUrl}${movie.backdrop_path})`,
+              }}
+            >
+              <div className="container-movie">
+                <MovieCard movie={movie} />
+              </div>
+            </section>
+            <section className="container-info">
+              {movie.tagline && (<p className="tagline">{movie.tagline}</p>)}
+              <div className="info">
+                <h3>
+                  <BiWalletAlt /> Orçamento:
+                </h3>
+                {movie.budget === 0 ? (
+                  <span>-</span>
+                ) : (
+                  <p>{formatCurrency(movie.budget)}</p>
+                )}
+              </div>
+              <div className="info">
+                <h3>
+                  <MdTrendingUp /> Receita:
+                </h3>
+                {movie.revenue === 0 ? (
+                  <span>-</span>
+                ) : (
+                  <p>{formatCurrency(movie.revenue)}</p>
+                )}
+              </div>
+              <div className="info">
+                <h3>
+                  <FaListUl /> Genêro:
+                </h3>
+                {movie.genres.map((genre) => (
+                  <p className="genres" key={genre.id}>
+                    {genre.name}
+                  </p>
+                ))}
+              </div>
+              <div className="info">
+                <h3>
+                  <MdAvTimer /> Duração:
+                </h3>
+                <p>{movie.runtime} minutos</p>
+              </div>
+              <div className="info description">
+                <h3>
+                  <MdChromeReaderMode /> Descrição:
+                </h3>
+                <p>{movie.overview}</p>
+              </div>
+            </section>
+          </>
+        )}
+      </div>
   );
 };
 

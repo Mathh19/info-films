@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
+import Wrapper from '../../components/Wrapper/Wrapper';
 
 const searchUrl = import.meta.env.VITE_SEARCH;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -26,12 +27,14 @@ const Search = () => {
   }, [query]);
 
   return (
-    <div className="container">
-      <h2 className="title">
-        Resultados para: <span className="query-text">{query}</span>
-      </h2>
-      <MoviesContainer movies={movies} />
-    </div>
+    <Wrapper>
+      <div className="container">
+        <h2 className="title">
+          Resultados para: <span className="query-text">{query}</span>
+        </h2>
+        <MoviesContainer movies={movies} />
+      </div>
+    </Wrapper>
   );
 };
 
