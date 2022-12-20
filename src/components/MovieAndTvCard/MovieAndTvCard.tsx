@@ -10,14 +10,14 @@ export type MovieCardProps = {
   movie: MovieProps;
 };
 
-const MovieAndTvCard = ({ movie }: MovieCardProps) => {
 
+const MovieAndTvCard = ({ movie }: MovieCardProps) => {
   return (
     <div className="movie-card">
       <Link to={movie.media_type === 'tv' ? `/${movie.media_type}/${movie.id}` : `/movie/${movie.id}`}>
         <img
           src={
-            movie.poster_path === null
+            !movie.poster_path
               ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1670534777/Logo-InfoFilms/no-image_ultzjy.jpg'
               : imageUrl + movie.poster_path
           }
@@ -32,7 +32,7 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
       </Link>
       <p className="container-star">
         <BsFillStarFill className="star" />{' '}
-        {`${movie.vote_average.toFixed(1)} (${movie.vote_count})`}
+        {`${!movie.vote_average ? '0' : movie.vote_average.toFixed(1)} (${!movie.vote_count ? '0' : movie.vote_count})`}
       </p>
     </div>
   );

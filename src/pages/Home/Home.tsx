@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
 import Wrapper from '../../components/Wrapper/Wrapper';
+import { MovieProps } from '../../shared-types/movie';
 
 import './Home.css';
 
@@ -9,9 +10,9 @@ const trendingMoviesRouter = import.meta.env.VITE_API_TRENDING;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-  const [bestMovies, setBestMovies] = useState([]);
-  const [popularMovies, setPopularMovies] = useState([]);
-  const [trendingMovies, setTrendingMovies] = useState([]);
+  const [bestMovies, setBestMovies] = useState<MovieProps[]>([]);
+  const [popularMovies, setPopularMovies] = useState<MovieProps[]>([]);
+  const [trendingMovies, setTrendingMovies] = useState<MovieProps[]>([]);
 
   const getBestRatedMovies = async (url: string) => {
     const res = await fetch(url);
