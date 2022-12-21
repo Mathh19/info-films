@@ -92,7 +92,7 @@
 }
 
 @media (max-width: 768px) {
-  .movie-card {
+  .movie-page .movie-card {
     width: 300px;
     font-size: 1rem;
   }
