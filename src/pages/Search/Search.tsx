@@ -9,22 +9,12 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 const Search = () => {
   const [searchParams] = useSearchParams();
-
-  const [movies, setMovies] = useState([]);
   const query = searchParams.get('q');
 
-  const getSearchedMovies = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setMovies(data.results);
-  };
-
   useEffect(() => {
-    const searchQueryUrl = `${searchUrl}/movie?${apiKey}&query=${query}&language=pt-BR`;
-
-    getSearchedMovies(searchQueryUrl);
+    // getSearchedMovies(searchQueryUrl);
   }, [query]);
+  const searchQueryUrl = `${searchUrl}/movie?${apiKey}&query=${query}&language=pt-BR`;
 
   return (
     <Wrapper>
@@ -32,7 +22,7 @@ const Search = () => {
         <h2 className="title">
           Resultados para: <span className="query-text">{query}</span>
         </h2>
-        <MoviesContainer movies={movies} />
+        <MoviesContainer url={searchQueryUrl} />
       </div>
     </Wrapper>
   );
