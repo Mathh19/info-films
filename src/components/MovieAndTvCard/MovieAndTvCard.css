@@ -19,6 +19,13 @@
     color: #f7d354;
 }
 
+.movie-card .title-movie {
+  max-width: 20ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .movie-card a {
     color: #fff;
     transition: ease-in-out all 100ms;

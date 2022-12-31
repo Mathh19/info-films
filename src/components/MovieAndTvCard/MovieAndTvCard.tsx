@@ -25,9 +25,9 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
           className="img-movie"
         />
         {movie.media_type === 'tv' ? (
-          <h2 className="title-movie">{movie.name}</h2>
+          <h2 className="title-movie" title={movie.name}>{movie.name}</h2>
         ) : (
-          <h2 className="title-movie">{movie.title}</h2>
+          <h2 className="title-movie" title={movie.title}>{movie.title}</h2>
         )}
       </Link>
       <p className="container-star">

@@ -11,6 +11,13 @@
     align-items: center;
 }
 
+.movie-page .movie-card .title-movie {
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: normal;
+}
+
 .movie-card .img-movie,
 .movie-card .title-movie,
 .movie-card .container-star {

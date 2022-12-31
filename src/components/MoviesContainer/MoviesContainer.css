@@ -36,25 +36,18 @@
   justify-content: center;
 }
 
-.container-pagination .MuiPaginationItem-root {
-  color: #fff;
-  background-color: #0b36cd;
+.pagination button,
+.pagination li div {
+  color: #ffffff;
+  background: #0b36cd;
 }
 
-.container-pagination .css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-  background-color: #0b36cd;
-}
-
-.container-pagination .css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
+.pagination button:hover {
   background-color: #09268f;
 }
 
-.container-pagination .MuiPaginationItem-root:hover {
-  background-color: #09268f;
-}
-
-.css-1y7coo4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-  color: #fff;
+.pagination button:focus {
+  border: 1px solid rgba(25, 118, 210, 0.5);
 }
 
 @media (max-width: 768px) {
