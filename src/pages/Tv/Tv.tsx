@@ -12,6 +12,7 @@ const imageUrl = import.meta.env.VITE_IMG;
 const Tv = () => {
   const { id } = useParams();
   const [movieTv, setMovieTv] = useState<TvProps>();
+  const imageBackdrop = `${imageUrl}${movieTv?.backdrop_path}`;
 
   const getMovie = async (url: string) => {
     const res = await fetch(url);
@@ -24,6 +25,7 @@ const Tv = () => {
     const movieUrl = `${moviesUrl}tv/${id}?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
   }, [id]);
+
   return (
     <div className="movie-page">
       {movieTv && (
@@ -31,7 +33,7 @@ const Tv = () => {
           <section
             className="container-background"
             style={{
-              backgroundImage: `url(${imageUrl}${movieTv.backdrop_path})`,
+              backgroundImage: `url(${movieTv.backdrop_path === null ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1672601124/Logo-InfoFilms/Rectangle_1_ztqkuv.png' : imageBackdrop})`,
             }}
           >
             <div className="container-movie">
