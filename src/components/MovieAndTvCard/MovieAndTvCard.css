@@ -1,14 +1,14 @@
 .movie-card {
-    color: #fff;
-    margin-bottom: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: all 200ms ease-in-out;
 }
 
 .movie-card:hover {
-    transition: ease-in-out all 200ms;
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .movie-card .img-movie {
@@ -16,7 +16,7 @@
 }
 
 .movie-card .star {
-    color: #f7d354;
+  color: #f7d354;
 }
 
 .movie-card .title-movie {
@@ -26,9 +26,14 @@
   white-space: nowrap;
 }
 
+.movie-card img:hover {
+  filter: brightness(70%);
+  transition: all 300ms ease-in-out;
+}
+
 .movie-card a {
-    color: #fff;
-    transition: ease-in-out all 100ms;
+  color: #fff;
+  transition: ease-in-out all 100ms;
 }
 
 .movie-card a:hover {

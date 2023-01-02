@@ -1,0 +1,32 @@
+.container-modal button {
+  display: flex;
+  width: 98px;
+  heigth: 24px;
+  padding: 4px 0px;
+  font-size: 1rem;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  background: transparent;
+  transition: all 400ms ease-in-out;
+}
+
+.container-modal button:hover {
+  background: rgba(11, 54, 205, 0.27);
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
+
+.box iframe {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: none;
+}

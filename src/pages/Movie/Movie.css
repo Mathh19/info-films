@@ -37,6 +37,10 @@
   height: auto;
 }
 
+.movie-page .movie-card img:hover {
+  filter: none;
+}
+
 .movie-page .movie-card h2 {
     font-size: 2rem;
 }

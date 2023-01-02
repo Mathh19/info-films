@@ -8,6 +8,7 @@ import './Movie.css';
 import { MovieProps } from '../../shared-types/movie';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import Wrapper from '../../components/Wrapper/Wrapper';
+import TrailerModal from '../../components/Modal/Modal';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -16,7 +17,16 @@ const imageUrl = import.meta.env.VITE_IMG;
 const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState<MovieProps>();
+  const [trailerKey, setTrailerKey] = useState('');
   const imageBackdrop = `${imageUrl}${movie?.backdrop_path}`;
+
+  const getTrailer = async (url: string) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const trailerKey = data.results[0]?.key;
+
+    setTrailerKey(trailerKey);
+  };
 
   const getMovie = async (url: string) => {
     const res = await fetch(url);
@@ -34,7 +44,9 @@ const Movie = () => {
 
   useEffect(() => {
     const movieUrl = `${moviesUrl}movie/${id}?${apiKey}&language=pt-BR`;
+    const trailerUrl = `${moviesUrl}movie/${id}/videos?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
+    getTrailer(trailerUrl);
   }, [id]);
 
   return (
@@ -51,6 +63,7 @@ const Movie = () => {
               <MovieCard movie={movie} />
             </div>
           </section>
+          {trailerKey && <TrailerModal trailerKey={trailerKey} />}
           <section className="container-info">
             {movie.tagline && (<p className="tagline">{movie.tagline}</p>)}
             <div className="info">

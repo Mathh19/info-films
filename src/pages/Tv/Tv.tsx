@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FaListUl } from 'react-icons/fa';
 import { MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
+import TrailerModal from '../../components/Modal/Modal';
 import TvCard from '../../components/TvCard/TvCard';
 import { TvProps } from '../../shared-types/tv';
 
@@ -12,6 +13,7 @@ const imageUrl = import.meta.env.VITE_IMG;
 const Tv = () => {
   const { id } = useParams();
   const [movieTv, setMovieTv] = useState<TvProps>();
+  const [trailerKey, setTrailerKey] = useState('');
   const imageBackdrop = `${imageUrl}${movieTv?.backdrop_path}`;
 
   const getMovie = async (url: string) => {
@@ -21,9 +23,19 @@ const Tv = () => {
     setMovieTv(data);
   };
 
+  const getTrailer = async (url: string) => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const trailerKey = data.results[0]?.key;
+
+    setTrailerKey(trailerKey);
+  };
+
   useEffect(() => {
     const movieUrl = `${moviesUrl}tv/${id}?${apiKey}&language=pt-BR`;
+    const trailerUrl = `${moviesUrl}tv/${id}/videos?${apiKey}&language=pt-BR`;
     getMovie(movieUrl);
+    getTrailer(trailerUrl);
   }, [id]);
 
   return (
@@ -40,6 +52,7 @@ const Tv = () => {
               <TvCard tv={movieTv} />
             </div>
           </section>
+          {trailerKey && <TrailerModal trailerKey={trailerKey} />}
           <section className="container-info">
             {movieTv.tagline && (<p className="tagline">{movieTv.tagline}</p>)}
             <div className="info">
