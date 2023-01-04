@@ -50,6 +50,15 @@
   border: 1px solid rgba(25, 118, 210, 0.5);
 }
 
+.movie-not-found {
+  margin: 10rem auto;
+  font-size: 2rem;
+}
+
+.movie-not-found p {
+  margin-bottom: 5rem;
+}
+
 @media (max-width: 768px) {
   .movies-container::-webkit-scrollbar {
     display: none;

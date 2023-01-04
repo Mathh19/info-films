@@ -1,5 +1,5 @@
 .loader {
-  margin: 12rem auto;
+  margin: 14rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,11 +7,11 @@
 }
 
 .loading {
-  border: 0.5rem solid #f3f3f3;
+  border: 0.5rem solid rgba(10, 52, 204, 0.25);
   border-radius: 50%;
   border-top: 0.5rem solid #0b36cd;
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   -webkit-animation: spin 1s linear infinite;
   animation: spin 1s linear infinite;
 }
