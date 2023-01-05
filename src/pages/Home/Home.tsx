@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
-import Wrapper from '../../components/Wrapper/Wrapper';
-import { MovieProps } from '../../shared-types/movie';
-
-import './Home.css';
 
 const moviesUrl = import.meta.env.VITE_API;
 const trendingMoviesRouter = import.meta.env.VITE_API_TRENDING;
@@ -15,20 +11,17 @@ const Home = () => {
   const trendingMoviesUrl = `${trendingMoviesRouter}all/week?${apiKey}&language=pt-BR`;
 
   return (
-    <Wrapper>
-      <section className="container">
-        <h2 className="title">Em alta nesta semana</h2>
-        <MoviesContainer url={trendingMoviesUrl} />
+    <div>
+      <section >
+        <MoviesContainer url={trendingMoviesUrl} title='Em alta nesta semana' />
       </section>
-      <section className="container">
-        <h2 className="title">Filmes com melhores avaliações</h2>
-        <MoviesContainer url={bestRatedUrl} />
+      <section >
+        <MoviesContainer url={bestRatedUrl} title='Filmes com melhores avaliações' />
       </section>
-      <section className="container">
-        <h2 className="title">Filmes populares</h2>
-        <MoviesContainer url={popularMoviesUrl} />
+      <section >
+        <MoviesContainer url={popularMoviesUrl} title='Filmes populares' />
       </section>
-    </Wrapper>
+    </div>
   );
 };
 
