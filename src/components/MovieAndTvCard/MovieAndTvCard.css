@@ -1,5 +1,5 @@
 .movie-card {
-  color: #fff;
+  color: var(--white);
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -37,5 +37,5 @@
 }
 
 .movie-card a:hover {
-    color: #0b36cd;
+    color: var(--primary-color);
 }

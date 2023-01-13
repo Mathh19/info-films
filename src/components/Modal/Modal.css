@@ -8,7 +8,7 @@
   cursor: pointer;
   border: none;
   border-radius: 5px;
-  color: #ffffff;
+  color: var(--white);
   background: transparent;
   transition: all 400ms ease-in-out;
 }

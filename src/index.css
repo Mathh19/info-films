@@ -1,3 +1,5 @@
+@import '../src/styles/theme.css';
+
 * {
   font-family: 'Roboto', sans-serif;
   margin: 0;
@@ -11,12 +13,12 @@ html {
 
 body {
   background-color: #0c0b0f;
-  color: #fff;
+  color: var(--white);
 }
 
 a {
   text-decoration: none;
-  color: #0b36cd;
+  color: var(--primary-color);
   transition: .5s;
 }
 

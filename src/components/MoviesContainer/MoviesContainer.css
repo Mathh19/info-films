@@ -1,5 +1,5 @@
 .container .title {
-  color: #fff;
+  color: var(--white);
   font-size: 2.5rem;
   text-align: center;
   margin: 2rem 2rem 1rem;
@@ -12,7 +12,7 @@
   margin-bottom: 1.5rem;
   overflow-x: scroll;
   scrollbar-width: thin;
-  scrollbar-color: #0b36cd transparent;
+  scrollbar-color: var(--primary-color) transparent;
 }
 
 .movies-container::-webkit-scrollbar {
@@ -21,7 +21,7 @@
 }
 
 .movies-container::-webkit-scrollbar-thumb {
-  background: #0b36cd;
+  background: var(--primary-color);
   border-radius: 10px;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .movies-container .error-search span {
-  color: #0b36cd;
+  color: var(--primary-color);
 }
 
 .container-pagination {
@@ -45,8 +45,8 @@
 
 .pagination button,
 .pagination li div {
-  color: #ffffff;
-  background: #0b36cd;
+  color: var(--white);
+  background: var(--primary-color);
 }
 
 .pagination button:hover {

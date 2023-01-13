@@ -59,7 +59,7 @@
 
 .movie-page svg {
     font-size: 1.5rem;
-    color: #0b36cd;
+    color: var(--primary-color);
 }
 
 .container-background {

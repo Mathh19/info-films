@@ -50,7 +50,7 @@
 }
 
 #navbar form button:hover, #navbar form button:focus{
-    color: #0b36cd;
+    color: var(--primary-color);
 }
 
 #navbar .box-search {
