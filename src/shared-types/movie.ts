@@ -1,4 +1,4 @@
-import { GenreProps } from "./genre";
+import { GenreProps } from './genre';
 
 export type MovieProps = {
   poster_path: string;
@@ -15,4 +15,4 @@ export type MovieProps = {
   id: number;
   vote_average: number;
   vote_count: number;
-}
+};

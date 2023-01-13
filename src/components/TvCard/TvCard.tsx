@@ -5,7 +5,7 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 type TvCardProps = {
   tv: TvProps;
-}
+};
 
 const TvCard = ({ tv }: TvCardProps) => {
   return (

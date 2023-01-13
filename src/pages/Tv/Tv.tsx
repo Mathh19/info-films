@@ -45,7 +45,11 @@ const Tv = () => {
           <section
             className="container-background"
             style={{
-              backgroundImage: `url(${movieTv.backdrop_path === null ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1672601124/Logo-InfoFilms/Rectangle_1_ztqkuv.png' : imageBackdrop})`,
+              backgroundImage: `url(${
+                movieTv.backdrop_path === null
+                  ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1672601124/Logo-InfoFilms/Rectangle_1_ztqkuv.png'
+                  : imageBackdrop
+              })`,
             }}
           >
             <div className="container-movie">
@@ -54,7 +58,7 @@ const Tv = () => {
           </section>
           {trailerKey && <TrailerModal trailerKey={trailerKey} />}
           <section className="container-info">
-            {movieTv.tagline && (<p className="tagline">{movieTv.tagline}</p>)}
+            {movieTv.tagline && <p className="tagline">{movieTv.tagline}</p>}
             <div className="info">
               <h3>
                 <FaListUl /> Genêro:

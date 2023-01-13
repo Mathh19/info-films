@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
 
@@ -10,13 +9,15 @@ const Category = () => {
   const query = genresParams.get('q');
   const categoryValue = localStorage.getItem('category');
 
-  useEffect(() => {
-  }, [query]);
   const genresQueryUrl = `${searchGenres}?${apiKey}&with_genres=${query}&language=pt-BR`;
 
   return (
     <div>
-      <MoviesContainer url={genresQueryUrl} query={query} title={`Filmes com a categoria: ${categoryValue}`} />
+      <MoviesContainer
+        url={genresQueryUrl}
+        query={query}
+        title={`Filmes com a categoria: ${categoryValue}`}
+      />
     </div>
   );
 };

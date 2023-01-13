@@ -1,4 +1,4 @@
-import { GenreProps } from "./genre";
+import { GenreProps } from './genre';
 
 export type TvProps = {
   name: string;
@@ -11,4 +11,4 @@ export type TvProps = {
   vote_average: number;
   vote_count: number;
   genres: GenreProps[];
-}
+};

@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { BsPlayFill } from "react-icons/bs";
+import { BsPlayFill } from 'react-icons/bs';
 
 import './Modal.css';
 
 type TrailerModalProps = {
   trailerKey: string;
-}
-
+};
 
 function TrailerModal({ trailerKey }: TrailerModalProps) {
   const [open, setOpen] = useState(false);
@@ -16,22 +15,19 @@ function TrailerModal({ trailerKey }: TrailerModalProps) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div className='container-modal'>
-      <button
-        onClick={handleOpen}
-        aria-label='Botão de reproduzir o trailer'
-      >
+    <div className="container-modal">
+      <button onClick={handleOpen} aria-label="Botão de reproduzir o trailer">
         <BsPlayFill />
         Ver trailer
       </button>
       <Modal
-        className='Modal'
+        className="Modal"
         open={open}
         onClose={handleClose}
         aria-labelledby="Exibe o trailer do filme"
         aria-describedby="Um modal para vizualizar o trailer do filme ou série"
       >
-        <Box className='box'>
+        <Box className="box">
           <iframe
             src={`https://www.youtube.com/embed/${trailerKey}`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope;"

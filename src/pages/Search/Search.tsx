@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
 
@@ -9,13 +8,14 @@ const Search = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q');
 
-  useEffect(() => {
-  }, [query]);
   const searchQueryUrl = `${searchUrl}/movie?${apiKey}&query=${query}&language=pt-BR`;
 
   return (
     <div>
-      <MoviesContainer url={searchQueryUrl} title={`Resultados para: ${query}`} />
+      <MoviesContainer
+        url={searchQueryUrl}
+        title={`Resultados para: ${query}`}
+      />
     </div>
   );
 };

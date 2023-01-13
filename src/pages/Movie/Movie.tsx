@@ -7,7 +7,6 @@ import { FaListUl } from 'react-icons/fa';
 import './Movie.css';
 import { MovieProps } from '../../shared-types/movie';
 import MovieCard from '../../components/MovieCard/MovieCard';
-import Wrapper from '../../components/Wrapper/Wrapper';
 import TrailerModal from '../../components/Modal/Modal';
 
 const moviesUrl = import.meta.env.VITE_API;
@@ -56,7 +55,11 @@ const Movie = () => {
           <section
             className="container-background"
             style={{
-              backgroundImage: `url(${movie.backdrop_path === null ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1672601124/Logo-InfoFilms/Rectangle_1_ztqkuv.png' : imageBackdrop})`,
+              backgroundImage: `url(${
+                movie.backdrop_path === null
+                  ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1672601124/Logo-InfoFilms/Rectangle_1_ztqkuv.png'
+                  : imageBackdrop
+              })`,
             }}
           >
             <div className="container-movie">
@@ -65,7 +68,7 @@ const Movie = () => {
           </section>
           {trailerKey && <TrailerModal trailerKey={trailerKey} />}
           <section className="container-info">
-            {movie.tagline && (<p className="tagline">{movie.tagline}</p>)}
+            {movie.tagline && <p className="tagline">{movie.tagline}</p>}
             <div className="info">
               <h3>
                 <BiWalletAlt /> Orçamento:

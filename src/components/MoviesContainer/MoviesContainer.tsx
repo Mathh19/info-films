@@ -12,7 +12,7 @@ type MoviesContainerProps = {
   url: string;
   query?: string | null;
   title: string;
-}
+};
 
 const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
   const [searchParams] = useSearchParams();
@@ -32,12 +32,12 @@ const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
 
   useEffect(() => {
     const movieUrl = `${url}&page=${page}`;
-    setIsLoading(true)
+    setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
     }, 600);
     getMovies(movieUrl);
-  }, [page, query]);
+  }, [page, query, url]);
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     event.preventDefault();
@@ -50,32 +50,38 @@ const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
         <h2 className="title">
           <span>{title}</span>
         </h2>
-        {isloading ? <LoadingMovies /> :
+        {isloading ? (
+          <LoadingMovies />
+        ) : (
           <div className="movies-container">
-            {movies.length === 0 && !isloading &&
-              <div className='movie-not-found'>
+            {movies.length === 0 && !isloading && (
+              <div className="movie-not-found">
                 <p>Sem resultados :(</p>
-                <p>Voltar para o <Link to='/'>inicio</Link></p>
+                <p>
+                  Voltar para o <Link to="/">inicio</Link>
+                </p>
               </div>
-            }
+            )}
             {movies.length > 0 &&
-              movies.map((movie: MovieProps) => <MovieAndTvCard key={movie.id} movie={movie} />)}
+              movies.map((movie: MovieProps) => (
+                <MovieAndTvCard key={movie.id} movie={movie} />
+              ))}
           </div>
-        }
-        {movies.length !== 0 &&
+        )}
+        {movies.length !== 0 && (
           <div className="container-pagination">
             <Stack spacing={2}>
               <Pagination
-                className='pagination'
+                className="pagination"
                 count={pages >= 50 ? 50 : pages}
                 color="primary"
-                variant='outlined'
+                variant="outlined"
                 page={page}
                 onChange={handleChange}
               />
             </Stack>
           </div>
-        }
+        )}
       </div>
     </Wrapper>
   );

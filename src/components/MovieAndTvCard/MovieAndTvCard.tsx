@@ -10,11 +10,16 @@ export type MovieCardProps = {
   movie: MovieProps;
 };
 
-
 const MovieAndTvCard = ({ movie }: MovieCardProps) => {
   return (
     <div className="movie-card">
-      <Link to={movie.media_type === 'tv' ? `/${movie.media_type}/${movie.id}` : `/movie/${movie.id}`}>
+      <Link
+        to={
+          movie.media_type === 'tv'
+            ? `/${movie.media_type}/${movie.id}`
+            : `/movie/${movie.id}`
+        }
+      >
         <img
           src={
             !movie.poster_path
@@ -25,14 +30,20 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
           className="img-movie"
         />
         {movie.media_type === 'tv' ? (
-          <h2 className="title-movie" title={movie.name}>{movie.name}</h2>
+          <h2 className="title-movie" title={movie.name}>
+            {movie.name}
+          </h2>
         ) : (
-          <h2 className="title-movie" title={movie.title}>{movie.title}</h2>
+          <h2 className="title-movie" title={movie.title}>
+            {movie.title}
+          </h2>
         )}
       </Link>
       <p className="container-star">
         <BsFillStarFill className="star" />{' '}
-        {`${!movie.vote_average ? '0' : movie.vote_average.toFixed(1)} (${!movie.vote_count ? '0' : movie.vote_count})`}
+        {`${!movie.vote_average ? '0' : movie.vote_average.toFixed(1)} (${
+          !movie.vote_count ? '0' : movie.vote_count
+        })`}
       </p>
     </div>
   );

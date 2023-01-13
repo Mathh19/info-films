@@ -3,7 +3,6 @@ import { MovieCardProps } from '../MovieAndTvCard/MovieAndTvCard';
 
 const imageUrl = import.meta.env.VITE_IMG;
 
-
 const MovieCard = ({ movie }: MovieCardProps) => {
   return (
     <div className="movie-card">

@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
 
 const moviesUrl = import.meta.env.VITE_API;
@@ -12,14 +11,17 @@ const Home = () => {
 
   return (
     <div>
-      <section >
-        <MoviesContainer url={trendingMoviesUrl} title='Em alta nesta semana' />
+      <section>
+        <MoviesContainer url={trendingMoviesUrl} title="Em alta nesta semana" />
       </section>
-      <section >
-        <MoviesContainer url={bestRatedUrl} title='Filmes com melhores avaliações' />
+      <section>
+        <MoviesContainer
+          url={bestRatedUrl}
+          title="Filmes com melhores avaliações"
+        />
       </section>
-      <section >
-        <MoviesContainer url={popularMoviesUrl} title='Filmes populares' />
+      <section>
+        <MoviesContainer url={popularMoviesUrl} title="Filmes populares" />
       </section>
     </div>
   );
