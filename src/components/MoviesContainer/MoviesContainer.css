@@ -13,6 +13,7 @@
   overflow-x: scroll;
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) transparent;
+  transition: all 300ms ease-in-out;
 }
 
 .movies-container::-webkit-scrollbar {
@@ -36,6 +37,14 @@
 
 .movies-container .error-search span {
   color: var(--primary-color);
+}
+
+.movies-container:hover :not(:hover) {
+  filter: brightness(90%);
+}
+
+.movies-container .movie-card:hover {
+  transform: scale(1.02);
 }
 
 .container-pagination {

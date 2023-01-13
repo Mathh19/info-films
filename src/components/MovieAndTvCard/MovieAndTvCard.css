@@ -7,10 +7,6 @@
   transition: all 200ms ease-in-out;
 }
 
-.movie-card:hover {
-  transform: scale(1.02);
-}
-
 .movie-card .img-movie {
   height: 400px;
 }
@@ -26,13 +22,8 @@
   white-space: nowrap;
 }
 
-.movie-card img:hover {
-  filter: brightness(70%);
-  transition: all 300ms ease-in-out;
-}
-
 .movie-card a {
-  color: #fff;
+  color: var(--white);
   transition: ease-in-out all 100ms;
 }
 
