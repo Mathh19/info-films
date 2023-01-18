@@ -3,7 +3,7 @@ import { Pagination, Stack } from '@mui/material';
 import { MovieProps } from '../../shared-types/movie';
 import LoadingMovies from '../LoadingMovie/LoadingMovies';
 import MovieAndTvCard from '../MovieAndTvCard/MovieAndTvCard';
-import { Link, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Wrapper from '../Wrapper/Wrapper';
 
 import './MoviesContainer.css';
@@ -23,19 +23,21 @@ const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
   const [isloading, setIsLoading] = useState(false);
 
   const getMovies = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
+    try {
+      setIsLoading(true);
+      const res = await fetch(url);
+      const data = await res.json();
 
-    setPages(data.total_pages);
-    setMovies(data.results);
+      setPages(data.total_pages);
+      setMovies(data.results);
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
     const movieUrl = `${url}&page=${page}`;
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 600);
     getMovies(movieUrl);
   }, [page, query, url]);
 
@@ -54,14 +56,6 @@ const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
           <LoadingMovies />
         ) : (
           <div className="movies-container">
-            {movies.length === 0 && !isloading && (
-              <div className="movie-not-found">
-                <p>Sem resultados :(</p>
-                <p>
-                  Voltar para o <Link to="/">inicio</Link>
-                </p>
-              </div>
-            )}
             {movies.length > 0 &&
               movies.map((movie: MovieProps) => (
                 <MovieAndTvCard key={movie.id} movie={movie} />
