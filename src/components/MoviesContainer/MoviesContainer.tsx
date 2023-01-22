@@ -3,7 +3,7 @@ import { Pagination, Stack } from '@mui/material';
 import { MovieProps } from '../../shared-types/movie';
 import LoadingMovies from '../LoadingMovie/LoadingMovies';
 import MovieAndTvCard from '../MovieAndTvCard/MovieAndTvCard';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 import Wrapper from '../Wrapper/Wrapper';
 
 import './MoviesContainer.css';
@@ -15,8 +15,6 @@ type MoviesContainerProps = {
 };
 
 const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get('q');
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [pages, setPages] = useState(1);
@@ -39,7 +37,7 @@ const MoviesContainer = ({ url, title }: MoviesContainerProps) => {
   useEffect(() => {
     const movieUrl = `${url}&page=${page}`;
     getMovies(movieUrl);
-  }, [page, query, url]);
+  }, [page, url]);
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     event.preventDefault();

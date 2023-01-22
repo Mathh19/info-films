@@ -54,6 +54,7 @@
 }
 
 #navbar .box-search {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
