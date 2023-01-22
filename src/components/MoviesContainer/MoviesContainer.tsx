@@ -3,7 +3,6 @@ import { Pagination, Stack } from '@mui/material';
 import { MovieProps } from '../../shared-types/movie';
 import LoadingMovies from '../LoadingMovie/LoadingMovies';
 import MovieAndTvCard from '../MovieAndTvCard/MovieAndTvCard';
-// import { useSearchParams } from 'react-router-dom';
 import Wrapper from '../Wrapper/Wrapper';
 
 import './MoviesContainer.css';
