@@ -1,5 +1,5 @@
 .container-error {
-  padding: 30px;
+  padding: 60px;
 }
 
 .page-error {
@@ -7,31 +7,31 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 0 auto;
   text-align: center;
-  width: 90%;
 }
 
 .page-error h1 {
-  font-family: 'Patua One', cursive;
+  color: var(--primary-color);
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 3rem;
   letter-spacing: 5px;
 }
 
 .page-error p {
-  font-size: xx-large;
+  font-size: 1.6rem;
   font-weight: bold;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .page-error span {
-  font-size: xx-large;
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 .page-error img {
-  max-width: 800px;
-  width: 100%;
+  max-width: 200px;
+  margin: 20px 0;
 }
-

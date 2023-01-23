@@ -6,7 +6,7 @@ const PageNotFound = () => {
       <div className="page-error">
         <h1>Error 404</h1>
         <img
-          src="./page_not_found.svg"
+          src="../../../public/door.gif"
           alt="Uma imagem de error 404 para página não encontrada"
         />
         <p>Página não encontrada</p>
