@@ -13,13 +13,6 @@ const ListGenres = () => {
   const [isClosed, setIsClosed] = useState(true);
   const navigate = useNavigate();
 
-  const getGenresFilms = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setGenresFilms(data.genres);
-  };
-
   const searchGenres = (genre: GenreProps) => {
     const category = genre.name;
     localStorage.setItem('category', category);
@@ -28,10 +21,25 @@ const ListGenres = () => {
   };
 
   useEffect(() => {
-    const genresFilmsUrl = `${genresUrl}list?${apiKey}&language=pt-BR`;
+    if (!isClosed) {
+      const genresFilmsUrl = `${genresUrl}list?${apiKey}&language=pt-BR`;
+      const controller = new AbortController();
+      const getGenresFilms = async (url: string) => {
+        const res = await fetch(url, {
+          signal: controller.signal,
+        });
+        const data = await res.json();
 
-    getGenresFilms(genresFilmsUrl);
-  }, []);
+        setGenresFilms(data.genres);
+      };
+
+      getGenresFilms(genresFilmsUrl);
+
+      return () => {
+        controller.abort();
+      };
+    }
+  }, [isClosed]);
 
   return (
     <div className="component-list">
