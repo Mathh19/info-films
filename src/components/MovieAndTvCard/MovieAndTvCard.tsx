@@ -22,9 +22,7 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
       >
         <img
           src={
-            !movie.poster_path
-              ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1670534777/Logo-InfoFilms/no-image_ultzjy.jpg'
-              : imageUrl + movie.poster_path
+            !movie.poster_path ? '/no-image.svg' : imageUrl + movie.poster_path
           }
           alt={`${movie.media_type === 'movie' ? movie.title : movie.name}`}
           className="img-movie"
