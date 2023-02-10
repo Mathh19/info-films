@@ -56,9 +56,7 @@ const Movie = () => {
             className="container-background"
             style={{
               backgroundImage: `url(${
-                movie.backdrop_path === null
-                  ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1672601124/Logo-InfoFilms/Rectangle_1_ztqkuv.png'
-                  : imageBackdrop
+                movie.backdrop_path === null ? '' : imageBackdrop
               })`,
             }}
           >
