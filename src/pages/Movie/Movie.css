@@ -1,14 +1,14 @@
 .movie-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 8rem;
 }
 
 .movie-page .movie-card {
-    background-color: unset;
-    text-align: center;
-    align-items: center;
+  background-color: unset;
+  text-align: center;
+  align-items: center;
 }
 
 .movie-page .movie-card .title-movie {
@@ -21,13 +21,13 @@
 .movie-card .img-movie,
 .movie-card .title-movie,
 .movie-card .container-star {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .movie-page .movie-card:hover {
-    transition: none;
-    transform: none;
-    box-shadow: none;
+  transition: none;
+  transform: none;
+  box-shadow: none;
 }
 
 .movie-page .movie-card img {
@@ -42,24 +42,24 @@
 }
 
 .movie-page .movie-card h2 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .movie-page .movie-card p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
 }
 
 .movie-page .container-info {
-    max-width: 600px;
-    margin: 2rem auto;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 
 .movie-page svg {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+  font-size: 1.5rem;
+  color: var(--primary-color);
 }
 
 .container-background {
@@ -74,32 +74,32 @@
   justify-content: center;
   width: 100%;
   box-shadow: inset 0 -150px 28px -18px #0c0b0f;
-  background: linear-gradient(to bottom, rgba(12, 11, 15, 1) 2%, rgba(89,89,91,0.6783088235294117) 50%);
+  background: linear-gradient(to bottom, rgba(12, 11, 15, 1) 2%, rgba(89, 89, 91, 0.6783088235294117) 50%);
 }
 
 .tagline {
-    text-align: center;
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
 }
 
 .info {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .info h3 {
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .info p {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .description p {
-    line-height: 1.4rem;
+  line-height: 1.4rem;
 }
 
 @media (max-width: 768px) {
@@ -107,6 +107,7 @@
     width: 300px;
     font-size: 1rem;
   }
+
   .container-info {
     padding: 0 1rem;
   }
