@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { FaListUl } from 'react-icons/fa';
 import { MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
+import Credits from '../../components/Credits/Credits';
 import TrailerModal from '../../components/Modal/Modal';
 import TvCard from '../../components/TvCard/TvCard';
 import { TvProps } from '../../shared-types/tv';
@@ -56,6 +57,7 @@ const Tv = () => {
           </section>
           {trailerKey && <TrailerModal trailerKey={trailerKey} />}
           <section className="container-info">
+            <Credits id={id} isMovieOrTv="tv" />
             {movieTv.tagline && <p className="tagline">{movieTv.tagline}</p>}
             <div className="info">
               <h3>

@@ -8,6 +8,7 @@ import './Movie.css';
 import { MovieProps } from '../../shared-types/movie';
 import MovieCard from '../../components/MovieCard/MovieCard';
 import TrailerModal from '../../components/Modal/Modal';
+import Credits from '../../components/Credits/Credits';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -66,6 +67,7 @@ const Movie = () => {
           </section>
           {trailerKey && <TrailerModal trailerKey={trailerKey} />}
           <section className="container-info">
+            <Credits id={id} isMovieOrTv="movie" />
             {movie.tagline && <p className="tagline">{movie.tagline}</p>}
             <div className="info">
               <h3>
