@@ -12,9 +12,7 @@ const TvCard = ({ tv }: TvCardProps) => {
     <div className="movie-card">
       <img
         src={
-          tv.poster_path === null
-            ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1670534777/Logo-InfoFilms/no-image_ultzjy.jpg'
-            : imageUrl + tv.poster_path
+          tv.poster_path === null ? '/no-image.svg' : imageUrl + tv.poster_path
         }
         alt={`${tv.name}`}
         className="img-movie"

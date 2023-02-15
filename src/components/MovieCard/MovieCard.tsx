@@ -9,7 +9,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
       <img
         src={
           movie.poster_path === null
-            ? 'https://res.cloudinary.com/ddiiakz1t/image/upload/v1670534777/Logo-InfoFilms/no-image_ultzjy.jpg'
+            ? '/no-image.svg'
             : imageUrl + movie.poster_path
         }
         alt={`${movie.name}`}
