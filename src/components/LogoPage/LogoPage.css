@@ -32,8 +32,13 @@
 }
 
 @keyframes moveNameTop {
-  from {left: 35px;}
-  to {left: 0px;}
+  from {
+    left: 35px;
+  }
+
+  to {
+    left: 0px;
+  }
 }
 
 .link-name-films {
@@ -44,6 +49,11 @@
 }
 
 @keyframes moveBottomName {
-  from {left: 0px;}
-  to {left: 35px;}
+  from {
+    left: 0px;
+  }
+
+  to {
+    left: 35px;
+  }
 }

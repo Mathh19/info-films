@@ -39,7 +39,7 @@
   list-style: none;
 }
 
-.list-genres ul li  {
+.list-genres ul li {
   padding: 5px 0;
   width: 100%;
   border: 1px solid #000;
@@ -48,7 +48,7 @@
   padding: 10px;
 }
 
-.list-genres ul li:hover  {
+.list-genres ul li:hover {
   background-color: var(--dark-blue);
 }
 
