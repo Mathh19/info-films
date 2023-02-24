@@ -69,9 +69,10 @@ const PersonTV = () => {
             {!person.birthday ? (
               <p>(Sem informações)</p>
             ) : (
-              <p>{`${person.birthday} (Idade: ${
-                !person.deathday && getAge(person.birthday)
-              })`}</p>
+              <p>
+                {person.birthday}{' '}
+                {!person.deathday && `(Idade: ${getAge(person.birthday)})`}
+              </p>
             )}
             {person.deathday && (
               <>
