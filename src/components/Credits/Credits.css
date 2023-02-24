@@ -34,9 +34,20 @@
   flex-direction: column;
   gap: 10px;
   margin-bottom: 0.5rem;
+  color: var(--white);
+  transition: all 300ms ease-in-out;
+}
+
+.card:hover {
+  color: var(--primary-color);
 }
 
 .card img {
   border-radius: 8px;
+  border: 2px solid var(--white);
+  transition: all 300ms ease-in-out;
+}
+
+.card img:hover {
   border: 2px solid var(--primary-color);
 }

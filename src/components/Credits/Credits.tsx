@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CreditsProps } from '../../shared-types/credits';
 import './Credits.css';
 
@@ -33,17 +34,19 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
           <h2>Elenco: </h2>
           <div className="wrapper-cards">
             {credits?.cast.map((cast, index) => (
-              <div className="card" key={index}>
-                <img
-                  src={
-                    cast.profile_path === null
-                      ? '/no-image.svg'
-                      : `${imageUrl + cast.profile_path}`
-                  }
-                />
-                <p>Persongem: {cast.character}</p>
-                <p>Nome original: {cast.original_name}</p>
-              </div>
+              <Link to={`/person-${isMovieOrTv}/${cast.id}`} key={index}>
+                <div className="card">
+                  <img
+                    src={
+                      cast.profile_path === null
+                        ? '/no-image.svg'
+                        : `${imageUrl + cast.profile_path}`
+                    }
+                  />
+                  <p>Persongem: {cast.character}</p>
+                  <p>Nome original: {cast.original_name}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </>
@@ -53,17 +56,19 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
           <h2>Equipe: </h2>
           <div className="wrapper-cards">
             {credits?.crew.map((crew, index) => (
-              <div className="card" key={index}>
-                <img
-                  src={
-                    crew.profile_path === null
-                      ? '/no-image.svg'
-                      : `${imageUrl + crew.profile_path}`
-                  }
-                />
-                <p>Nome: {crew.original_name}</p>
-                <p>Trabalho: {crew.job}</p>
-              </div>
+              <Link to={`/person-${isMovieOrTv}/${crew.id}`} key={index}>
+                <div className="card" key={index}>
+                  <img
+                    src={
+                      crew.profile_path === null
+                        ? '/no-image.svg'
+                        : `${imageUrl + crew.profile_path}`
+                    }
+                  />
+                  <p>Nome: {crew.original_name}</p>
+                  <p>Trabalho: {crew.job}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </>
