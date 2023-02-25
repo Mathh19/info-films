@@ -13,23 +13,7 @@
   max-height: 1000px;
   padding: 20px;
   background: linear-gradient(#232324, #141414 35%);
-  scrollbar-width: thin;
-  scrollbar-color: var(--primary-color) transparent;
   overflow-y: auto;
-}
-
-.container-info-personal::-webkit-scrollbar {
-  width: 6px;
-  height: 12px;
-}
-
-.container-info-personal::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 10px;
-}
-
-.container-info-personal::-webkit-scrollbar-thumb:hover {
-  background: #09268f;
 }
 
 .container-info-personal p {

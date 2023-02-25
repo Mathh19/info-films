@@ -16,6 +16,27 @@ body {
   color: var(--white);
 }
 
+::-webkit-scrollbar {
+  width: 0.6rem;
+  height: 0.6rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #09268f;
+}
+
+@supports(scrollbar-color: var(--primary-color) transparent) {
+  * {
+    scrollbar-color: var(--primary-color) transparent;
+    scrollbar-width: thin;
+  }
+}
+
 a {
   text-decoration: none;
   color: var(--primary-color);
