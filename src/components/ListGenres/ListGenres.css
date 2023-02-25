@@ -42,7 +42,7 @@
 .list-genres ul li {
   padding: 5px 0;
   width: 100%;
-  border: 1px solid #000;
+  border: var(--border-default) #000;
   cursor: pointer;
   transition: 0.4s;
   padding: 10px;

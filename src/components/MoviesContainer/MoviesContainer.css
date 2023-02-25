@@ -63,7 +63,7 @@
 }
 
 .pagination button:focus {
-  border: 1px solid rgba(25, 118, 210, 0.5);
+  border: var(--border-default) rgba(25, 118, 210, 0.5);
 }
 
 .movie-not-found {
