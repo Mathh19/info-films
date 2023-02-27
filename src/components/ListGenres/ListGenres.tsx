@@ -55,20 +55,26 @@ const ListGenres = () => {
         </button>
       </div>
       {!isClosed && (
-        <div className="list-genres">
-          <ul aria-label="Lista de categorias dos filmes">
-            {genresFilms.length > 0 &&
-              genresFilms.map((genre: GenreProps) => (
-                <li
-                  aria-label={genre.name}
-                  key={genre.id}
-                  onClick={() => searchGenres(genre)}
-                >
-                  {genre.name}
-                </li>
-              ))}
-          </ul>
-        </div>
+        <>
+          <div
+            className="close-list"
+            onClick={() => setIsClosed(!isClosed)}
+          ></div>
+          <div className="list-genres">
+            <ul aria-label="Lista de categorias dos filmes">
+              {genresFilms.length > 0 &&
+                genresFilms.map((genre: GenreProps) => (
+                  <li
+                    aria-label={genre.name}
+                    key={genre.id}
+                    onClick={() => searchGenres(genre)}
+                  >
+                    {genre.name}
+                  </li>
+                ))}
+            </ul>
+          </div>
+        </>
       )}
     </div>
   );
