@@ -25,8 +25,8 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/tv/:id" element={<Tv />} />
           <Route path="/person-tv/:id" element={<PersonTV />} />
           <Route path="/person-movie/:id" element={<PersonMovie />} />
-          <Route path="search" element={<Search />} />
-          <Route path="category" element={<Category />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/category" element={<Category />} />
         </Route>
       </Routes>
     </BrowserRouter>
