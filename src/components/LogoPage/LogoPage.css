@@ -22,10 +22,6 @@
   align-items: center;
 }
 
-.logo-title .i {
-  color: rgba(255, 255, 255, 0.719);
-}
-
 .info-logo {
   position: relative;
   animation: moveNameTop 1.5s forwards;
@@ -41,7 +37,7 @@
   }
 }
 
-.link-name-films {
+.films-logo {
   position: relative;
   left: 50px;
   animation: moveBottomName 1.5s forwards;

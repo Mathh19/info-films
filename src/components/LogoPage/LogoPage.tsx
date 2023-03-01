@@ -6,16 +6,11 @@ const LogoPage = () => {
     <div className="logo">
       <h2 className="logo-title">
         <Link to="/" className="logo-link">
-          <div className="box-text-logo">
-            <div className="info-logo">
-              <span className="i" translate="no">
-                I
-              </span>
-              <span translate="no">nfo</span>
-            </div>
+          <div className="info-logo">
+            <span translate="no">Info</span>
           </div>
           <div>
-            <span className="link-name-films " translate="no">
+            <span className="films-logo" translate="no">
               Films
             </span>
           </div>
