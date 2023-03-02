@@ -22,7 +22,7 @@ const ListGenres = () => {
 
   useEffect(() => {
     if (!isClosed) {
-      const genresFilmsUrl = `${genresUrl}list?${apiKey}&language=pt-BR`;
+      const genresFilmsUrl = `${genresUrl}/list?${apiKey}&language=pt-BR`;
       const controller = new AbortController();
       const getGenresFilms = async (url: string) => {
         const res = await fetch(url, {
