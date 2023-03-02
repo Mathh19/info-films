@@ -1,5 +1,5 @@
 .loader {
-  margin: 14rem auto;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

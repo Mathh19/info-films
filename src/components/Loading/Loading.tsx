@@ -1,6 +1,6 @@
-import './LoadingMovies.css';
+import './Loading.css';
 
-const LoadingMovie = () => {
+const Loading = () => {
   return (
     <div className="loader">
       <div className="loading"></div>
@@ -8,4 +8,4 @@ const LoadingMovie = () => {
   );
 };
 
-export default LoadingMovie;
+export default Loading;
