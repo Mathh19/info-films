@@ -5,8 +5,8 @@
   z-index: 10;
   position: fixed;
   cursor: pointer;
-  bottom: 40px;
-  right: 80px;
+  bottom: 30px;
+  right: 30px;
   border: var(--border-default) var(--white);
   border-radius: 50%;
   background-color: #0b35cd60;
