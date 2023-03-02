@@ -1,0 +1,5 @@
+.container-error-message {
+  font-size: 2rem;
+  color: var(--error-color);
+  text-align: center;
+}
