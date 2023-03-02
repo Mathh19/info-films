@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useFetch } from '../../hooks/useFetch';
 import { CreditsProps } from '../../shared-types/credits';
 import './Credits.css';
 
@@ -13,27 +13,17 @@ type CreditsComponentProps = {
 };
 
 const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
-  const [credits, setCredits] = useState<CreditsProps>();
-
-  const getCredits = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setCredits(data);
-  };
-
-  useEffect(() => {
-    const creditsUrl = `${moviesUrl}${isMovieOrTv}/${id}/credits?${apiKey}&language=pt-BR`;
-    getCredits(creditsUrl);
-  }, [id, isMovieOrTv]);
+  const { data } = useFetch<CreditsProps>(
+    `${moviesUrl}/${isMovieOrTv}/${id}/credits?${apiKey}&language=pt-BR`,
+  );
 
   return (
     <div className="card-cast-crew">
-      {credits?.cast.length !== 0 && (
+      {data?.cast.length !== 0 && (
         <>
           <h2>Elenco: </h2>
           <div className="wrapper-cards">
-            {credits?.cast.map((cast, index) => (
+            {data?.cast.map((cast, index) => (
               <Link to={`/person-${isMovieOrTv}/${cast.id}`} key={index}>
                 <div className="card">
                   <img
@@ -51,11 +41,11 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
           </div>
         </>
       )}
-      {credits?.crew.length !== 0 && (
+      {data?.crew.length !== 0 && (
         <>
           <h2>Equipe: </h2>
           <div className="wrapper-cards">
-            {credits?.crew.map((crew, index) => (
+            {data?.crew.map((crew, index) => (
               <Link to={`/person-${isMovieOrTv}/${crew.id}`} key={index}>
                 <div className="card" key={index}>
                   <img
