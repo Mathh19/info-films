@@ -1,10 +1,12 @@
-import { useState, useEffect } from 'react';
 import { FaListUl } from 'react-icons/fa';
 import { MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
 import Credits from '../../components/Credits/Credits';
+import Loading from '../../components/Loading/Loading';
 import TrailerModal from '../../components/Modal/Modal';
 import TvCard from '../../components/TvCard/TvCard';
+import { useFetch } from '../../hooks/useFetch';
+import { TrailerProps } from '../../shared-types/trailer';
 import { TvProps } from '../../shared-types/tv';
 
 const moviesUrl = import.meta.env.VITE_API;
@@ -13,31 +15,16 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 const Tv = () => {
   const { id } = useParams();
-  const [movieTv, setMovieTv] = useState<TvProps>();
-  const [trailerKey, setTrailerKey] = useState('');
+  const { data: movieTv, isLoading } = useFetch<TvProps>(
+    `${moviesUrl}/tv/${id}?${apiKey}&language=pt-BR`,
+  );
+  const { data: trailer } = useFetch<TrailerProps>(
+    `${moviesUrl}/tv/${id}/videos?${apiKey}&language=pt-BR`,
+  );
   const imageBackdrop = `${imageUrl}${movieTv?.backdrop_path}`;
+  const trailerKey = trailer?.results[0]?.key;
 
-  const getMovie = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setMovieTv(data);
-  };
-
-  const getTrailer = async (url: string) => {
-    const response = await fetch(url);
-    const data = await response.json();
-    const trailerKey = data.results[0]?.key;
-
-    setTrailerKey(trailerKey);
-  };
-
-  useEffect(() => {
-    const movieUrl = `${moviesUrl}tv/${id}?${apiKey}&language=pt-BR`;
-    const trailerUrl = `${moviesUrl}tv/${id}/videos?${apiKey}&language=pt-BR`;
-    getMovie(movieUrl);
-    getTrailer(trailerUrl);
-  }, [id]);
+  if (isLoading) return <Loading />;
 
   return (
     <div className="movie-page">

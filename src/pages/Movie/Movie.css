@@ -74,8 +74,8 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  box-shadow: inset 0 -150px 28px -18px #0c0b0f;
-  background: linear-gradient(to bottom, rgba(12, 11, 15, 1) 2%, rgba(89, 89, 91, 0.6783088235294117) 50%);
+  box-shadow: inset 0 -100px 40px -60px #0c0b0f;
+  background: linear-gradient(to bottom, rgba(12, 11, 15, 1) 1%, rgba(89, 89, 91, 0.6783088235294117) 50%);
 }
 
 .tagline {

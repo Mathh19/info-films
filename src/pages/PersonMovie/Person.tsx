@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
+import { useFetch } from '../../hooks/useFetch';
 import { MovieCreditsProps } from '../../shared-types/movie_credits';
 import { PersonProps } from '../../shared-types/person';
 import { getAge } from '../../utils/get-age';
@@ -11,30 +12,13 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 const PersonMovie = () => {
   const { id } = useParams();
-  const [person, setPerson] = useState<PersonProps>();
-  const [movieCredits, setMovieCredits] = useState<MovieCreditsProps>();
+  const { data: person, isLoading } = useFetch<PersonProps>(
+    `${personUrl}/${id}?${apiKey}&language=pt-BR`,
+  );
   const imageProfile = `${imageUrl}${person?.profile_path}`;
-
-  const getPerson = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setPerson(data);
-  };
-
-  const getCreditsPerson = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setMovieCredits(data);
-  };
-
-  useEffect(() => {
-    const personData = `${personUrl}${id}?${apiKey}&language=pt-BR`;
-    const creditsPersonUrl = `${personUrl}${id}/movie_credits?${apiKey}&language=pt-BR`;
-    getPerson(personData);
-    getCreditsPerson(creditsPersonUrl);
-  }, [id]);
+  const { data: movieCredits } = useFetch<MovieCreditsProps>(
+    `${personUrl}/${id}/movie_credits?${apiKey}&language=pt-BR`,
+  );
 
   movieCredits?.cast.sort((x, y) => {
     const date1: number = Date.parse(x.release_date),
@@ -47,6 +31,8 @@ const PersonMovie = () => {
       date2: number = Date.parse(y.release_date);
     return date2 - date1;
   });
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="main-container">

@@ -15,7 +15,6 @@ const Category = () => {
     <div>
       <MoviesContainer
         url={genresQueryUrl}
-        query={query}
         title={`Filmes com a categoria: ${categoryValue}`}
       />
     </div>

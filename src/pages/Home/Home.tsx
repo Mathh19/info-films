@@ -5,9 +5,9 @@ const trendingMoviesRouter = import.meta.env.VITE_API_TRENDING;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
-  const bestRatedUrl = `${moviesUrl}movie/top_rated?${apiKey}&language=pt-BR`;
-  const popularMoviesUrl = `${moviesUrl}movie/popular?${apiKey}&language=pt-BR`;
-  const trendingMoviesUrl = `${trendingMoviesRouter}all/week?${apiKey}&language=pt-BR`;
+  const bestRatedUrl = `${moviesUrl}/movie/top_rated?${apiKey}&language=pt-BR`;
+  const popularMoviesUrl = `${moviesUrl}/movie/popular?${apiKey}&language=pt-BR`;
+  const trendingMoviesUrl = `${trendingMoviesRouter}/all/week?${apiKey}&language=pt-BR`;
 
   return (
     <div>

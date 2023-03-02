@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
+import { useFetch } from '../../hooks/useFetch';
 import { PersonProps } from '../../shared-types/person';
 import { TvCreditsProps } from '../../shared-types/tv_credits';
 import { getAge } from '../../utils/get-age';
@@ -13,30 +14,13 @@ const imageUrl = import.meta.env.VITE_IMG;
 
 const PersonTV = () => {
   const { id } = useParams();
-  const [person, setPerson] = useState<PersonProps>();
-  const [tvCredits, setTvCredits] = useState<TvCreditsProps>();
+  const { data: person, isLoading } = useFetch<PersonProps>(
+    `${personUrl}/${id}?${apiKey}&language=pt-BR`,
+  );
+  const { data: tvCredits } = useFetch<TvCreditsProps>(
+    `${personUrl}/${id}/tv_credits?${apiKey}&language=pt-BR`,
+  );
   const imagePerson = `${imageUrl}${person?.profile_path}`;
-
-  const getPerson = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setPerson(data);
-  };
-
-  const getCreditsPerson = async (url: string) => {
-    const res = await fetch(url);
-    const data = await res.json();
-
-    setTvCredits(data);
-  };
-
-  useEffect(() => {
-    const personData = `${personUrl}${id}?${apiKey}&language=pt-BR`;
-    const creditsPersonUrl = `${personUrl}${id}/tv_credits?${apiKey}&language=pt-BR`;
-    getPerson(personData);
-    getCreditsPerson(creditsPersonUrl);
-  }, [id]);
 
   tvCredits?.cast.sort((x, y) => {
     const date1: number = Date.parse(x.first_air_date),
@@ -49,6 +33,8 @@ const PersonTV = () => {
       date2: number = Date.parse(y.first_air_date);
     return date2 - date1;
   });
+
+  if (isLoading) return <Loading />;
 
   return (
     <div className="main-container">
