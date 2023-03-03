@@ -1,55 +1,56 @@
 .logo {
   display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.logo img {
+  position: relative;
+  bottom: 10px;
+  width: 150px;
+  animation: moveNameTop 2.5s forwards;
 }
 
 .logo-title {
-  letter-spacing: 0.1rem;
-  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nanum Gothic Coding', monospace;
+  color: var(--white);
+  font-size: 30px;
+  letter-spacing: 4px;
+  animation: moveNameTop 2.5s forwards;
 }
 
-
-.logo-title span {
-  font-family: 'Monoton', cursive;
-  background-image: linear-gradient(0deg, var(--dark-blue) 5%, var(--white));
+.logo-title h2 {
+  position: relative;
+  background-image: linear-gradient(45deg, var(--white), var(--primary-color));
+  background-size: 100%;
+  background-repeat: repeat;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
-.logo-title a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.logo-info {
+  font-weight: 400;
 }
 
-.info-logo {
-  position: relative;
-  animation: moveNameTop 1.5s forwards;
+.logo-films {
+  font-weight: 700;
+  bottom: 10px;
 }
 
 @keyframes moveNameTop {
   from {
-    right: 35px;
+    opacity: 0;
+    right: 100px;
   }
 
   to {
+    opacity: 1;
     right: 0px;
   }
 }
 
-.films-logo {
-  position: relative;
-  left: 50px;
-  animation: moveBottomName 1.5s forwards;
-  bottom: 20px;
-}
-
-@keyframes moveBottomName {
-  from {
-    left: 50px;
-  }
-
-  to {
-    left: 0px;
-  }
-}
