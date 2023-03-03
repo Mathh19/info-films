@@ -38,10 +38,8 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
         )}
       </Link>
       <p className="container-star">
-        <BsFillStarFill className="star" />{' '}
-        {`${!movie.vote_average ? '0' : movie.vote_average.toFixed(1)} (${
-          !movie.vote_count ? '0' : movie.vote_count
-        })`}
+        <BsFillStarFill className="star" />
+        {!movie.vote_average ? 0 : movie.vote_average.toFixed(1)}
       </p>
     </div>
   );

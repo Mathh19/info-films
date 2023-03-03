@@ -45,13 +45,6 @@
   font-size: 2rem;
 }
 
-.movie-page .movie-card p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.4rem;
-}
-
 .movie-page .container-info {
   max-width: 600px;
   width: 100%;
