@@ -34,3 +34,9 @@
 .card img:hover {
   border: 2px solid var(--primary-color);
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: 120px;
+  }
+}
