@@ -1,5 +1,5 @@
 @import '../src/styles/theme.css';
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding:wght@400;700&family=Tilt+Warp&display=swap');
 
 * {
   font-family: 'Roboto', sans-serif;

@@ -1,9 +1,8 @@
 #navbar {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 2rem 0;
-  background: linear-gradient(0deg, rgba(12, 11, 15, 1) 0%, rgba(7, 14, 69, 1) 100%);
-  background-color: #121212;
+  padding: 0.5rem 2rem;
+  background: #031220;
   width: 100%;
 }
 
@@ -21,11 +20,11 @@
 #navbar input {
   padding: 0.4rem 0.8rem;
   border-radius: 5px;
-  border: 2px solid #082032;
+  border: 2px solid #0A2647;
   width: 20rem;
   font-size: 1rem;
   color: #fff;
-  background-color: #082032;
+  background: #0A2647;
 }
 
 #navbar form button {
@@ -57,7 +56,6 @@
   #navbar {
     flex-wrap: wrap;
     justify-content: center;
-    padding-bottom: 0.5rem;
   }
 
   #navbar input {
