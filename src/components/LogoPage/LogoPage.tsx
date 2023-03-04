@@ -10,11 +10,11 @@ const LogoPage = () => {
             Info
           </h2>
           <h2 className="logo-films" translate="no">
-            Films
+            FILMS
           </h2>
         </div>
         <img
-          src="./assets/icon-logo-films.svg"
+          src="/assets/icon-logo-films.svg"
           alt="Uma imagem de uma fita de filme na logo"
         />
       </div>

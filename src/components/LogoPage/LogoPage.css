@@ -14,16 +14,15 @@
 .logo-title {
   display: flex;
   flex-direction: column;
-  font-family: 'Nanum Gothic Coding', monospace;
   color: var(--white);
-  font-size: 30px;
+  font-size: 1.8em;
   letter-spacing: 4px;
   animation: moveNameTop 2.5s forwards;
 }
 
 .logo-title h2 {
   position: relative;
-  background-image: linear-gradient(45deg, var(--white), var(--primary-color));
+  background-image: linear-gradient(45deg, var(--white) 30%, #8d8d8d);
   background-size: 100%;
   background-repeat: repeat;
   background-clip: text;
@@ -38,6 +37,7 @@
 }
 
 .logo-films {
+  font-family: 'Tilt Warp', cursive;
   font-weight: 700;
   bottom: 10px;
 }
