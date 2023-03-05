@@ -12,6 +12,7 @@ const Footer = () => {
           aria-label="Direciona você para o perfil do github do desenvolvedor da página"
         >
           <BsGithub />
+          <p>Github</p>
         </a>
         <a
           href="https://twitter.com/mathexe_"
@@ -20,6 +21,7 @@ const Footer = () => {
           aria-label="Direciona você para o perfil do twitter do desenvolvedor da página"
         >
           <BsTwitter />
+          <p>Twitter</p>
         </a>
       </div>
     </footer>
