@@ -11,6 +11,9 @@ export type MovieCardProps = {
 };
 
 const MovieAndTvCard = ({ movie }: MovieCardProps) => {
+  const altImageTvOrMovie =
+    movie.media_type === 'movie' ? movie.title : movie.name;
+
   return (
     <div className="movie-card">
       <Link
@@ -24,7 +27,9 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
           src={
             !movie.poster_path ? '/no-image.svg' : imageUrl + movie.poster_path
           }
-          alt={`${movie.media_type === 'movie' ? movie.title : movie.name}`}
+          alt={`Uma imagem da série ou filme ${
+            !altImageTvOrMovie ? movie.title : altImageTvOrMovie
+          }`}
           className="img-movie"
         />
         {movie.media_type === 'tv' ? (
