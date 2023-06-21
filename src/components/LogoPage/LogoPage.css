@@ -1,56 +1,33 @@
 .logo {
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--white);
 }
 
 .logo img {
   position: relative;
-  bottom: 10px;
-  width: 150px;
-  animation: moveNameTop 2.5s forwards;
+  width: 62px;
+  height: 62px;
+  animation: animateLogo 1s forwards;
 }
-
-.logo-title {
-  display: flex;
-  flex-direction: column;
-  color: var(--white);
-  font-size: 1.8em;
-  letter-spacing: 4px;
-  animation: moveNameTop 2.5s forwards;
-}
-
-.logo-title h2 {
+.logo span {
   position: relative;
-  background-image: linear-gradient(45deg, var(--white) 30%, #8d8d8d);
-  background-size: 100%;
-  background-repeat: repeat;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-background-clip: text;
-  -moz-text-fill-color: transparent;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 2.25rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+  animation: animateLogo 1s forwards;
 }
 
-.logo-info {
-  font-weight: 400;
-}
-
-.logo-films {
-  font-family: 'Tilt Warp', cursive;
-  font-weight: 700;
-  bottom: 10px;
-}
-
-@keyframes moveNameTop {
+@keyframes animateLogo {
   from {
     opacity: 0;
-    right: 100px;
+    top: 20px;
   }
 
   to {
     opacity: 1;
-    right: 0px;
+    top: 0px;
   }
 }
-
