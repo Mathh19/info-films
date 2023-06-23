@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div>
         <a
-          href="https://github.com/Mathh19"
+          href="https://github.com/Mathh19/info-films"
           target="_blank"
           rel="noreferrer"
           aria-label="Direciona você para o perfil do github do desenvolvedor da página"
