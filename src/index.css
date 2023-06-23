@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background-color: #0c0b0f;
+  background-color: #09080A;
   color: var(--white);
 }
 
@@ -23,24 +23,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
+  background: var(--light-steel-gray);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #09268f;
+  background: var(--steel-gray);
 }
 
-@supports(scrollbar-color: var(--primary-color) transparent) {
+@supports(scrollbar-color: var(--light-steel-gray) transparent) {
   * {
-    scrollbar-color: var(--primary-color) transparent;
+    scrollbar-color: var(--light-steel-gray) transparent;
     scrollbar-width: thin;
   }
 }
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
   transition: .5s;
 }
 
