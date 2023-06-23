@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
 import { useFetch } from '../../hooks/useFetch';
 import { DataProps } from '../../shared-types/data';
+import Wrapper from '../../components/Wrapper/Wrapper';
 
 const searchUrl = import.meta.env.VITE_SEARCH;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -14,7 +15,7 @@ const Search = () => {
   const { data } = useFetch<DataProps>(searchQueryUrl);
 
   return (
-    <div>
+    <Wrapper>
       <MoviesContainer
         url={searchQueryUrl}
         title={
@@ -23,7 +24,7 @@ const Search = () => {
             : `Resultados para: ${query}`
         }
       />
-    </div>
+    </Wrapper>
   );
 };
 
