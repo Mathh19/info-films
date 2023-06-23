@@ -18,9 +18,9 @@
   white-space: normal;
 }
 
-.movie-card .img-movie,
-.movie-card .title-movie,
-.movie-card .container-star {
+.movie-page .movie-card .img-movie,
+.movie-page .movie-card .title-movie,
+.movie-page .movie-card .container-star {
   margin-bottom: 1rem;
 }
 

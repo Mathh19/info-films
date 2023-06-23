@@ -1,14 +1,15 @@
 .movie-card {
-  color: var(--white);
-  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  color: var(--white);
   transition: all 200ms ease-in-out;
 }
 
 .movie-card .img-movie {
   height: 400px;
+  border-radius: 6px 6px 0 0;
 }
 
 .movie-card .star {
@@ -22,17 +23,18 @@
   white-space: nowrap;
 }
 
-.movie-card a {
-  color: var(--white);
-  transition: ease-in-out all 100ms;
-}
-
-.movie-card a:hover {
-  color: var(--primary-color);
+.container-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 0 0 6px 6px;
+  background: var(--deep-black);
 }
 
 .container-star {
   display: flex;
   gap: 10px;
   align-items: center;
+  font-weight: 600;
 }

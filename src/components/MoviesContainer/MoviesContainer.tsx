@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Pagination, Stack } from '@mui/material';
 import { MovieProps } from '../../shared-types/movie';
 import { useFetch } from '../../hooks/useFetch';
 import { DataProps } from '../../shared-types/data';
 import MovieAndTvCard from '../MovieAndTvCard/MovieAndTvCard';
-import Wrapper from '../Wrapper/Wrapper';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 
@@ -16,6 +15,9 @@ type MoviesContainerProps = {
 };
 
 const MoviesContainer = ({ title, url }: MoviesContainerProps) => {
+  const divRef = useRef<HTMLDivElement>(null);
+  const [isScrolledToRight, setIsScrolledToRight] = useState(true);
+  const [hasScroll, setHasScroll] = useState(false);
   const [page, setPage] = useState(1);
   const { data, isLoading, error } = useFetch<DataProps>(`${url}&page=${page}`);
 
@@ -24,15 +26,36 @@ const MoviesContainer = ({ title, url }: MoviesContainerProps) => {
     setPage(value);
   };
 
+  const handleScroll = () => {
+    const divElement = divRef.current;
+    if (divElement) {
+      setIsScrolledToRight(divElement.scrollLeft === 0);
+    }
+  };
+
+  useEffect(() => {
+    const divElement = divRef.current;
+    if (divElement) {
+      divElement.addEventListener('scroll', handleScroll);
+      divElement.clientWidth < 1400 ? setHasScroll(false) : setHasScroll(true);
+      return () => divElement.removeEventListener('scroll', handleScroll);
+    }
+  }, [divRef.current?.clientLeft]);
+
   if (isLoading) return <Loading />;
   if (error) return <Error message={error.message} />;
 
   return (
-    <Wrapper>
+    <div>
       {data !== undefined && (
         <div className="container">
           <h2 className="title">{title}</h2>
-          <div className="movies-container">
+          <div
+            ref={divRef}
+            className={`movies-container ${
+              hasScroll && isScrolledToRight && 'gradientEffect'
+            }`}
+          >
             {data.results.map((movie: MovieProps) => (
               <MovieAndTvCard key={movie.id} movie={movie} />
             ))}
@@ -43,8 +66,6 @@ const MoviesContainer = ({ title, url }: MoviesContainerProps) => {
                 <Pagination
                   className="pagination"
                   count={data.total_pages >= 50 ? 50 : data.total_pages}
-                  color="primary"
-                  variant="outlined"
                   page={page}
                   onChange={handleChange}
                 />
@@ -53,7 +74,7 @@ const MoviesContainer = ({ title, url }: MoviesContainerProps) => {
           )}
         </div>
       )}
-    </Wrapper>
+    </div>
   );
 };
 
