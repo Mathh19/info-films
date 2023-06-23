@@ -1,16 +1,3 @@
-.list-genres {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  margin-top: 0.5rem;
-  overflow-y: scroll;
-  background-color: var(--dark-blue);
-  border-radius: 8px;
-  z-index: 5;
-  scrollbar-color: var(--primary-color) rgb(194, 192, 192);
-  scrollbar-width: thin;
-}
-
 .btn-categories {
   padding: 4px;
   color: var(--white);
@@ -27,8 +14,18 @@
   height: 20px;
 }
 
-.list-genres:hover {
-  scrollbar-color: var(--dark-blue) rgb(194, 192, 192);
+.list-genres {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  margin-top: 0.5rem;
+  overflow-y: scroll;
+  background: var(--deep-black);
+  border: 1px solid var(--midnight-blue);
+  border-radius: 4px;
+  z-index: 5;
+  scrollbar-color: var(--dusty-lavender);
+  scrollbar-width: thin;
 }
 
 .list-genres ul {
@@ -41,20 +38,16 @@
 
 .list-genres ul li {
   width: 100%;
-  border-bottom: 2px solid #000;
-  border-right: 2px solid #000;
-  border-left: 2px solid #000;
   cursor: pointer;
   transition: 0.4s;
   padding: 10px;
 }
 
 .list-genres ul li:hover {
-  background-color: var(--primary-color);
+  background-color: var(--dusty-lavender);
 }
 
 .list-genres::-webkit-scrollbar {
-  background-color: rgb(194, 192, 192);
   border-radius: 0 5px 5px 0;
 }
 

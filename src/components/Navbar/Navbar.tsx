@@ -24,10 +24,10 @@ const Navbar = () => {
   return (
     <nav id="navbar">
       <LogoPage />
-      <div className="box-search">
+      <div className="container-search">
         <ListGenres />
         <div>
-          <form onSubmit={handleSubmit}>
+          <form className="search-form" onSubmit={handleSubmit}>
             <input
               type="search"
               placeholder="Buscar um filme..."

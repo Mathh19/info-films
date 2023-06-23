@@ -9,13 +9,13 @@
   right: 30px;
   border: var(--border-default) var(--white);
   border-radius: 50%;
-  background-color: #0b35cd60;
+  background-color: rgb(94 90 114 / 0.4);
   height: 40px;
   width: 40px;
 }
 
 .GoTop:hover {
-  background-color: var(--primary-color);
+  background-color: var(--dusty-lavender);
   transition: all 300ms ease-in-out;
 }
 
