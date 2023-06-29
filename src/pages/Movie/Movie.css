@@ -40,7 +40,7 @@
 }
 
 .infos div :first-child{
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .info-movie img {
@@ -52,6 +52,7 @@
 .info-movie .movie-card {
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 

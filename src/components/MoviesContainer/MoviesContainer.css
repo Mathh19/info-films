@@ -44,7 +44,7 @@
   filter: brightness(90%);
 }
 
-.movies-container .movie-card:hover {
+.movies-container .container-movie-card:hover {
   transform: scale(1.02);
 }
 

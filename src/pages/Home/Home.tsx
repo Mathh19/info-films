@@ -1,5 +1,7 @@
 import MoviesContainer from '../../components/MoviesContainer/MoviesContainer';
 
+import './Home.css';
+
 const moviesUrl = import.meta.env.VITE_API;
 const trendingMoviesRouter = import.meta.env.VITE_API_TRENDING;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -10,7 +12,7 @@ const Home = () => {
   const trendingMoviesUrl = `${trendingMoviesRouter}/all/week?${apiKey}&language=pt-BR`;
 
   return (
-    <div>
+    <div className="container-home">
       <section>
         <MoviesContainer url={trendingMoviesUrl} title="Em alta nesta semana" />
       </section>

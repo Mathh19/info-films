@@ -22,7 +22,7 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
           : `/movie/${movie.id}`
       }
     >
-      <div className="movie-card">
+      <div className="container-movie-card">
         <img
           src={
             !movie.poster_path
@@ -32,7 +32,6 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
           alt={`Uma imagem da série ou filme ${
             !altImageTvOrMovie ? movie.title : altImageTvOrMovie
           }`}
-          className="img-movie"
         />
         <div className="container-title">
           {movie.media_type === 'tv' ? (
