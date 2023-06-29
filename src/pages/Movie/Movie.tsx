@@ -1,9 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { BiWalletAlt } from 'react-icons/bi';
-import { MdTrendingUp, MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
-import { FaListUl } from 'react-icons/fa';
 import { MovieProps } from '../../shared-types/movie';
-import MovieCard from '../../components/MovieCard/MovieCard';
 import TrailerModal from '../../components/Modal/Modal';
 import Credits from '../../components/Credits/Credits';
 import { useFetch } from '../../hooks/useFetch';
@@ -11,6 +7,9 @@ import { useFetch } from '../../hooks/useFetch';
 import './Movie.css';
 import Loading from '../../components/Loading/Loading';
 import { TrailerProps } from '../../shared-types/trailer';
+import { IoStar } from 'react-icons/io5';
+import { RxCounterClockwiseClock } from 'react-icons/rx';
+import { convertMinutesToHours } from '../../utils/convert-minutes-to-hours';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -42,63 +41,91 @@ const Movie = () => {
       {movie && (
         <>
           <section
-            className="container-background"
+            className="container-movie background-movie"
             style={{
               backgroundImage: `url(${
-                movie.backdrop_path === null ? '' : imageBackdrop
+                movie.backdrop_path === null
+                  ? '/no-background-image.svg'
+                  : imageBackdrop
               })`,
             }}
           >
-            <div className="container-movie">
-              <MovieCard movie={movie} />
+            <div className="background-info">
+              <div className="info-movie">
+                <div className="movie-card">
+                  <img
+                    src={
+                      movie.poster_path === null
+                        ? '/no-image.svg'
+                        : imageUrl + movie.poster_path
+                    }
+                    alt={`${movie.name}`}
+                  />
+                  {trailerKey && (
+                    <span>
+                      {' '}
+                      <TrailerModal trailerKey={trailerKey} />
+                    </span>
+                  )}
+                </div>
+                <div className="infos">
+                  <h2>{movie.title}</h2>
+                  <div className="container-average">
+                    <IoStar />{' '}
+                    <span>
+                      {`${movie.vote_average.toFixed(1)}/10 (${
+                        movie.vote_count
+                      })`}
+                    </span>
+                  </div>
+                  <div className="container-runtime">
+                    <RxCounterClockwiseClock />
+                    <span>
+                      {movie.runtime === 0
+                        ? '-'
+                        : convertMinutesToHours(movie.runtime)}
+                    </span>
+                  </div>
+                  <div className="container-genres">
+                    <h3>Genêro</h3>
+                    <ul className="genres">
+                      {movie.genres.length === 0 ? (
+                        <li>-</li>
+                      ) : (
+                        movie.genres.map((genre) => (
+                          <li className="genre" key={genre.id}>
+                            {genre.name}
+                          </li>
+                        ))
+                      )}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Sinopse</h3>
+                    <p>{movie.overview === '' ? '-' : movie.overview}</p>
+                  </div>
+                  <div>
+                    <h3>Orçamento</h3>
+                    {movie.budget === 0 ? (
+                      <p>-</p>
+                    ) : (
+                      <p>{formatCurrency(movie.budget)}</p>
+                    )}
+                  </div>
+                  <div>
+                    <h3>Receita</h3>
+                    {movie.revenue === 0 ? (
+                      <p>-</p>
+                    ) : (
+                      <p>{formatCurrency(movie.revenue)}</p>
+                    )}
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
-          {trailerKey && <TrailerModal trailerKey={trailerKey} />}
-          <section className="container-info">
+          <section className="container-cast">
             <Credits id={id} isMovieOrTv="movie" />
-            {movie.tagline && <p className="tagline">{movie.tagline}</p>}
-            <div className="info">
-              <h3>
-                <BiWalletAlt /> Orçamento:
-              </h3>
-              {movie.budget === 0 ? (
-                <span>-</span>
-              ) : (
-                <p>{formatCurrency(movie.budget)}</p>
-              )}
-            </div>
-            <div className="info">
-              <h3>
-                <MdTrendingUp /> Receita:
-              </h3>
-              {movie.revenue === 0 ? (
-                <span>-</span>
-              ) : (
-                <p>{formatCurrency(movie.revenue)}</p>
-              )}
-            </div>
-            <div className="info">
-              <h3>
-                <FaListUl /> Genêro:
-              </h3>
-              {movie.genres.map((genre) => (
-                <p className="genres" key={genre.id}>
-                  {genre.name}
-                </p>
-              ))}
-            </div>
-            <div className="info">
-              <h3>
-                <MdAvTimer /> Duração:
-              </h3>
-              <p>{movie.runtime} minutos</p>
-            </div>
-            <div className="info description">
-              <h3>
-                <MdChromeReaderMode /> Descrição:
-              </h3>
-              <p>{movie.overview}</p>
-            </div>
           </section>
         </>
       )}

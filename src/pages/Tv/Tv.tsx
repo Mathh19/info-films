@@ -1,13 +1,11 @@
-import { FaListUl } from 'react-icons/fa';
-import { MdAvTimer, MdChromeReaderMode } from 'react-icons/md';
 import { useParams } from 'react-router-dom';
 import Credits from '../../components/Credits/Credits';
 import Loading from '../../components/Loading/Loading';
 import TrailerModal from '../../components/Modal/Modal';
-import TvCard from '../../components/TvCard/TvCard';
 import { useFetch } from '../../hooks/useFetch';
 import { TrailerProps } from '../../shared-types/trailer';
 import { TvProps } from '../../shared-types/tv';
+import { IoStar } from 'react-icons/io5';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -31,44 +29,68 @@ const Tv = () => {
       {movieTv && (
         <>
           <section
-            className="container-background"
+            className="container-movie background-movie"
             style={{
               backgroundImage: `url(${
-                movieTv.backdrop_path === null ? '/no-image.svg' : imageBackdrop
+                movieTv.backdrop_path === null
+                  ? '/no-background-image.svg'
+                  : imageBackdrop
               })`,
             }}
           >
-            <div className="container-movie">
-              <TvCard tv={movieTv} />
+            <div className="background-info">
+              <div className="info-movie">
+                <div className="movie-card">
+                  <img
+                    src={
+                      movieTv.poster_path === null
+                        ? '/no-image.svg'
+                        : imageUrl + movieTv.poster_path
+                    }
+                    alt={`${movieTv.name}`}
+                  />
+                  {trailerKey && (
+                    <span>
+                      {' '}
+                      <TrailerModal trailerKey={trailerKey} />
+                    </span>
+                  )}
+                </div>
+                <div className="infos">
+                  <h2>{movieTv.name}</h2>
+                  <div className="container-average">
+                    <IoStar />{' '}
+                    <span>
+                      {`${movieTv.vote_average.toFixed(1)}/10 (${
+                        movieTv.vote_count
+                      })`}
+                    </span>
+                  </div>
+                  <div>
+                    <h3>Duração</h3>
+                    <p>Temporadas {movieTv.number_of_seasons}</p>
+                    <p>Episódios {movieTv.number_of_episodes}</p>
+                  </div>
+                  <div className="container-genres">
+                    <h3>Genêro</h3>
+                    <ul className="genres">
+                      {movieTv.genres.map((genre) => (
+                        <li className="genre" key={genre.id}>
+                          {genre.name}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3>Sinopse</h3>
+                    <p>{movieTv.overview}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
-          {trailerKey && <TrailerModal trailerKey={trailerKey} />}
-          <section className="container-info">
+          <section className="container-cast">
             <Credits id={id} isMovieOrTv="tv" />
-            {movieTv.tagline && <p className="tagline">{movieTv.tagline}</p>}
-            <div className="info">
-              <h3>
-                <FaListUl /> Genêro:
-              </h3>
-              {movieTv.genres.map((genre) => (
-                <p className="genres" key={genre.id}>
-                  {genre.name}
-                </p>
-              ))}
-            </div>
-            <div className="info">
-              <h3>
-                <MdAvTimer /> Episódios:
-              </h3>
-              <p>Temporadas: {movieTv.number_of_seasons}</p>
-              <p>Episódios: {movieTv.number_of_episodes}</p>
-            </div>
-            <div className="info description">
-              <h3>
-                <MdChromeReaderMode /> Descrição:
-              </h3>
-              <p>{movieTv.overview}</p>
-            </div>
           </section>
         </>
       )}
