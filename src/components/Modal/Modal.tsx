@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import { BsPlayFill } from 'react-icons/bs';
+import { FiPlayCircle } from 'react-icons/fi';
 
 import './Modal.css';
 
@@ -17,7 +17,7 @@ function TrailerModal({ trailerKey }: TrailerModalProps) {
   return (
     <div className="container-modal">
       <button onClick={handleOpen} aria-label="Botão de reproduzir o trailer">
-        <BsPlayFill />
+        <FiPlayCircle />
         Ver trailer
       </button>
       <Modal
