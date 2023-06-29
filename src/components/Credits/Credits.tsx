@@ -25,7 +25,7 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
           <div className="wrapper-cards">
             {data?.cast.map((cast, index) => (
               <Link to={`/person-${isMovieOrTv}/${cast.id}`} key={index}>
-                <div className="card">
+                <figure className="card">
                   <img
                     src={
                       cast.profile_path === null
@@ -33,9 +33,11 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
                         : `${imageUrl + cast.profile_path}`
                     }
                   />
-                  <p>Persongem: {cast.character}</p>
-                  <p>Nome original: {cast.original_name}</p>
-                </div>
+                  <figcaption>
+                    <h3>{cast.original_name}</h3>
+                    <p>{cast.character}</p>
+                  </figcaption>
+                </figure>
               </Link>
             ))}
           </div>
@@ -47,7 +49,7 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
           <div className="wrapper-cards">
             {data?.crew.map((crew, index) => (
               <Link to={`/person-${isMovieOrTv}/${crew.id}`} key={index}>
-                <div className="card" key={index}>
+                <figure className="card" key={index}>
                   <img
                     src={
                       crew.profile_path === null
@@ -55,9 +57,11 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
                         : `${imageUrl + crew.profile_path}`
                     }
                   />
-                  <p>Nome: {crew.original_name}</p>
-                  <p>Trabalho: {crew.job}</p>
-                </div>
+                  <figcaption>
+                    <h3>{crew.original_name}</h3>
+                    <p>{crew.job}</p>
+                  </figcaption>
+                </figure>
               </Link>
             ))}
           </div>

@@ -12,27 +12,38 @@
 }
 
 .card {
-  width: 150px;
+  width: 200px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin-bottom: 0.5rem;
   color: var(--white);
   transition: all 300ms ease-in-out;
 }
 
-.card:hover {
-  color: var(--primary-color);
-}
-
 .card img {
-  border-radius: 8px;
-  border: 2px solid var(--white);
+  border-radius: 6px 6px 0 0;
   transition: all 300ms ease-in-out;
 }
 
-.card img:hover {
-  border: 2px solid var(--primary-color);
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card figcaption {
+  border-radius: 0 0 6px 6px;
+  padding: 10px;
+  background: var(--deep-black);
+}
+
+.card figcaption h3 {
+  margin-bottom: 10px;
+}
+
+.card figcaption h3, .card figcaption p  {
+  max-width: 20ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
