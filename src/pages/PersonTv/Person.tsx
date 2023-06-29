@@ -20,7 +20,7 @@ const PersonTV = () => {
   const { data: tvCredits } = useFetch<TvCreditsProps>(
     `${personUrl}/${id}/tv_credits?${apiKey}&language=pt-BR`,
   );
-  const imagePerson = `${imageUrl}${person?.profile_path}`;
+  const imagePerson = `${imageUrl}/w500${person?.profile_path}`;
 
   tvCredits?.cast.sort((x, y) => {
     const date1: number = Date.parse(x.first_air_date),

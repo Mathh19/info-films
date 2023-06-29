@@ -20,7 +20,7 @@ const Movie = () => {
   const { data: movie, isLoading } = useFetch<MovieProps>(
     `${moviesUrl}/movie/${id}?${apiKey}&language=pt-BR`,
   );
-  const imageBackdrop = `${imageUrl}${movie?.backdrop_path}`;
+  const imageBackdrop = `${imageUrl}/original${movie?.backdrop_path}`;
   const { data: trailer } = useFetch<TrailerProps>(
     `${moviesUrl}/movie/${id}/videos?${apiKey}&language=pt-BR`,
   );
@@ -57,7 +57,7 @@ const Movie = () => {
                     src={
                       movie.poster_path === null
                         ? '/no-image.svg'
-                        : imageUrl + movie.poster_path
+                        : `${imageUrl}/w500${movie.poster_path}`
                     }
                     alt={`${movie.name}`}
                   />

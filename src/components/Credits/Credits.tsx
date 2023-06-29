@@ -30,7 +30,7 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
                     src={
                       cast.profile_path === null
                         ? '/no-image.svg'
-                        : `${imageUrl + cast.profile_path}`
+                        : `${imageUrl}/w500${cast.profile_path}`
                     }
                   />
                   <figcaption>
@@ -54,7 +54,7 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
                     src={
                       crew.profile_path === null
                         ? '/no-image.svg'
-                        : `${imageUrl + crew.profile_path}`
+                        : `${imageUrl}/w500${crew.profile_path}`
                     }
                   />
                   <figcaption>

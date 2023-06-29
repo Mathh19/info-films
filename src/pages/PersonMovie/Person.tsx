@@ -15,7 +15,7 @@ const PersonMovie = () => {
   const { data: person, isLoading } = useFetch<PersonProps>(
     `${personUrl}/${id}?${apiKey}&language=pt-BR`,
   );
-  const imageProfile = `${imageUrl}${person?.profile_path}`;
+  const imageProfile = `${imageUrl}/w500${person?.profile_path}`;
   const { data: movieCredits } = useFetch<MovieCreditsProps>(
     `${personUrl}/${id}/movie_credits?${apiKey}&language=pt-BR`,
   );

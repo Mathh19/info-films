@@ -25,7 +25,9 @@ const MovieAndTvCard = ({ movie }: MovieCardProps) => {
       <div className="movie-card">
         <img
           src={
-            !movie.poster_path ? '/no-image.svg' : imageUrl + movie.poster_path
+            !movie.poster_path
+              ? '/no-image.svg'
+              : `${imageUrl}/w500${movie.poster_path}`
           }
           alt={`Uma imagem da série ou filme ${
             !altImageTvOrMovie ? movie.title : altImageTvOrMovie
