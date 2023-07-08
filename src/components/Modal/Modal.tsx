@@ -21,7 +21,7 @@ function TrailerModal({ trailerKey }: TrailerModalProps) {
         Ver trailer
       </button>
       <Modal
-        className="Modal"
+        className="modal"
         open={open}
         onClose={handleClose}
         aria-labelledby="Exibe o trailer do filme"
