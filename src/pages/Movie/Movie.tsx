@@ -100,7 +100,7 @@ const Movie = () => {
                       )}
                     </ul>
                   </div>
-                  <div>
+                  <div className="container-overview">
                     <h3>Sinopse</h3>
                     <p>{movie.overview === '' ? '-' : movie.overview}</p>
                   </div>

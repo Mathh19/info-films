@@ -10,6 +10,7 @@
 }
 
 .info-movie {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -22,12 +23,15 @@
 
 .infos {
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   display: flex;
   flex-direction: column;
+  gap: 8px;
+}
+
+.infos h2 {
   font-size: 3rem;
   font-weight: bold;
-  gap: 8px;
 }
 
 .infos h3 {
@@ -43,17 +47,19 @@
   margin-bottom: 6px;
 }
 
-.info-movie img {
+.info-movie .movie-card {
   width: 100%;
   max-width: 400px;
-  border-radius: 12px;
-}
-
-.info-movie .movie-card {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.info-movie .movie-card img {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
 }
 
 .info-movie .movie-card span {
@@ -101,4 +107,14 @@
   max-width: 1400px;
   margin: 60px 0;
   padding: 0 20px;
+}
+
+@media (max-width: 1159px) {
+  .info-movie {
+    justify-content: center;
+  }
+
+  .infos {
+    max-width: unset;
+  }
 }
