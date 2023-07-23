@@ -10,6 +10,7 @@ import { TrailerProps } from '../../shared-types/trailer';
 import { IoStar } from 'react-icons/io5';
 import { RxCounterClockwiseClock } from 'react-icons/rx';
 import { convertMinutesToHours } from '../../utils/convert-minutes-to-hours';
+import { formatCurrency } from '../../utils/format-currency';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -26,13 +27,6 @@ const Movie = () => {
   );
 
   const trailerKey = trailer?.results[0]?.key;
-
-  const formatCurrency = (number: number) => {
-    return number.toLocaleString('en-Us', {
-      style: 'currency',
-      currency: 'USD',
-    });
-  };
 
   if (isLoading) return <Loading />;
 
