@@ -84,6 +84,10 @@ const Movie = () => {
                         : convertMinutesToHours(movie.runtime)}
                     </span>
                   </div>
+                  <div>
+                    <h3>Data de lançamento</h3>
+                    {movie.release_date ? movie.release_date : '-'}
+                  </div>
                   <div className="container-genres">
                     <h3>Genêro</h3>
                     <ul className="genres">
