@@ -13,10 +13,12 @@ import PersonMovie from './pages/PersonMovie/Person';
 import PersonTV from './pages/PersonTv/Person';
 import Search from './pages/Search/Search';
 import Tv from './pages/Tv/Tv';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route element={<App />}>
           <Route path="/" element={<Home />} />
