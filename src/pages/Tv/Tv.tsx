@@ -6,6 +6,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { TrailerProps } from '../../shared-types/trailer';
 import { TvProps } from '../../shared-types/tv';
 import { IoStar } from 'react-icons/io5';
+import { CreditsProps } from '../../shared-types/credits';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -21,6 +22,9 @@ const Tv = () => {
   );
   const imageBackdrop = `${imageUrl}/original${movieTv?.backdrop_path}`;
   const trailerKey = trailer?.results[0]?.key;
+  const { data: credits } = useFetch<CreditsProps>(
+    `${moviesUrl}/tv/${id}/credits?${apiKey}&language=pt-BR`,
+  );
 
   if (isLoading) return <Loading />;
 
@@ -89,9 +93,11 @@ const Tv = () => {
               </div>
             </div>
           </section>
-          <section className="container-cast">
-            <Credits id={id} isMovieOrTv="tv" />
-          </section>
+          {credits && (
+            <section className="container-cast">
+              <Credits isMovieOrTv="tv" credits={credits} />
+            </section>
+          )}
         </>
       )}
     </div>

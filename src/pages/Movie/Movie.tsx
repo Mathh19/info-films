@@ -11,6 +11,7 @@ import { IoStar } from 'react-icons/io5';
 import { RxCounterClockwiseClock } from 'react-icons/rx';
 import { convertMinutesToHours } from '../../utils/convert-minutes-to-hours';
 import { formatCurrency } from '../../utils/format-currency';
+import { CreditsProps } from '../../shared-types/credits';
 
 const moviesUrl = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
@@ -24,6 +25,9 @@ const Movie = () => {
   const imageBackdrop = `${imageUrl}/original${movie?.backdrop_path}`;
   const { data: trailer } = useFetch<TrailerProps>(
     `${moviesUrl}/movie/${id}/videos?${apiKey}&language=pt-BR`,
+  );
+  const { data: credits } = useFetch<CreditsProps>(
+    `${moviesUrl}/movie/${id}/credits?${apiKey}&language=pt-BR`,
   );
 
   const trailerKey = trailer?.results[0]?.key;
@@ -118,9 +122,11 @@ const Movie = () => {
               </div>
             </div>
           </section>
-          <section className="container-cast">
-            <Credits id={id} isMovieOrTv="movie" />
-          </section>
+          {credits && (
+            <section className="container-cast">
+              <Credits isMovieOrTv="movie" credits={credits} />
+            </section>
+          )}
         </>
       )}
     </div>

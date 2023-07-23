@@ -1,29 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useFetch } from '../../hooks/useFetch';
 import { CreditsProps } from '../../shared-types/credits';
 import './Credits.css';
 
-const moviesUrl = import.meta.env.VITE_API;
-const apiKey = import.meta.env.VITE_API_KEY;
 const imageUrl = import.meta.env.VITE_IMG;
 
 type CreditsComponentProps = {
-  id?: string;
   isMovieOrTv: 'tv' | 'movie';
+  credits: CreditsProps;
 };
 
-const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
-  const { data } = useFetch<CreditsProps>(
-    `${moviesUrl}/${isMovieOrTv}/${id}/credits?${apiKey}&language=pt-BR`,
-  );
-
+const Credits = ({ isMovieOrTv, credits }: CreditsComponentProps) => {
   return (
     <div className="card-cast-crew">
-      {data?.cast.length !== 0 && (
+      {credits?.cast.length !== 0 && (
         <>
           <h2>Elenco: </h2>
           <div className="wrapper-cards">
-            {data?.cast.map((cast, index) => (
+            {credits?.cast.map((cast, index) => (
               <Link to={`/person-${isMovieOrTv}/${cast.id}`} key={index}>
                 <figure className="card">
                   <img
@@ -44,11 +37,11 @@ const Credits = ({ id, isMovieOrTv }: CreditsComponentProps) => {
           </div>
         </>
       )}
-      {data?.crew.length !== 0 && (
+      {credits?.crew.length !== 0 && (
         <>
           <h2>Equipe: </h2>
           <div className="wrapper-cards">
-            {data?.crew.map((crew, index) => (
+            {credits?.crew.map((crew, index) => (
               <Link to={`/person-${isMovieOrTv}/${crew.id}`} key={index}>
                 <figure className="card" key={index}>
                   <img
