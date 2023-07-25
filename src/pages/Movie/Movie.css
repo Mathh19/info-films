@@ -43,7 +43,7 @@
   font-size: 1rem;
 }
 
-.infos div :first-child{
+.movie-page .infos div :first-child{
   margin-bottom: 6px;
 }
 
