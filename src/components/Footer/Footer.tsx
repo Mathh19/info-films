@@ -1,5 +1,5 @@
 import './Footer.css';
-import { BsGithub, BsTwitter } from 'react-icons/bs';
+import { BsGithub, BsTwitterX } from 'react-icons/bs';
 
 const Footer = () => {
   return (
@@ -20,7 +20,7 @@ const Footer = () => {
           rel="noreferrer"
           aria-label="Direciona você para o perfil do twitter do desenvolvedor da página"
         >
-          <BsTwitter />
+          <BsTwitterX />
           <p>Twitter</p>
         </a>
       </div>
