@@ -1,18 +1,11 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
-import GoTop from './components/GoTop/GoTop';
-import Navbar from './components/Navbar/Navbar';
+import { Footer } from "./components/layout/footer";
+import { Header } from "./components/layout/header";
 
-const App = () => {
+export function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <GoTop />
-      <Outlet />
+    <div>
+      <Header />
       <Footer />
     </div>
   );
-};
-
-export default App;
+}
