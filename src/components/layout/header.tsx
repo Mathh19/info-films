@@ -1,9 +1,12 @@
 import { Search } from "lucide-react";
+import { Sidebar } from "./sidebar";
 
 export const Header = () => {
   return (
-    <header className="border-border-color flex justify-end border-b p-4">
-      <form className="outline-border-color flex w-full max-w-80 items-center gap-4 rounded-full bg-[#21242D] px-4 py-2 outline outline-0 focus-within:outline-1 hover:outline-1">
+    <header className="flex items-center justify-between gap-4 border-b border-border-color p-4">
+      <Sidebar />
+
+      <form className="bg-background-secondary flex w-full max-w-80 items-center gap-4 rounded-full px-4 py-2 outline outline-0 outline-border-color focus-within:outline-1 hover:outline-1">
         <button>
           <Search />
         </button>
