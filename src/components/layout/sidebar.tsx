@@ -8,7 +8,7 @@ export const Sidebar = () => {
     <div>
       <h1
         onClick={() => setOpen(true)}
-        className="font-bebas cursor-pointer text-4xl"
+        className="cursor-pointer font-bebas text-4xl"
       >
         InfoFilms
       </h1>
@@ -24,7 +24,7 @@ export const Sidebar = () => {
         </h1>
 
         <form className="mt-8 flex flex-col">
-          <InputRadio text="Movies" name="type-media" id="type-movie" />
+          <InputRadio text="Filmes" name="type-media" id="type-movie" />
           <InputRadio text="TV" name="type-media" id="type-tv" />
         </form>
       </aside>
