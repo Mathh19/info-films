@@ -11,6 +11,7 @@ export default {
       },
       fontFamily: {
         bebas: ["Bebas Neue", "sans-serif"],
+        body: ["Lato", "sans-serif"],
       },
     },
   },
