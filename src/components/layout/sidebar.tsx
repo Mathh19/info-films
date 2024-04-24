@@ -1,27 +1,22 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { SidebarContext } from "../../contexts/sidebar-context";
 import { InputRadio } from "../input-radio";
 
 export const Sidebar = () => {
-  const [open, setOpen] = useState(false);
+  const { isOpen, setIsOpen } = useContext(SidebarContext);
 
   return (
     <div>
-      <h1
-        onClick={() => setOpen(true)}
-        className="cursor-pointer font-bebas text-4xl"
-      >
-        InfoFilms
-      </h1>
-
       <aside
-        className={`fixed left-0 top-0 z-10 h-screen border-r border-border-color bg-background px-6 py-4 transition-all duration-300 max-sm:-translate-x-full ${open && "max-sm:-translate-x-0"}`}
+        data-isOpen={isOpen}
+        className="fixed left-0 z-10 h-screen w-52 border-r border-border-color bg-background px-6 py-4 shadow-lg shadow-black transition-all duration-300 max-sm:-translate-x-full max-sm:data-[isOpen='true']:translate-x-0"
       >
-        <h1
-          onClick={() => setOpen(false)}
-          className="font-bebas text-4xl max-sm:cursor-pointer"
+        <button
+          onClick={setIsOpen}
+          className="font-bebas text-4xl max-sm:cursor-pointer sm:pointer-events-none"
         >
           InfoFilms
-        </h1>
+        </button>
 
         <form className="mt-8 flex flex-col">
           <InputRadio text="Filmes" name="type-media" id="type-movie" />
