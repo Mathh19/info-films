@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  :root {
+    --color-scrollbar-primary: #22d3ee;
+    --color-scrollbar-secondary: transparent;
+  }
+
+  * {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-scrollbar-primary) var(--color-scrollbar-secondary);
+  }
+}
