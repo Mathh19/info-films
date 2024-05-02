@@ -13,6 +13,9 @@ export default {
         bebas: ["Bebas Neue", "sans-serif"],
         body: ["Lato", "sans-serif"],
       },
+      brightness: {
+        65: 0.65,
+      },
     },
   },
   plugins: [],

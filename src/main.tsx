@@ -4,8 +4,9 @@ import "./index.css";
 import { App } from "./app";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ErrorPage } from "./pages/error-page";
-import { Home } from "./pages/home";
+import { Home } from "./pages/home/home";
 import { SidebarProvider } from "./contexts/sidebar-context";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -21,10 +22,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <SidebarProvider>
-      <RouterProvider router={router} />
-    </SidebarProvider>
+    <QueryClientProvider client={queryClient}>
+      <SidebarProvider>
+        <RouterProvider router={router} />
+      </SidebarProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 );
