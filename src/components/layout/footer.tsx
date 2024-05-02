@@ -2,7 +2,7 @@ import { Github } from "lucide-react";
 
 export const Footer = () => {
   return (
-    <footer className="fixed bottom-0 flex w-full justify-end border-t border-border-color p-4">
+    <footer className="flex w-full justify-end border-t border-border-color bg-background p-4">
       <a
         href="https://github.com/Mathh19/info-films"
         target="_blank"

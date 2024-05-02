@@ -9,7 +9,7 @@ export const Sidebar = () => {
     <div>
       <aside
         data-open={isOpen}
-        className="fixed left-0 z-10 h-screen w-52 border-r border-border-color bg-background px-6 py-4 shadow-lg shadow-black transition-all duration-300 max-sm:-translate-x-full max-sm:data-[open='true']:translate-x-0"
+        className="fixed left-0 z-50 h-svh w-52 border-r border-border-color bg-background px-6 py-4 shadow-lg shadow-black transition-all duration-300 max-sm:-translate-x-full max-sm:data-[open='true']:translate-x-0"
       >
         <button
           onClick={setIsOpen}
