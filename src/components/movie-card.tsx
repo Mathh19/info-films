@@ -1,3 +1,4 @@
+import { useSearchParams } from "react-router-dom";
 import { Rating } from "./UI/rating";
 
 type MovieCardProps = {
@@ -16,10 +17,12 @@ export const MovieCard = ({
   vote_count,
 }: MovieCardProps) => {
   const urlImg = import.meta.env.VITE_IMG;
+  const [mediaTypeParams] = useSearchParams();
+  const mediaType = mediaTypeParams.get("media_type") ?? "movie";
 
   return (
     <div className="group max-w-60 shrink-0">
-      <a href={`/${id}`} title={title}>
+      <a href={`/${mediaType}/${id}`} title={title}>
         <div>
           <img
             draggable="false"

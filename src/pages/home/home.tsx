@@ -3,56 +3,73 @@ import { Slider } from "./components/slider";
 import { Movie, TV } from "../../shared-types/media";
 import { useQuery } from "@tanstack/react-query";
 import { getData } from "../../services/getData";
+import { useSearchParams } from "react-router-dom";
+import { TrendSelector } from "../../components/trend-selector";
+import { getImages } from "../../utils/get-images";
+
+type MediaData = Movie[] | TV[];
 
 export const Home = () => {
-  const { data: trendingMoviesData, isPending: trendingPending } = useQuery({
-    queryKey: ["trendingDay_movie"],
-    queryFn: () => getData<Movie[] | TV[]>("/trending/movie/day"),
+  const [mediaTypeParams] = useSearchParams();
+  const mediaType = mediaTypeParams.get("media_type") ?? "movie";
+  const [trendingParams] = useSearchParams();
+  const trendingParam = trendingParams.get("trending") ?? "day";
+
+  const {
+    data: trendingMoviesData,
+    isPending: trendingPending,
+    isError: trendingError,
+  } = useQuery({
+    queryKey: ["trending", mediaType, trendingParam],
+    queryFn: () =>
+      getData<MediaData>(`/trending/${mediaType}/${trendingParam}`),
   });
-  const { data: popularMoviesData, isPending: popularPending } = useQuery({
-    queryKey: ["popular_movie"],
-    queryFn: () => getData<Movie[] | TV[]>("/movie/popular"),
+  const {
+    data: popularMoviesData,
+    isPending: popularPending,
+    isError: popularError,
+  } = useQuery({
+    queryKey: ["popular", mediaType],
+    queryFn: () => getData<MediaData>(`/${mediaType}/popular`),
   });
-  const { data: topRatedMoviesData, isPending: topRatedPending } = useQuery({
-    queryKey: ["top_rated_movie"],
-    queryFn: () => getData<Movie[] | TV[]>("/movie/top_rated"),
-  });
-  const { data: upcomingMoviesData, isPending: upcomingPending } = useQuery({
-    queryKey: ["upcoming"],
-    queryFn: () => getData<Movie[]>("/movie/upcoming"),
+  const {
+    data: topRatedMoviesData,
+    isPending: topRatedPending,
+    isError: topRatedError,
+  } = useQuery({
+    queryKey: ["top_rated", mediaType],
+    queryFn: () => getData<MediaData>(`/${mediaType}/top_rated`),
   });
 
-  const isPending =
-    trendingPending || popularPending || topRatedPending || upcomingPending;
+  const isPending = trendingPending || popularPending || topRatedPending;
+  const isError = trendingError || popularError || topRatedError;
 
-  const images = trendingMoviesData
-    ? trendingMoviesData.results
-        .map((movie) => ({
-          id: movie.id,
-          title: "title" in movie ? movie.title : movie.name,
-          backdrop_url: movie.backdrop_path,
-          alt: `filme do ${"title" in movie ? movie.title : movie.name}`,
-        }))
-        .slice(0, 4)
-    : [];
+  const trendingImages = getImages(trendingMoviesData);
 
   return (
     <div>
-      <Slider images={images} />
+      <Slider images={trendingImages} />
 
       {isPending && <p>loading...</p>}
+      {isError && <p>Ocorreu um erro ao carregar os dados.</p>}
 
-      {!isPending && (
+      {!isPending && !isError && (
         <div className="space-y-8 p-11">
-          <Section title="Tendências" movies={trendingMoviesData?.results} />
-          <Section title="Novidades" movies={upcomingMoviesData?.results} />
+          <Section
+            title="Tendências"
+            movies={trendingMoviesData?.results}
+            controlContent={<TrendSelector />}
+            link="trending"
+          />
           <Section
             title="Os Mais Populares"
             movies={popularMoviesData?.results}
+            link="popular"
           />
           <Section
             title="Melhor Avaliados"
             movies={topRatedMoviesData?.results}
+            link="top_rated"
           />
         </div>
       )}

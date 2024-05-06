@@ -1,9 +1,21 @@
 import { useContext } from "react";
 import { SidebarContext } from "../../contexts/sidebar-context";
-import { InputRadio } from "../input-radio";
+import { useSearchParams } from "react-router-dom";
+
+type MediaType = "movie" | "tv";
 
 export const Sidebar = () => {
   const { isOpen, setIsOpen } = useContext(SidebarContext);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const mediaType = searchParams.get("media_type") ?? "movie";
+
+  const handleSelectMediaType = (mediaType: MediaType) => {
+    setSearchParams((state) => {
+      state.set("media_type", mediaType);
+
+      return state;
+    });
+  };
 
   return (
     <div>
@@ -18,10 +30,22 @@ export const Sidebar = () => {
           InfoFilms
         </button>
 
-        <form className="mt-8 flex flex-col">
-          <InputRadio text="Filmes" name="type-media" id="type-movie" />
-          <InputRadio text="TV" name="type-media" id="type-tv" />
-        </form>
+        <div className="mt-8 flex flex-col">
+          <button
+            onClick={() => handleSelectMediaType("movie")}
+            data-media={mediaType}
+            className="w-full rounded px-2 py-1 text-start text-lg font-bold hover:bg-background-secondary/70 hover:drop-shadow data-[media='movie']:bg-background-secondary"
+          >
+            Filmes
+          </button>
+          <button
+            onClick={() => handleSelectMediaType("tv")}
+            data-media={mediaType}
+            className="w-full rounded px-2 py-1 text-start text-lg font-bold hover:bg-background-secondary/70 hover:drop-shadow data-[media='tv']:bg-background-secondary"
+          >
+            Séries
+          </button>
+        </div>
       </aside>
     </div>
   );
