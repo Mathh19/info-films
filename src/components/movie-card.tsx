@@ -21,7 +21,7 @@ export const MovieCard = ({
   const mediaType = mediaTypeParams.get("media_type") ?? "movie";
 
   return (
-    <div className="group max-w-60 shrink-0">
+    <div className="group w-full max-w-60">
       <a href={`/${mediaType}/${id}`} title={title}>
         <div>
           <img

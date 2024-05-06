@@ -38,14 +38,15 @@ export const Section = ({
 
       <ContainerMovies>
         {movies?.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            id={movie.id}
-            image={movie.poster_path}
-            title={"title" in movie ? movie.title : movie.name}
-            vote_average={movie.vote_average}
-            vote_count={movie.vote_count}
-          />
+          <div key={movie.id} className="shrink-0">
+            <MovieCard
+              id={movie.id}
+              image={movie.poster_path}
+              title={"title" in movie ? movie.title : movie.name}
+              vote_average={movie.vote_average}
+              vote_count={movie.vote_count}
+            />
+          </div>
         ))}
       </ContainerMovies>
     </div>
