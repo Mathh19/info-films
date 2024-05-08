@@ -14,6 +14,7 @@ export const Header = ({ title, className, children }: HeaderProps) => {
   const removeParam = () => {
     const searchParams = new URLSearchParams(search);
     searchParams.delete("page");
+    searchParams.delete("q");
     return searchParams.toString();
   };
 
@@ -22,11 +23,11 @@ export const Header = ({ title, className, children }: HeaderProps) => {
       <Link
         to={{ pathname: "/", search: removeParam() }}
         aria-label="voltar para página inicial"
-        className="text-4xl font-bold"
+        className="rounded-full p-1.5 transition-all hover:bg-background-secondary"
       >
-        <ArrowLeft className="mr-2 inline-block" />
-        {title}
+        <ArrowLeft />
       </Link>
+      <h2 className="text-4xl">{title}</h2>
       {children}
     </div>
   );

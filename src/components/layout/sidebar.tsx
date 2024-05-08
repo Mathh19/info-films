@@ -11,6 +11,7 @@ export const Sidebar = () => {
 
   const handleSelectMediaType = (mediaType: MediaType) => {
     setSearchParams((state) => {
+      state.delete("page");
       state.set("media_type", mediaType);
 
       return state;

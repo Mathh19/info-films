@@ -1,7 +1,7 @@
 import { Pagination, PaginationItem } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ChangeEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { ChangeEvent, useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 type PaginationContentProps = {
   totalPages: number;
@@ -12,6 +12,7 @@ export const PaginationContent = ({
   totalPages,
   isPlaceholderData,
 }: PaginationContentProps) => {
+  const { search } = useLocation();
   const [pageParams, setPageParams] = useSearchParams();
   const pageParam = pageParams.get("page") ?? "1";
   const maxPages = totalPages > 40 ? 40 : totalPages;
@@ -25,6 +26,13 @@ export const PaginationContent = ({
       });
     }
   };
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [search]);
 
   return (
     <Pagination

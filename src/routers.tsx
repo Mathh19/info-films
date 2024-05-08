@@ -5,6 +5,7 @@ import { Trending } from "./pages/all/trending";
 import { Popular } from "./pages/all/popular";
 import { TopRated } from "./pages/all/top-rated";
 import { RouteObject } from "react-router-dom";
+import { Search } from "./pages/search";
 
 export const routers = [
   {
@@ -15,6 +16,10 @@ export const routers = [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "search",
+        element: <Search />,
       },
       {
         path: "all",
