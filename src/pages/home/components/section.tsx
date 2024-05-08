@@ -1,13 +1,14 @@
+import { Link, useLocation } from "react-router-dom";
 import { ContainerMovies } from "../../../components/container-movies";
 import { MovieCard } from "../../../components/movie-card";
-import { Movie, TV } from "../../../shared-types/media";
+import { MovieAndTV } from "../../../shared-types/media";
 import { ChevronRight } from "lucide-react";
 
 type SectionProps = {
   title: string;
   controlContent?: React.ReactElement;
   link: string;
-  movies?: Movie[] | TV[];
+  movies?: MovieAndTV[];
 };
 
 export const Section = ({
@@ -16,6 +17,8 @@ export const Section = ({
   movies,
   link,
 }: SectionProps) => {
+  const { search } = useLocation();
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between gap-4">
@@ -24,8 +27,8 @@ export const Section = ({
           <div>{controlContent}</div>
         </div>
 
-        <a
-          href={`/all/${link}`}
+        <Link
+          to={{ pathname: `/all/${link}`, search }}
           className="group whitespace-nowrap text-[#64748B]"
         >
           ver tudo
@@ -33,7 +36,7 @@ export const Section = ({
             size={15}
             className="inline-block transition-all duration-200 group-hover:translate-x-[2px]"
           />
-        </a>
+        </Link>
       </div>
 
       <ContainerMovies>

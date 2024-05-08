@@ -28,7 +28,7 @@ export const MovieCard = ({
           <img
             draggable="false"
             src={cardImage}
-            alt={title}
+            alt={`Filme ${title}`}
             width={240}
             height={300}
             data-image={image === null}

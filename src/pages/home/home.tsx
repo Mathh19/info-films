@@ -23,6 +23,7 @@ export const Home = () => {
     queryKey: ["trending", mediaType, trendingParam],
     queryFn: () =>
       getData<MediaData>(`/trending/${mediaType}/${trendingParam}`),
+    staleTime: 10000,
   });
   const {
     data: popularMoviesData,
@@ -31,6 +32,7 @@ export const Home = () => {
   } = useQuery({
     queryKey: ["popular", mediaType],
     queryFn: () => getData<MediaData>(`/${mediaType}/popular`),
+    staleTime: 10000,
   });
   const {
     data: topRatedMoviesData,
@@ -39,6 +41,7 @@ export const Home = () => {
   } = useQuery({
     queryKey: ["top_rated", mediaType],
     queryFn: () => getData<MediaData>(`/${mediaType}/top_rated`),
+    staleTime: 10000,
   });
 
   const isPending = trendingPending || popularPending || topRatedPending;
@@ -67,9 +70,9 @@ export const Home = () => {
             link="popular"
           />
           <Section
-            title="Melhor Avaliados"
+            title="Mais bem avaliados"
             movies={topRatedMoviesData?.results}
-            link="top_rated"
+            link="top-rated"
           />
         </div>
       )}

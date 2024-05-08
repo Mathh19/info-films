@@ -21,3 +21,5 @@ export type TV = {
   first_air_date: string;
   origin_country: string[];
 } & Omit<Movie, 'original_title' | 'title' | 'release_date' | 'video'>
+
+export type MovieAndTV = Movie | TV;
