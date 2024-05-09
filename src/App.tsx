@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Footer } from "./components/layout/footer";
 import { Header } from "./components/layout/header";
 import { Sidebar } from "./components/layout/sidebar";
+import { ScrollToTop } from "./components/UI/scroll-to-top";
 
 export function App() {
   return (
@@ -12,6 +13,7 @@ export function App() {
         <Outlet />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
