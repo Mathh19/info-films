@@ -29,6 +29,7 @@ export const Header = () => {
     <header className="flex w-full items-center justify-end gap-4 border-b border-border-color p-4 max-sm:justify-between">
       <button
         onClick={setIsOpen}
+        aria-label="abrir barra de menu lateral"
         className="rounded bg-background-secondary px-1.5 py-1 sm:hidden"
       >
         <Menu />

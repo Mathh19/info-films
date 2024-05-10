@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { cn } from "../../utils/cn";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useUrlParams } from "../../hooks/useUrlParams";
 
 type HeaderProps = {
   title: string;
@@ -9,18 +10,12 @@ type HeaderProps = {
 };
 
 export const Header = ({ title, className, children }: HeaderProps) => {
-  const [searchParams] = useSearchParams();
-
-  const removeParam = () => {
-    searchParams.delete("page");
-    searchParams.delete("q");
-    return searchParams.toString();
-  };
+  const { filterParams } = useUrlParams();
 
   return (
     <div className={cn("flex flex-wrap items-center gap-4", className)}>
       <Link
-        to={{ pathname: "/", search: removeParam() }}
+        to={{ pathname: "/", search: filterParams(["page", "q"]) }}
         aria-label="voltar para página inicial"
         className="rounded-full p-1.5 transition-all hover:bg-background-secondary"
       >

@@ -15,11 +15,7 @@ export const PaginationContent = ({
   const { page, setPageParams } = usePagination(totalPages);
   const handleChange = (_event: ChangeEvent<unknown>, value: number) => {
     if (!isPlaceholderData) {
-      setPageParams((state) => {
-        state.set("page", value.toString());
-
-        return state;
-      });
+      setPageParams(value.toString());
     }
   };
 

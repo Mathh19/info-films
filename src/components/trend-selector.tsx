@@ -1,19 +1,13 @@
-import { ChangeEvent, useCallback } from "react";
-import { useSearchParams } from "react-router-dom";
+import { ChangeEvent } from "react";
+import { useUrlParams } from "../hooks/useUrlParams";
 
 export const TrendSelector = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const { searchParams, setParams } = useUrlParams();
   const trendingParam = searchParams.get("trending") ?? "day";
 
-  const handleChangeControll = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      setSearchParams((state) => {
-        state.set("trending", e.target.value);
-        return state;
-      });
-    },
-    [setSearchParams],
-  );
+  const handleChangeControll = (e: ChangeEvent<HTMLInputElement>) => {
+    setParams("trending", e.target.value);
+  };
 
   return (
     <div className="flex flex-nowrap overflow-hidden rounded-full border border-cyan-400">
