@@ -5,20 +5,20 @@ import { MovieAndTV } from "../../shared-types/media";
 import { MovieCard } from "../../components/movie-card";
 import { TemplatePage } from "../../components/template-page";
 import { TrendSelector } from "../../components/trend-selector";
+import { usePagination } from "../../hooks/usePagination";
 
 export const Trending = () => {
   const [mediaTypeParams] = useSearchParams();
   const mediaType = mediaTypeParams.get("media_type") ?? "movie";
   const [trendingParams] = useSearchParams();
   const trendingParam = trendingParams.get("trending") ?? "day";
-  const [pageParams] = useSearchParams();
-  const pageParam = pageParams.get("page") ?? "1";
+  const { page } = usePagination();
 
   const { data: trendingMoviesData, isPlaceholderData } = useQuery({
-    queryKey: ["trending", mediaType, trendingParam, pageParam],
+    queryKey: ["trending", mediaType, trendingParam, page],
     queryFn: () =>
       getData<MovieAndTV[]>(
-        `/trending/${mediaType}/${trendingParam}?page=${pageParam}`,
+        `/trending/${mediaType}/${trendingParam}?page=${page}`,
       ),
     staleTime: 10000,
     placeholderData: keepPreviousData,

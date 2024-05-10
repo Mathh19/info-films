@@ -4,17 +4,17 @@ import { getData } from "../../services/getData";
 import { MovieAndTV } from "../../shared-types/media";
 import { useSearchParams } from "react-router-dom";
 import { MovieCard } from "../../components/movie-card";
+import { usePagination } from "../../hooks/usePagination";
 
 export const TopRated = () => {
   const [mediaTypeParams] = useSearchParams();
   const mediaType = mediaTypeParams.get("media_type") ?? "movie";
-  const [pageParams] = useSearchParams();
-  const pageParam = pageParams.get("page") ?? "1";
+  const { page } = usePagination();
 
   const { data: topRatedMoviesData, isPlaceholderData } = useQuery({
-    queryKey: ["top_rated", mediaType, pageParam],
+    queryKey: ["top_rated", mediaType, page],
     queryFn: () =>
-      getData<MovieAndTV[]>(`/${mediaType}/top_rated?page=${pageParam}`),
+      getData<MovieAndTV[]>(`/${mediaType}/top_rated?page=${page}`),
     staleTime: 10000,
     placeholderData: keepPreviousData,
   });

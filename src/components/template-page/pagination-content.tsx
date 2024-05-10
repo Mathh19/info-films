@@ -1,7 +1,7 @@
 import { Pagination, PaginationItem } from "@mui/material";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ChangeEvent } from "react";
-import { useSearchParams } from "react-router-dom";
+import { usePagination } from "../../hooks/usePagination";
 
 type PaginationContentProps = {
   totalPages: number;
@@ -12,10 +12,7 @@ export const PaginationContent = ({
   totalPages,
   isPlaceholderData,
 }: PaginationContentProps) => {
-  const [pageParams, setPageParams] = useSearchParams();
-  const pageParam = pageParams.get("page") ?? "1";
-  const maxPages = totalPages > 40 ? 40 : totalPages;
-
+  const { page, setPageParams } = usePagination(totalPages);
   const handleChange = (_event: ChangeEvent<unknown>, value: number) => {
     if (!isPlaceholderData) {
       setPageParams((state) => {
@@ -28,8 +25,8 @@ export const PaginationContent = ({
 
   return (
     <Pagination
-      count={maxPages}
-      page={Number(pageParam)}
+      count={totalPages}
+      page={Number(page)}
       className="flex items-center justify-center"
       variant="outlined"
       disabled={isPlaceholderData}

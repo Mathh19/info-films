@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { cn } from "../../utils/cn";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 type HeaderProps = {
   title: string;
@@ -9,10 +9,9 @@ type HeaderProps = {
 };
 
 export const Header = ({ title, className, children }: HeaderProps) => {
-  const { search } = useLocation();
+  const [searchParams] = useSearchParams();
 
   const removeParam = () => {
-    const searchParams = new URLSearchParams(search);
     searchParams.delete("page");
     searchParams.delete("q");
     return searchParams.toString();

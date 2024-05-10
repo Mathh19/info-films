@@ -4,17 +4,16 @@ import { getData } from "../../services/getData";
 import { MovieAndTV } from "../../shared-types/media";
 import { useSearchParams } from "react-router-dom";
 import { MovieCard } from "../../components/movie-card";
+import { usePagination } from "../../hooks/usePagination";
 
 export const Popular = () => {
   const [mediaTypeParams] = useSearchParams();
   const mediaType = mediaTypeParams.get("media_type") ?? "movie";
-  const [pageParams] = useSearchParams();
-  const pageParam = pageParams.get("page") ?? "1";
+  const { page } = usePagination();
 
   const { data: popularMoviesData, isPlaceholderData } = useQuery({
-    queryKey: ["popular", mediaType, pageParam],
-    queryFn: () =>
-      getData<MovieAndTV[]>(`/${mediaType}/popular?page=${pageParam}`),
+    queryKey: ["popular", mediaType, page],
+    queryFn: () => getData<MovieAndTV[]>(`/${mediaType}/popular?page=${page}`),
     staleTime: 10000,
     placeholderData: keepPreviousData,
   });
