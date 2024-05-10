@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { TemplatePage } from "../components/template-page";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { MovieAndTV } from "../shared-types/media";
-import { getData } from "../services/getData";
+import { getMoviesData } from "../services/get-data";
 import { MovieCard } from "../components/movie-card";
 
 export const Search = () => {
@@ -16,7 +16,7 @@ export const Search = () => {
   const { data: searchMoviesData, isPlaceholderData } = useQuery({
     queryKey: ["popular", mediaType, pageParam, query],
     queryFn: () =>
-      getData<MovieAndTV[]>(
+      getMoviesData<MovieAndTV[]>(
         `/search/${mediaType}?query=${query}&page=${pageParam}&include_adult=false`,
       ),
     staleTime: 10000,

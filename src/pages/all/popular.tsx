@@ -1,6 +1,6 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { TemplatePage } from "../../components/template-page";
-import { getData } from "../../services/getData";
+import { getMoviesData } from "../../services/get-data";
 import { MovieAndTV } from "../../shared-types/media";
 import { useSearchParams } from "react-router-dom";
 import { MovieCard } from "../../components/movie-card";
@@ -13,7 +13,8 @@ export const Popular = () => {
 
   const { data: popularMoviesData, isPlaceholderData } = useQuery({
     queryKey: ["popular", mediaType, page],
-    queryFn: () => getData<MovieAndTV[]>(`/${mediaType}/popular?page=${page}`),
+    queryFn: () =>
+      getMoviesData<MovieAndTV[]>(`/${mediaType}/popular?page=${page}`),
     staleTime: 10000,
     placeholderData: keepPreviousData,
   });

@@ -2,7 +2,7 @@ import { Section } from "./components/section";
 import { Slider } from "./components/slider";
 import { Movie, TV } from "../../shared-types/media";
 import { useQuery } from "@tanstack/react-query";
-import { getData } from "../../services/getData";
+import { getMoviesData } from "../../services/get-data";
 import { useSearchParams } from "react-router-dom";
 import { TrendSelector } from "../../components/trend-selector";
 import { getImages } from "../../utils/get-images";
@@ -22,7 +22,7 @@ export const Home = () => {
   } = useQuery({
     queryKey: ["trending", mediaType, trendingParam],
     queryFn: () =>
-      getData<MediaData>(`/trending/${mediaType}/${trendingParam}`),
+      getMoviesData<MediaData>(`/trending/${mediaType}/${trendingParam}`),
     staleTime: 10000,
   });
   const {
@@ -31,7 +31,7 @@ export const Home = () => {
     isError: popularError,
   } = useQuery({
     queryKey: ["popular", mediaType],
-    queryFn: () => getData<MediaData>(`/${mediaType}/popular`),
+    queryFn: () => getMoviesData<MediaData>(`/${mediaType}/popular`),
     staleTime: 10000,
   });
   const {
@@ -40,7 +40,7 @@ export const Home = () => {
     isError: topRatedError,
   } = useQuery({
     queryKey: ["top_rated", mediaType],
-    queryFn: () => getData<MediaData>(`/${mediaType}/top_rated`),
+    queryFn: () => getMoviesData<MediaData>(`/${mediaType}/top_rated`),
     staleTime: 10000,
   });
 

@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { getData } from "../../services/getData";
+import { getMoviesData } from "../../services/get-data";
 import { MovieAndTV } from "../../shared-types/media";
 import { MovieCard } from "../../components/movie-card";
 import { TemplatePage } from "../../components/template-page";
@@ -17,7 +17,7 @@ export const Trending = () => {
   const { data: trendingMoviesData, isPlaceholderData } = useQuery({
     queryKey: ["trending", mediaType, trendingParam, page],
     queryFn: () =>
-      getData<MovieAndTV[]>(
+      getMoviesData<MovieAndTV[]>(
         `/trending/${mediaType}/${trendingParam}?page=${page}`,
       ),
     staleTime: 10000,
