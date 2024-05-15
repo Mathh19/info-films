@@ -1,5 +1,7 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { useUrlParams } from "../../../hooks/useUrlParams";
+import { Link } from "react-router-dom";
 
 const urlImg = import.meta.env.VITE_ORIGINAL_SIZE_IMG;
 
@@ -13,6 +15,8 @@ type SliderProps = {
 };
 
 export const Slider = ({ images }: SliderProps) => {
+  const { searchParams } = useUrlParams();
+  const movieParams = searchParams.get("media_type") ?? "movie";
   const [imageIndex, setImageIndex] = useState(0);
 
   const nextImage = () => {
@@ -33,12 +37,12 @@ export const Slider = ({ images }: SliderProps) => {
 
   return (
     <div className="relative m-auto max-h-[500px] w-full max-w-6xl">
-      <a
-        href={`/${images[imageIndex].id}`}
+      <Link
+        to={`/${movieParams}/${images[imageIndex].id}`}
         className="absolute z-10 ml-4 mt-4 text-4xl font-extrabold text-white drop-shadow-md max-sm:text-3xl"
       >
         {images[imageIndex].title}
-      </a>
+      </Link>
 
       <div className="flex overflow-hidden">
         {images.map((image) => (
