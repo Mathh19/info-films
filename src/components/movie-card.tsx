@@ -1,5 +1,8 @@
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Rating } from "./UI/rating";
+import { useUrlParams } from "../hooks/useUrlParams";
+
+const urlImg = import.meta.env.VITE_IMG;
 
 type MovieCardProps = {
   id: number;
@@ -16,14 +19,20 @@ export const MovieCard = ({
   vote_average,
   vote_count,
 }: MovieCardProps) => {
-  const urlImg = import.meta.env.VITE_IMG;
+  const { filterParams } = useUrlParams();
   const [mediaTypeParams] = useSearchParams();
   const mediaType = mediaTypeParams.get("media_type") ?? "movie";
   const cardImage = image ? `${urlImg}/${image}` : "/no-image.png";
 
   return (
     <div className="group w-full max-w-60">
-      <a href={`/${mediaType}/${id}`} title={title}>
+      <Link
+        to={{
+          pathname: `/${mediaType}/${id}`,
+          search: filterParams(["trending"]),
+        }}
+        title={title}
+      >
         <div>
           <img
             draggable="false"
@@ -39,7 +48,7 @@ export const MovieCard = ({
             {title}
           </p>
         </div>
-      </a>
+      </Link>
       <Rating vote_average={vote_average} vote_count={vote_count} />
     </div>
   );
