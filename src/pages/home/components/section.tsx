@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { ContainerMovies } from "../../../components/container-movies";
 import { MovieCard } from "../../../components/movie-card";
 import { MovieAndTV } from "../../../shared-types/media";
 import { ChevronRight } from "lucide-react";
+import { Container } from "../../../components/container";
 
 type SectionProps = {
   title: string;
@@ -39,7 +39,7 @@ export const Section = ({
         </Link>
       </div>
 
-      <ContainerMovies>
+      <Container>
         {movies?.map((movie) => (
           <div key={movie.id} className="shrink-0">
             <MovieCard
@@ -51,7 +51,7 @@ export const Section = ({
             />
           </div>
         ))}
-      </ContainerMovies>
+      </Container>
     </div>
   );
 };
