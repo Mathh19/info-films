@@ -15,7 +15,7 @@ type SliderProps = {
 };
 
 export const Slider = ({ images }: SliderProps) => {
-  const { searchParams } = useUrlParams();
+  const { searchParams, filterParams } = useUrlParams();
   const movieParams = searchParams.get("media_type") ?? "movie";
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -38,7 +38,10 @@ export const Slider = ({ images }: SliderProps) => {
   return (
     <div className="relative m-auto max-h-[500px] w-full max-w-6xl">
       <Link
-        to={`/${movieParams}/${images[imageIndex].id}`}
+        to={{
+          pathname: `/${movieParams}/${images[imageIndex].id}`,
+          search: filterParams(["trending"]),
+        }}
         className="absolute z-10 ml-4 mt-4 text-4xl font-extrabold text-white drop-shadow-md max-sm:text-3xl"
       >
         {images[imageIndex].title}
@@ -53,7 +56,7 @@ export const Slider = ({ images }: SliderProps) => {
             style={{
               translate: `${-100 * imageIndex}%`,
             }}
-            className="relative size-full max-h-[500px] max-w-6xl flex-shrink-0 flex-grow-0 object-cover brightness-90 transition-all duration-[400ms] ease-in-out"
+            className="relative size-full max-h-[500px] max-w-6xl flex-shrink-0 flex-grow-0 object-cover opacity-75 transition-all duration-[400ms] ease-in-out"
           />
         ))}
       </div>
