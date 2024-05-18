@@ -3,7 +3,7 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { getMoviesData } from "../../services/get-data";
 import { MovieAndTV } from "../../shared-types/media";
 import { MovieCard } from "../../components/movie-card";
-import { TemplatePage } from "../../components/template-page";
+import { TemplatePage } from "../../templates/template-page";
 import { TrendSelector } from "../../components/trend-selector";
 import { usePagination } from "../../hooks/usePagination";
 
