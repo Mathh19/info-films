@@ -2,17 +2,20 @@ export type Movie = {
   backdrop_path: string;
   id: number;
   original_title: string;
+  tagline: string;
   overview: string;
   poster_path: string;
   adult: boolean;
   title: string;
   original_language: string;
   genre_ids: number[];
+  genres: { id: number; name: string }[];
   popularity: number;
   release_date: string;
   video: boolean;
   vote_average: number;
-  vote_count: number
+  vote_count: number;
+  runtime: number;
 }
 
 export type TV = {
@@ -20,6 +23,6 @@ export type TV = {
   name: string;
   first_air_date: string;
   origin_country: string[];
-} & Omit<Movie, 'original_title' | 'title' | 'release_date' | 'video'>
+} & Omit<Movie, 'original_title' | 'title' | 'release_date' | 'video' | 'runtime'>
 
 export type MovieAndTV = Movie | TV;

@@ -6,6 +6,8 @@ import { Popular } from "./pages/all/popular";
 import { TopRated } from "./pages/all/top-rated";
 import { RouteObject } from "react-router-dom";
 import { Search } from "./pages/search";
+import { Movie } from "./pages/movie";
+import { Tv } from "./pages/tv";
 
 export const routers = [
   {
@@ -20,6 +22,14 @@ export const routers = [
       {
         path: "search",
         element: <Search />,
+      },
+      {
+        path: "movie/:id",
+        element: <Movie />,
+      },
+      {
+        path: "tv/:id",
+        element: <Tv />,
       },
       {
         path: "all",

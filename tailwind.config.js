@@ -16,6 +16,13 @@ export default {
       brightness: {
         65: 0.65,
       },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(-10px)" },
+          "100%": { opacity: "1" },
+        },
+      },
+      animation: { fadeIn: "fadeIn .8s ease-in-out" },
     },
   },
   plugins: [],
