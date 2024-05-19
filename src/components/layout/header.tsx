@@ -26,7 +26,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="flex w-full items-center justify-end gap-4 border-b border-border-color p-4 max-sm:justify-between">
+    <header className="flex w-full items-center justify-end gap-4 border-b border-border-color bg-background p-4 max-sm:justify-between">
       <button
         onClick={setIsOpen}
         aria-label="abrir barra de menu lateral"

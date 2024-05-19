@@ -7,6 +7,7 @@ export type Movie = {
   poster_path: string;
   adult: boolean;
   title: string;
+  homepage: string;
   original_language: string;
   genre_ids: number[];
   genres: { id: number; name: string }[];
@@ -23,6 +24,8 @@ export type TV = {
   name: string;
   first_air_date: string;
   origin_country: string[];
+  number_of_episodes: number;
+  number_of_seasons: number;
 } & Omit<Movie, 'original_title' | 'title' | 'release_date' | 'video' | 'runtime'>
 
 export type MovieAndTV = Movie | TV;
