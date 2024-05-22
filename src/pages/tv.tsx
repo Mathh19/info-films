@@ -3,7 +3,7 @@ import {
   getCreditsData,
   getTVData,
   getTrailerData,
-} from "../services/get-data";
+} from "../services/get-media-data";
 import { useQuery } from "@tanstack/react-query";
 import { Rating } from "../components/UI/rating";
 import { TemplateMovieInfoPage } from "../templates/template-movie-info-page";

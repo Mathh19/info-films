@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
-import { getMoviesData } from "../../services/get-data";
+import { getMoviesData } from "../../services/get-media-data";
 import { MovieAndTV } from "../../shared-types/media";
 import { MovieCard } from "../../components/movie-card";
 import { TemplatePage } from "../../templates/template-page";

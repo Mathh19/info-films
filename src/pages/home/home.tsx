@@ -2,7 +2,7 @@ import { Section } from "./components/section";
 import { Slider } from "./components/slider";
 import { Movie, TV } from "../../shared-types/media";
 import { useQuery } from "@tanstack/react-query";
-import { getMoviesData } from "../../services/get-data";
+import { getMoviesData } from "../../services/get-media-data";
 import { useSearchParams } from "react-router-dom";
 import { TrendSelector } from "../../components/trend-selector";
 import { getImages } from "../../utils/get-images";

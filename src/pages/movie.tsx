@@ -4,7 +4,7 @@ import {
   getCreditsData,
   getMovieData,
   getTrailerData,
-} from "../services/get-data";
+} from "../services/get-media-data";
 import { Rating } from "../components/UI/rating";
 import { convertMinutesToHours } from "../utils/convert-minutes-to-hours";
 import { TemplateMovieInfoPage } from "../templates/template-movie-info-page";

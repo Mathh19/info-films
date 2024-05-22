@@ -2,7 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import { TemplatePage } from "../templates/template-page";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { MovieAndTV } from "../shared-types/media";
-import { getMoviesData } from "../services/get-data";
+import { getMoviesData } from "../services/get-media-data";
 import { MovieCard } from "../components/movie-card";
 
 export const Search = () => {
