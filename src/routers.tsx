@@ -8,6 +8,7 @@ import { RouteObject } from "react-router-dom";
 import { Search } from "./pages/search";
 import { Movie } from "./pages/movie";
 import { Tv } from "./pages/tv";
+import { PersonMovie } from "./pages/person/movie";
 
 export const routers = [
   {
@@ -45,6 +46,15 @@ export const routers = [
           {
             path: "top-rated",
             element: <TopRated />,
+          },
+        ],
+      },
+      {
+        path: "person",
+        children: [
+          {
+            path: "movie/:id",
+            element: <PersonMovie />,
           },
         ],
       },
