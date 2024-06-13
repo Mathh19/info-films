@@ -1,6 +1,7 @@
 import { Person, PersonCredits } from "../shared-types/person";
 import { getAge } from "../utils/get-age";
 import { getDateDeath } from "../utils/get-date-death";
+import { NoInfoMessage } from "./UI/no-info-message";
 const urlImg = import.meta.env.VITE_IMG;
 
 type PersonInfoProps = {
@@ -35,7 +36,7 @@ export const PersonInfo = ({ person }: PersonInfoProps) => {
               )}
             </p>
           ) : (
-            <span className="italic">Sem informações.</span>
+            <NoInfoMessage />
           )}
         </div>
         {person.deathday && person.birthday && (
@@ -50,7 +51,7 @@ export const PersonInfo = ({ person }: PersonInfoProps) => {
         <div>
           <h3 className="text-xl font-bold">Local de nascimento</h3>
           {!person.place_of_birth ? (
-            <span className="italic">Sem informações.</span>
+            <NoInfoMessage />
           ) : (
             <p>{person.place_of_birth}</p>
           )}
@@ -59,7 +60,7 @@ export const PersonInfo = ({ person }: PersonInfoProps) => {
           <h3 className="text-xl font-bold">Também conhecido(a) como</h3>
           <ul>
             {person.also_known_as.length === 0 ? (
-              <span className="italic">Sem informações.</span>
+              <NoInfoMessage />
             ) : (
               person.also_known_as.map((as) => (
                 <li key={crypto.randomUUID()}>{as}</li>
