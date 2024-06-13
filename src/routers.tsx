@@ -9,6 +9,7 @@ import { Search } from "./pages/search";
 import { Movie } from "./pages/movie";
 import { Tv } from "./pages/tv";
 import { PersonMovie } from "./pages/person/movie";
+import { PersonTv } from "./pages/person/tv";
 
 export const routers = [
   {
@@ -55,6 +56,10 @@ export const routers = [
           {
             path: "movie/:id",
             element: <PersonMovie />,
+          },
+          {
+            path: "tv/:id",
+            element: <PersonTv />,
           },
         ],
       },
