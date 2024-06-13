@@ -1,10 +1,10 @@
 export type Movie = {
-  backdrop_path: string;
+  backdrop_path: string | null;
   id: number;
   original_title: string;
   tagline: string;
   overview: string;
-  poster_path: string;
+  poster_path: string | null;
   adult: boolean;
   title: string;
   homepage: string;
