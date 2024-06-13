@@ -1,6 +1,6 @@
-import { ModalContent } from './ModalContent';
-import { ModalHeader } from './ModalHeader';
-import { ModalRoot } from './ModalRoot';
+import { ModalContent } from './modal-content';
+import { ModalHeader } from './modal-header';
+import { ModalRoot } from './modal-root';
 
 export const Modal = {
   Root: ModalRoot,

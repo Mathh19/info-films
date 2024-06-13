@@ -1,6 +1,6 @@
 import { PlayCircle } from "lucide-react";
 import { useState } from "react";
-import { Modal } from "../../components/UI/Modal";
+import { Modal } from "../../components/UI/modal";
 import { TrailerResponse } from "../../shared-types/api-responses";
 
 type WatchTrailerProps = {
@@ -23,7 +23,7 @@ export const WatchTrailer = ({ trailer }: WatchTrailerProps) => {
           </button>
           <Modal.Root isOpen={open} setOpen={() => setOpen(false)}>
             <Modal.Content className="relative w-4/5 rounded-md">
-              <div className="animate-fadeIn pointer-events-none absolute bottom-3 right-3 z-10">
+              <div className="pointer-events-none absolute bottom-3 right-3 z-10 animate-fadeIn">
                 <span className="font-bebas text-5xl">InfoFilms</span>
               </div>
               ,
