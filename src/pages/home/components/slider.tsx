@@ -9,7 +9,7 @@ type SliderProps = {
   images: {
     id: number;
     title: string;
-    backdrop_url: string;
+    backdrop_url: string | null;
     alt: string;
   }[];
 };
@@ -48,17 +48,20 @@ export const Slider = ({ images }: SliderProps) => {
       </Link>
 
       <div className="flex overflow-hidden">
-        {images.map((image) => (
-          <img
-            key={image.backdrop_url}
-            src={`${urlImg}/${image.backdrop_url}`}
-            alt={image.alt}
-            style={{
-              translate: `${-100 * imageIndex}%`,
-            }}
-            className="relative size-full max-h-[500px] max-w-6xl flex-shrink-0 flex-grow-0 object-cover opacity-75 transition-all duration-[400ms] ease-in-out"
-          />
-        ))}
+        {images.map(
+          (image) =>
+            image.backdrop_url && (
+              <img
+                key={image.backdrop_url}
+                src={`${urlImg}/${image.backdrop_url}`}
+                alt={image.alt}
+                style={{
+                  translate: `${-100 * imageIndex}%`,
+                }}
+                className="relative size-full max-h-[500px] flex-shrink-0 flex-grow-0 object-cover opacity-75 transition-all duration-[400ms] ease-in-out"
+              />
+            ),
+        )}
       </div>
 
       <div className="absolute bottom-0 top-0 flex w-full items-center justify-between px-4">
