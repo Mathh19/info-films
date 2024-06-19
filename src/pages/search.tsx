@@ -6,12 +6,10 @@ import { getMoviesData } from "../services/get-media-data";
 import { MovieCard } from "../components/movie-card";
 
 export const Search = () => {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get("q");
-  const [mediaTypeParams] = useSearchParams();
-  const mediaType = mediaTypeParams.get("media_type") ?? "movie";
-  const [pageParams] = useSearchParams();
-  const pageParam = pageParams.get("page") ?? "1";
+  const [urlParams] = useSearchParams();
+  const query = urlParams.get("q");
+  const mediaType = urlParams.get("media_type") ?? "movie";
+  const pageParam = urlParams.get("page") ?? "1";
 
   const { data: searchMoviesData, isPlaceholderData } = useQuery({
     queryKey: ["popular", mediaType, pageParam, query],
@@ -22,6 +20,7 @@ export const Search = () => {
     staleTime: 10000,
     placeholderData: keepPreviousData,
   });
+
   const title =
     searchMoviesData?.results.length === 0
       ? "Não encontramos resultados para sua busca por"
