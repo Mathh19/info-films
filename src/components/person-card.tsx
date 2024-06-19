@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useUrlParams } from "../hooks/useUrlParams";
 
 const urlOriginalImg = import.meta.env.VITE_ORIGINAL_SIZE_IMG;
 
@@ -19,10 +20,17 @@ export const PersonCard = ({
   mediaType,
   job,
 }: PersonCardProps) => {
+  const { searchParams } = useUrlParams();
   const image = img ? `${urlOriginalImg}/${img}` : "/no-image.png";
 
   return (
-    <Link to={`/person/${mediaType}/${id}`} className="flex-shrink-0">
+    <Link
+      to={{
+        pathname: `/person/${mediaType}/${id}`,
+        search: searchParams.toString(),
+      }}
+      className="flex-shrink-0"
+    >
       <div className="group flex flex-col items-center justify-center">
         <img
           src={image}
