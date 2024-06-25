@@ -4,12 +4,11 @@ import { getMoviesData } from "../../services/get-media-data";
 import { MovieAndTV } from "../../shared-types/media";
 import { useSearchParams } from "react-router-dom";
 import { MovieCard } from "../../components/movie-card";
-import { usePagination } from "../../hooks/usePagination";
 
 export const TopRated = () => {
-  const [mediaTypeParams] = useSearchParams();
-  const mediaType = mediaTypeParams.get("media_type") ?? "movie";
-  const { page } = usePagination();
+  const [urlParams] = useSearchParams();
+  const mediaType = urlParams.get("media_type") ?? "movie";
+  const page = urlParams.get("page") ?? "1";
 
   const { data: topRatedMoviesData, isPlaceholderData } = useQuery({
     queryKey: ["top_rated", mediaType, page],
