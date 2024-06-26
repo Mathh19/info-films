@@ -12,7 +12,7 @@ export const TableCast = ({ cast }: TableCastProps) => {
     <Table className="block overflow-x-auto">
       <tbody>
         {cast.map((cast) => (
-          <TableRow key={cast.id}>
+          <TableRow key={crypto.randomUUID()}>
             <TableCell>
               {cast.release_date === "" && "—"}
               {cast.first_air_date === "" && "—"}
