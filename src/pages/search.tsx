@@ -4,12 +4,13 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { MovieAndTV } from "../shared-types/media";
 import { getMoviesData } from "../services/get-media-data";
 import { MovieCard } from "../components/movie-card";
+import { usePageParam } from "../hooks/usePageParam";
 
 export const Search = () => {
   const [urlParams] = useSearchParams();
   const query = urlParams.get("q");
   const mediaType = urlParams.get("media_type") ?? "movie";
-  const pageParam = urlParams.get("page") ?? "1";
+  const { pageParam } = usePageParam();
 
   const { data: searchMoviesData, isPlaceholderData } = useQuery({
     queryKey: ["popular", mediaType, pageParam, query],

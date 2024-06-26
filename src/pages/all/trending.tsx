@@ -5,18 +5,19 @@ import { MovieAndTV } from "../../shared-types/media";
 import { MovieCard } from "../../components/movie-card";
 import { TemplatePage } from "../../templates/template-page";
 import { TrendSelector } from "../../components/trend-selector";
+import { usePageParam } from "../../hooks/usePageParam";
 
 export const Trending = () => {
   const [urlParams] = useSearchParams();
   const mediaType = urlParams.get("media_type") ?? "movie";
   const trendingParam = urlParams.get("trending") ?? "day";
-  const page = urlParams.get("page") ?? "1";
+  const { pageParam } = usePageParam();
 
   const { data: trendingMoviesData, isPlaceholderData } = useQuery({
-    queryKey: ["trending", mediaType, trendingParam, page],
+    queryKey: ["trending", mediaType, trendingParam, pageParam],
     queryFn: () =>
       getMoviesData<MovieAndTV[]>(
-        `/trending/${mediaType}/${trendingParam}?page=${page}`,
+        `/trending/${mediaType}/${trendingParam}?page=${pageParam}`,
       ),
     staleTime: 10000,
     placeholderData: keepPreviousData,
