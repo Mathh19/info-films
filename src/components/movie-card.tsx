@@ -29,7 +29,7 @@ export const MovieCard = ({
       <Link
         to={{
           pathname: `/${mediaType}/${id}`,
-          search: filterParams(["trending"]),
+          search: filterParams(["trending", "page", "q"]),
         }}
         title={title}
       >
