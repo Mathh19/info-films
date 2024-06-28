@@ -63,7 +63,7 @@ export const Pagination = ({
             ) : (
               <button
                 className={cn(
-                  "relative flex size-8 items-center justify-center rounded bg-cyan-400 duration-300 after:absolute after:size-[0%] after:rounded-sm after:bg-black after:transition-all after:duration-200 after:content-[''] hover:brightness-50",
+                  "relative flex size-8 items-center justify-center rounded bg-cyan-400 duration-300 after:absolute after:size-[0%] after:rounded-sm after:bg-background after:transition-all after:duration-200 after:content-[''] hover:brightness-50",
                   currentPage === page && "after:size-[87%]",
                 )}
                 onClick={() => handleChangePage(page.toString())}
