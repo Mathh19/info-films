@@ -24,3 +24,12 @@ export type CreditsResponse = {
   cast: Cast[];
   crew: Crew[];
 }
+
+export type Category = {
+  id: number;
+  name: string;
+}
+
+export type CategoryResponse = {
+  genres: Category[]
+}

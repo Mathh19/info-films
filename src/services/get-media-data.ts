@@ -26,3 +26,13 @@ export const getCreditsData = async (mediaType: 'movie' | 'tv', id: string) => {
   const response = await api.get<CreditsResponse>(`${mediaType}/${id}/credits`);
   return response.data;
 }
+
+export const getMoviesByCategoryData = async (genreId: string) => {
+  const response = await api.get<MoviesResponse<Movie[]>>(`discover/movie?with_genres=${genreId}`);
+  return response.data;
+}
+
+export const getTvByCategoryData = async (genreId: string) => {
+  const response = await api.get<MoviesResponse<TV[]>>(`discover/tv?with_genres=${genreId}`);
+  return response.data;
+}
