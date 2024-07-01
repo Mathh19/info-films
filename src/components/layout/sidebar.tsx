@@ -3,6 +3,7 @@ import { SidebarContext } from "../../contexts/sidebar-context";
 import { Link, useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
 import { useUrlParams } from "../../hooks/useUrlParams";
+import { CategoryContainer } from "../category-container";
 
 type MediaType = "movie" | "tv";
 
@@ -60,6 +61,8 @@ export const Sidebar = () => {
             Séries
           </button>
         </div>
+
+        <CategoryContainer />
       </aside>
     </div>
   );

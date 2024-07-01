@@ -10,6 +10,8 @@ import { Movie } from "./pages/movie";
 import { Tv } from "./pages/tv";
 import { PersonMovie } from "./pages/person/movie";
 import { PersonTv } from "./pages/person/tv";
+import { MovieCategory } from "./pages/category/movie";
+import { TvCategory } from "./pages/category/tv";
 
 export const routers = [
   {
@@ -61,6 +63,13 @@ export const routers = [
             path: "tv/:id",
             element: <PersonTv />,
           },
+        ],
+      },
+      {
+        path: "category",
+        children: [
+          { path: "movie/:slug/:id", element: <MovieCategory /> },
+          { path: "tv/:slug/:id", element: <TvCategory /> },
         ],
       },
     ],
