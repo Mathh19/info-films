@@ -2,6 +2,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { useUrlParams } from "../../../hooks/useUrlParams";
 import { Link } from "react-router-dom";
+import { BackgroundImageSkeleton } from "../../../components/UI/skeletons.tsx/background-image-skeleton";
 
 const urlImg = import.meta.env.VITE_ORIGINAL_SIZE_IMG;
 
@@ -33,10 +34,15 @@ export const Slider = ({ images }: SliderProps) => {
     });
   };
 
-  if (images.length === 0) return <p>loading...</p>;
+  if (images.length === 0)
+    return (
+      <div className="p-4">
+        <BackgroundImageSkeleton />
+      </div>
+    );
 
   return (
-    <div className="relative m-auto max-h-[500px] w-full max-w-6xl">
+    <div className="relative m-auto max-h-[500px] w-full">
       <Link
         to={{
           pathname: `/${movieParams}/${images[imageIndex].id}`,
@@ -55,6 +61,7 @@ export const Slider = ({ images }: SliderProps) => {
                 key={image.backdrop_url}
                 src={`${urlImg}/${image.backdrop_url}`}
                 alt={image.alt}
+                loading="lazy"
                 style={{
                   translate: `${-100 * imageIndex}%`,
                 }}

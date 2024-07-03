@@ -8,10 +8,11 @@ import {
 import { Rating } from "../components/UI/rating";
 import { convertMinutesToHours } from "../utils/convert-minutes-to-hours";
 import { TemplateMovieInfoPage } from "../templates/template-movie-info-page";
+import { MoviePageSkeleton } from "../components/UI/skeletons.tsx/movie-page-skeleton";
 
 export const Movie = () => {
   const { id } = useParams();
-  const { data: movieData, isPending } = useQuery({
+  const { data: movieData, isPending: moviePending } = useQuery({
     queryKey: ["movie", id],
     queryFn: () => getMovieData(id!),
   });
@@ -19,16 +20,18 @@ export const Movie = () => {
     queryKey: ["trailer", "movie", id],
     queryFn: () => getTrailerData("movie", id!),
   });
-  const { data: creditsData } = useQuery({
+  const { data: creditsData, isPending: creditsPending } = useQuery({
     queryKey: ["credits", "movie", id],
     queryFn: () => getCreditsData("movie", id!),
   });
 
-  if (isPending) return <p>Loading...</p>;
+  const isPending = moviePending || creditsPending;
+
+  if (isPending) return <MoviePageSkeleton />;
 
   return (
     <div>
-      {movieData && (
+      {!isPending && movieData && (
         <>
           <TemplateMovieInfoPage.Info backgroundImage={movieData.backdrop_path}>
             <>

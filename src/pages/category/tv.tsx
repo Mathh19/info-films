@@ -11,7 +11,11 @@ export const TvCategory = () => {
   const { pageParam } = usePageParam();
   const { id, slug } = useParams();
 
-  const { data: tvData, isPlaceholderData } = useQuery({
+  const {
+    data: tvData,
+    isPlaceholderData,
+    isPending,
+  } = useQuery({
     queryKey: ["tv", "category", pageParam, id, slug],
     queryFn: () =>
       getMoviesData<TV[]>(`/discover/tv?with_genres=${id}&page=${pageParam}`),
@@ -39,7 +43,7 @@ export const TvCategory = () => {
       )}
       {tvData?.results.length !== 0 && (
         <>
-          <TemplatePage.Content>
+          <TemplatePage.Content isPending={isPending}>
             {tvData?.results.map((movie) => (
               <MovieCard
                 key={movie.id}

@@ -3,11 +3,13 @@ import { MovieCard } from "../../../components/movie-card";
 import { MovieAndTV } from "../../../shared-types/media";
 import { ChevronRight } from "lucide-react";
 import { Container } from "../../../components/container";
+import { CardSkeleton } from "../../../components/UI/skeletons.tsx/card-skeleton";
 
 type SectionProps = {
   title: string;
   controlContent?: React.ReactElement;
   link: string;
+  isPending: boolean;
   movies?: MovieAndTV[];
 };
 
@@ -15,6 +17,7 @@ export const Section = ({
   title,
   controlContent,
   movies,
+  isPending,
   link,
 }: SectionProps) => {
   const { search } = useLocation();
@@ -40,17 +43,23 @@ export const Section = ({
       </div>
 
       <Container>
-        {movies?.map((movie) => (
-          <div key={movie.id} className="shrink-0">
-            <MovieCard
-              id={movie.id}
-              image={movie.poster_path}
-              title={"title" in movie ? movie.title : movie.name}
-              vote_average={movie.vote_average}
-              vote_count={movie.vote_count}
-            />
-          </div>
-        ))}
+        {isPending
+          ? Array.from({ length: 8 }).map((_, index) => (
+              <div key={index} className="w-full max-w-60 shrink-0">
+                <CardSkeleton />
+              </div>
+            ))
+          : movies?.map((movie) => (
+              <div key={movie.id} className="shrink-0">
+                <MovieCard
+                  id={movie.id}
+                  image={movie.poster_path}
+                  title={"title" in movie ? movie.title : movie.name}
+                  vote_average={movie.vote_average}
+                  vote_count={movie.vote_count}
+                />
+              </div>
+            ))}
       </Container>
     </div>
   );

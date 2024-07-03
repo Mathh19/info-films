@@ -13,7 +13,11 @@ export const Trending = () => {
   const trendingParam = urlParams.get("trending") ?? "day";
   const { pageParam } = usePageParam();
 
-  const { data: trendingMoviesData, isPlaceholderData } = useQuery({
+  const {
+    data: trendingMoviesData,
+    isPlaceholderData,
+    isPending,
+  } = useQuery({
     queryKey: ["trending", mediaType, trendingParam, pageParam],
     queryFn: () =>
       getMoviesData<MovieAndTV[]>(
@@ -28,7 +32,7 @@ export const Trending = () => {
       <TemplatePage.Header title="Tendências">
         <TrendSelector />
       </TemplatePage.Header>
-      <TemplatePage.Content>
+      <TemplatePage.Content isPending={isPending}>
         {trendingMoviesData?.results.map((movie) => (
           <MovieCard
             key={movie.id}

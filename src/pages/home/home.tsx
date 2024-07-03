@@ -44,7 +44,6 @@ export const Home = () => {
     staleTime: 10000,
   });
 
-  const isPending = trendingPending || popularPending || topRatedPending;
   const isError = trendingError || popularError || topRatedError;
 
   const trendingImages = getImages(trendingMoviesData);
@@ -53,26 +52,28 @@ export const Home = () => {
     <div>
       <Slider images={trendingImages} />
 
-      {isPending && <p>loading...</p>}
       {isError && <p>Ocorreu um erro ao carregar os dados.</p>}
 
-      {!isPending && !isError && (
+      {!isError && (
         <div className="space-y-8 p-11">
           <Section
             title="Tendências"
             movies={trendingMoviesData?.results}
             controlContent={<TrendSelector />}
             link="trending"
+            isPending={trendingPending}
           />
           <Section
             title="Os Mais Populares"
             movies={popularMoviesData?.results}
             link="popular"
+            isPending={popularPending}
           />
           <Section
             title="Mais bem avaliados"
             movies={topRatedMoviesData?.results}
             link="top-rated"
+            isPending={topRatedPending}
           />
         </div>
       )}

@@ -12,7 +12,11 @@ export const Search = () => {
   const mediaType = urlParams.get("media_type") ?? "movie";
   const { pageParam } = usePageParam();
 
-  const { data: searchMoviesData, isPlaceholderData } = useQuery({
+  const {
+    data: searchMoviesData,
+    isPlaceholderData,
+    isPending,
+  } = useQuery({
     queryKey: ["popular", mediaType, pageParam, query],
     queryFn: () =>
       getMoviesData<MovieAndTV[]>(
@@ -34,7 +38,7 @@ export const Search = () => {
       </TemplatePage.Header>
       {searchMoviesData?.results.length !== 0 && (
         <>
-          <TemplatePage.Content>
+          <TemplatePage.Content isPending={isPending}>
             {searchMoviesData?.results.map((movie) => (
               <MovieCard
                 key={movie.id}

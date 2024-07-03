@@ -7,10 +7,11 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { Rating } from "../components/UI/rating";
 import { TemplateMovieInfoPage } from "../templates/template-movie-info-page";
+import { MoviePageSkeleton } from "../components/UI/skeletons.tsx/movie-page-skeleton";
 
 export const Tv = () => {
   const { id } = useParams();
-  const { data: tvData, isPending } = useQuery({
+  const { data: tvData, isPending: tvPending } = useQuery({
     queryKey: ["tv", id],
     queryFn: () => getTVData(id!),
   });
@@ -18,16 +19,18 @@ export const Tv = () => {
     queryKey: ["trailer", "tv", id],
     queryFn: () => getTrailerData("tv", id!),
   });
-  const { data: creditsData } = useQuery({
+  const { data: creditsData, isPending: creditsPending } = useQuery({
     queryKey: ["credits", "tv", id],
     queryFn: () => getCreditsData("tv", id!),
   });
 
-  if (isPending) return <p>Loading...</p>;
+  const isPending = tvPending || creditsPending;
+
+  if (isPending) return <MoviePageSkeleton />;
 
   return (
     <div>
-      {tvData && (
+      {!isPending && tvData && (
         <>
           <TemplateMovieInfoPage.Info backgroundImage={tvData.backdrop_path}>
             <>

@@ -11,7 +11,11 @@ export const Popular = () => {
   const mediaType = urlParams.get("media_type") ?? "movie";
   const { pageParam } = usePageParam();
 
-  const { data: popularMoviesData, isPlaceholderData } = useQuery({
+  const {
+    data: popularMoviesData,
+    isPlaceholderData,
+    isPending,
+  } = useQuery({
     queryKey: ["popular", mediaType, pageParam],
     queryFn: () =>
       getMoviesData<MovieAndTV[]>(`/${mediaType}/popular?page=${pageParam}`),
@@ -22,7 +26,7 @@ export const Popular = () => {
   return (
     <div className="p-11">
       <TemplatePage.Header title="Os mais populares" />
-      <TemplatePage.Content>
+      <TemplatePage.Content isPending={isPending}>
         {popularMoviesData?.results.map((movie) => (
           <MovieCard
             key={movie.id}

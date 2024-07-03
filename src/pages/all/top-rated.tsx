@@ -11,7 +11,11 @@ export const TopRated = () => {
   const mediaType = urlParams.get("media_type") ?? "movie";
   const { pageParam } = usePageParam();
 
-  const { data: topRatedMoviesData, isPlaceholderData } = useQuery({
+  const {
+    data: topRatedMoviesData,
+    isPlaceholderData,
+    isPending,
+  } = useQuery({
     queryKey: ["top_rated", mediaType, pageParam],
     queryFn: () =>
       getMoviesData<MovieAndTV[]>(`/${mediaType}/top_rated?page=${pageParam}`),
@@ -22,7 +26,7 @@ export const TopRated = () => {
   return (
     <div className="p-11">
       <TemplatePage.Header title="Mais bem avaliados" />
-      <TemplatePage.Content>
+      <TemplatePage.Content isPending={isPending}>
         {topRatedMoviesData?.results.map((movie) => (
           <MovieCard
             key={movie.id}

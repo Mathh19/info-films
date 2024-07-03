@@ -11,7 +11,11 @@ export const MovieCategory = () => {
   const { pageParam } = usePageParam();
   const { id, slug } = useParams();
 
-  const { data: movieData, isPlaceholderData } = useQuery({
+  const {
+    data: movieData,
+    isPlaceholderData,
+    isPending,
+  } = useQuery({
     queryKey: ["movie", "category", pageParam, id, slug],
     queryFn: () =>
       getMoviesData<Movie[]>(
@@ -41,7 +45,7 @@ export const MovieCategory = () => {
       )}
       {movieData?.results.length !== 0 && (
         <>
-          <TemplatePage.Content>
+          <TemplatePage.Content isPending={isPending}>
             {movieData?.results.map((movie) => (
               <MovieCard
                 key={movie.id}
