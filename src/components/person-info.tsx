@@ -31,7 +31,7 @@ export const PersonInfo = ({ person }: PersonInfoProps) => {
           {person.birthday ? (
             <p>
               {person.birthday}{" "}
-              {!person.deathday && (
+              {person.deathday && (
                 <span>({getAge(person.birthday)} anos de idade)</span>
               )}
             </p>
@@ -50,7 +50,7 @@ export const PersonInfo = ({ person }: PersonInfoProps) => {
         )}
         <div>
           <h3 className="text-xl font-bold">Local de nascimento</h3>
-          {!person.place_of_birth ? (
+          {person.place_of_birth ? (
             <NoInfoMessage />
           ) : (
             <p>{person.place_of_birth}</p>

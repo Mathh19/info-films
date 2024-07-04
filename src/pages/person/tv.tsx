@@ -6,8 +6,8 @@ import {
 import { useQuery } from "@tanstack/react-query";
 import { PersonInfo } from "../../components/person-info";
 import { Biography } from "../../components/biography";
-import { TableCastAndCrew } from "../../components/table-cast-and-crew/table-cast-and-crew";
 import { PersonPageSkeleton } from "../../components/UI/skeletons.tsx/person-page-skeleton";
+import { CastAndCrewTable } from "../../components/table-cast-and-crew/cast-and-crew-table";
 
 export const PersonTv = () => {
   const { id } = useParams();
@@ -31,7 +31,7 @@ export const PersonTv = () => {
       <div className="space-y-6">
         {personData && <Biography biography={personData.biography} />}
         {creditsData && (
-          <TableCastAndCrew cast={creditsData.cast} crew={creditsData.crew} />
+          <CastAndCrewTable cast={creditsData.cast} crew={creditsData.crew} />
         )}
       </div>
     </div>

@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PersonCredits } from "../../shared-types/person";
-import { TableCast } from "./components/table-cast";
-import { TableCrew } from "./components/table-crew";
+import { CreditsTable } from "./components/credits-table";
 
-type TableCastAndCrewProps = PersonCredits;
+type CastAndCrewTableProps = PersonCredits;
 
-export const TableCastAndCrew = (person: TableCastAndCrewProps) => {
-  const [castOrCrew, setCastOrCrew] = useState<"cast" | "crew">("cast");
-
-  useEffect(() => {
-    if (person.cast.length === 0) return setCastOrCrew("crew");
-    if (person.crew.length === 0) return setCastOrCrew("cast");
-  }, []);
+export const CastAndCrewTable = (person: CastAndCrewTableProps) => {
+  const [castOrCrew, setCastOrCrew] = useState<"cast" | "crew">(() =>
+    person.cast.length === 0 ? "crew" : "cast",
+  );
 
   return (
     <div>
@@ -36,8 +32,8 @@ export const TableCastAndCrew = (person: TableCastAndCrewProps) => {
         )}
       </div>
 
-      {castOrCrew === "cast" && <TableCast cast={person.cast} />}
-      {castOrCrew === "crew" && <TableCrew crew={person.crew} />}
+      {castOrCrew === "cast" && <CreditsTable credits={person.cast} />}
+      {castOrCrew === "crew" && <CreditsTable credits={person.crew} />}
     </div>
   );
 };
