@@ -1,6 +1,7 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { Rating } from "./UI/rating";
 import { useUrlParams } from "../hooks/useUrlParams";
+import { cn } from "../utils/cn";
 
 const urlImg = import.meta.env.VITE_IMG;
 
@@ -25,7 +26,7 @@ export const MovieCard = ({
   const cardImage = image ? `${urlImg}/${image}` : "/no-image.png";
 
   return (
-    <div className="group w-full max-w-60">
+    <div className="w-full max-w-60">
       <Link
         to={{
           pathname: `/${mediaType}/${id}`,
@@ -34,15 +35,25 @@ export const MovieCard = ({
         title={title}
       >
         <div>
-          <img
-            draggable="false"
-            src={cardImage}
-            alt={`Filme ${title}`}
-            width={240}
-            height={300}
-            data-image={image === null}
-            className="rounded-lg object-cover transition-all group-hover:shadow-md group-hover:shadow-white/20 data-[image='true']:border data-[image='true']:border-white/25 data-[image='true']:bg-gradient-to-br data-[image='true']:from-cyan-600 data-[image='true']:to-transparent data-[image='true']:to-55%"
-          />
+          <div
+            className={cn(
+              "group overflow-hidden rounded-lg",
+              !image && "border border-white/25",
+            )}
+          >
+            <img
+              draggable="false"
+              src={cardImage}
+              alt={`Filme ${title}`}
+              width={240}
+              height={300}
+              className={cn(
+                "object-cover transition-all duration-300 group-hover:scale-125",
+                !image &&
+                  "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
+              )}
+            />
+          </div>
 
           <p className="truncate text-xl font-bold">{title}</p>
         </div>
