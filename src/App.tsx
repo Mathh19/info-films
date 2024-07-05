@@ -1,18 +1,19 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Footer from './components/Footer/Footer';
-import GoTop from './components/GoTop/GoTop';
-import Navbar from './components/Navbar/Navbar';
+import { Outlet } from "react-router-dom";
+import { Footer } from "./components/layout/footer";
+import { Header } from "./components/layout/header";
+import { Sidebar } from "./components/layout/sidebar";
+import { ScrollToTop } from "./components/UI/scroll-to-top";
 
-const App = () => {
+export function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <GoTop />
-      <Outlet />
+    <div>
+      <Sidebar />
+      <Header />
+      <main className="min-h-svh transition-all sm:pl-52">
+        <Outlet />
+      </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
-};
-
-export default App;
+}
