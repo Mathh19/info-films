@@ -1,4 +1,3 @@
-import { App } from "./app";
 import { ErrorPage } from "./pages/error-page";
 import { Home } from "./pages/home/home";
 import { Trending } from "./pages/all/trending";
@@ -12,6 +11,7 @@ import { PersonMovie } from "./pages/person/movie";
 import { PersonTv } from "./pages/person/tv";
 import { MovieCategory } from "./pages/category/movie";
 import { TvCategory } from "./pages/category/tv";
+import { App } from "./App";
 
 export const routers = [
   {
