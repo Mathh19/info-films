@@ -11,7 +11,7 @@ import { PersonMovie } from "./pages/person/movie";
 import { PersonTv } from "./pages/person/tv";
 import { MovieCategory } from "./pages/category/movie";
 import { TvCategory } from "./pages/category/tv";
-import { App } from "./App";
+import { App } from "./app";
 
 export const routers = [
   {
