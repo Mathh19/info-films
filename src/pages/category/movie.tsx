@@ -35,7 +35,7 @@ export const MovieCategory = () => {
   );
 
   return (
-    <div className="p-11">
+    <TemplatePage.Wrapper>
       {filteredCategory && (
         <TemplatePage.Header title="Filmes da categoria">
           <span className="text-4xl font-bold text-cyan-400">
@@ -67,6 +67,6 @@ export const MovieCategory = () => {
           )}
         </>
       )}
-    </div>
+    </TemplatePage.Wrapper>
   );
 };

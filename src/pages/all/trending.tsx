@@ -28,7 +28,7 @@ export const Trending = () => {
   });
 
   return (
-    <div className="p-11">
+    <TemplatePage.Wrapper>
       <TemplatePage.Header title="Tendências">
         <TrendSelector />
       </TemplatePage.Header>
@@ -48,6 +48,6 @@ export const Trending = () => {
         totalPages={40}
         isPlaceholderData={isPlaceholderData}
       />
-    </div>
+    </TemplatePage.Wrapper>
   );
 };

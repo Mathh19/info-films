@@ -32,7 +32,7 @@ export const Search = () => {
       : "Resultados para sua busca por";
 
   return (
-    <div className="p-11">
+    <TemplatePage.Wrapper>
       <TemplatePage.Header title={title}>
         <span className="text-4xl font-bold text-cyan-400">"{query}"</span>
       </TemplatePage.Header>
@@ -58,6 +58,6 @@ export const Search = () => {
           )}
         </>
       )}
-    </div>
+    </TemplatePage.Wrapper>
   );
 };

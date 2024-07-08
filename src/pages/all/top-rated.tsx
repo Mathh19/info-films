@@ -24,7 +24,7 @@ export const TopRated = () => {
   });
 
   return (
-    <div className="p-11">
+    <TemplatePage.Wrapper>
       <TemplatePage.Header title="Mais bem avaliados" />
       <TemplatePage.Content isPending={isPending}>
         {topRatedMoviesData?.results.map((movie) => (
@@ -42,6 +42,6 @@ export const TopRated = () => {
         totalPages={40}
         isPlaceholderData={isPlaceholderData}
       />
-    </div>
+    </TemplatePage.Wrapper>
   );
 };

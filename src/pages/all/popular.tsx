@@ -24,7 +24,7 @@ export const Popular = () => {
   });
 
   return (
-    <div className="p-11">
+    <TemplatePage.Wrapper>
       <TemplatePage.Header title="Os mais populares" />
       <TemplatePage.Content isPending={isPending}>
         {popularMoviesData?.results.map((movie) => (
@@ -42,6 +42,6 @@ export const Popular = () => {
         totalPages={40}
         isPlaceholderData={isPlaceholderData}
       />
-    </div>
+    </TemplatePage.Wrapper>
   );
 };

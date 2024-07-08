@@ -33,7 +33,7 @@ export const TvCategory = () => {
   );
 
   return (
-    <div className="p-11">
+    <TemplatePage.Wrapper>
       {filteredCategory && (
         <TemplatePage.Header title="Séries da categoria">
           <span className="text-4xl font-bold text-cyan-400">
@@ -63,6 +63,6 @@ export const TvCategory = () => {
           )}
         </>
       )}
-    </div>
+    </TemplatePage.Wrapper>
   );
 };
