@@ -37,7 +37,7 @@ export const MovieCard = ({
         <div>
           <div
             className={cn(
-              "group overflow-hidden rounded-lg",
+              "group overflow-hidden rounded-lg shadow-[0px_0px_10px_-3px_#f7fafc]",
               !image && "border border-white/25",
             )}
           >
@@ -45,10 +45,9 @@ export const MovieCard = ({
               draggable="false"
               src={cardImage}
               alt={`Filme ${title}`}
-              width={240}
               height={300}
               className={cn(
-                "object-cover transition-all duration-300 group-hover:scale-125",
+                "w-full object-cover transition-all duration-300 group-hover:scale-125",
                 !image &&
                   "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
               )}
