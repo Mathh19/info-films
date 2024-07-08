@@ -9,7 +9,7 @@ export function App() {
     <div>
       <Sidebar />
       <Header />
-      <main className="min-h-svh transition-all sm:pl-52">
+      <main className="min-h-svh transition-all sm:pl-56">
         <Outlet />
       </main>
       <Footer />
