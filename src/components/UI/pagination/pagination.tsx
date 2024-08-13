@@ -40,10 +40,10 @@ export const Pagination = ({
 
   return (
     <div>
-      <ul className="flex flex-wrap items-center justify-center gap-2">
+      <ul className="flex items-center justify-center gap-2">
         <li>
           <button
-            className="size-8 rounded bg-cyan-400 text-black duration-300 hover:brightness-50 disabled:opacity-15 disabled:hover:brightness-100"
+            className="flex size-8 rounded bg-cyan-400 text-black duration-300 hover:brightness-50 disabled:opacity-15 disabled:hover:brightness-100"
             aria-label="previous page"
             onClick={onPrev}
             disabled={currentPage === 1 || isPlaceHolderData}
@@ -56,7 +56,7 @@ export const Pagination = ({
             {page === "..." ? (
               <span
                 data-disabled={isPlaceHolderData}
-                className="flex h-6 w-8 cursor-default items-center justify-center rounded bg-cyan-400 text-black data-[disabled='true']:brightness-50"
+                className="flex max-h-5 w-8 cursor-default items-center justify-center rounded bg-cyan-400 text-black data-[disabled='true']:brightness-50"
               >
                 {page}
               </span>
@@ -83,7 +83,7 @@ export const Pagination = ({
         ))}
         <li>
           <button
-            className="size-8 rounded bg-cyan-400 text-black duration-300 hover:brightness-50 disabled:opacity-15 disabled:hover:brightness-100"
+            className="flex size-8 rounded bg-cyan-400 text-black duration-300 hover:brightness-50 disabled:opacity-15 disabled:hover:brightness-100"
             onClick={onNext}
             aria-label="next page"
             disabled={currentPage === totalPages || isPlaceHolderData}
