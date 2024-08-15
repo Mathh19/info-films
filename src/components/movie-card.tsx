@@ -26,7 +26,7 @@ export const MovieCard = ({
   const cardImage = image ? `${urlImg}/${image}` : "/no-image.png";
 
   return (
-    <div className="w-full max-w-60">
+    <div className="group w-full max-w-60">
       <Link
         to={{
           pathname: `/${mediaType}/${id}`,
@@ -37,7 +37,7 @@ export const MovieCard = ({
         <div>
           <div
             className={cn(
-              "group overflow-hidden rounded-lg shadow-[0px_0px_10px_-3px_#f7fafc]",
+              "overflow-hidden rounded-lg shadow-[0px_0px_10px_-3px_#f7fafc]",
               !image && "border border-white/25",
             )}
           >
@@ -47,7 +47,7 @@ export const MovieCard = ({
               alt={`Filme ${title}`}
               height={300}
               className={cn(
-                "w-full object-cover transition-all duration-300 group-hover:scale-125",
+                "w-full object-cover transition-all duration-500 group-focus-within:scale-110 group-hover:scale-110",
                 !image &&
                   "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
               )}
