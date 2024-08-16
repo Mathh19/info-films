@@ -29,6 +29,7 @@ export const PersonCard = ({
         pathname: `/person/${mediaType}/${id}`,
         search: searchParams.toString(),
       }}
+      className="shrink-0"
     >
       <div className="group flex flex-col items-center justify-center">
         <img

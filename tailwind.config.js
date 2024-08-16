@@ -16,13 +16,23 @@ export default {
       brightness: {
         65: 0.65,
       },
+      transitionDuration: {
+        450: "450ms",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0", transform: "translateY(-10px)" },
           "100%": { opacity: "1" },
         },
+        loading: {
+          "0%": { transform: "scale(0)" },
+          "100%": { transform: "scale(1)", opacity: "0" },
+        },
       },
-      animation: { fadeIn: "fadeIn .8s ease-in-out" },
+      animation: {
+        fadeIn: "fadeIn .8s ease-in-out",
+        loading: "loading 1s infinite linear",
+      },
     },
   },
   plugins: [],

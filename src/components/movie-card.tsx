@@ -26,7 +26,7 @@ export const MovieCard = ({
   const cardImage = image ? `${urlImg}/${image}` : "/no-image.png";
 
   return (
-    <div className="group w-full max-w-60">
+    <div className="group w-full max-w-60 shrink-0">
       <Link
         to={{
           pathname: `/${mediaType}/${id}`,
@@ -34,30 +34,21 @@ export const MovieCard = ({
         }}
         title={title}
       >
-        <div>
-          <div
+        <div className="overflow-hidden rounded-lg border border-slate-100">
+          <img
+            src={cardImage}
+            alt={`Filme ${title}`}
             className={cn(
-              "overflow-hidden rounded-lg shadow-[0px_0px_10px_-3px_#f7fafc]",
-              !image && "border border-white/25",
+              "duration-450 max-h-80 w-full object-cover transition-all ease-in-out group-focus-within:scale-110 group-hover:scale-110",
+              !image && "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
             )}
-          >
-            <img
-              draggable="false"
-              src={cardImage}
-              alt={`Filme ${title}`}
-              height={300}
-              className={cn(
-                "w-full object-cover transition-all duration-500 group-focus-within:scale-110 group-hover:scale-110",
-                !image &&
-                  "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
-              )}
-            />
-          </div>
-
-          <p className="truncate text-xl font-bold">{title}</p>
+          />
         </div>
+
+        <p className="mt-2 truncate text-xl font-bold">{title}</p>
+
+        <Rating vote_average={vote_average} vote_count={vote_count} />
       </Link>
-      <Rating vote_average={vote_average} vote_count={vote_count} />
     </div>
   );
 };
