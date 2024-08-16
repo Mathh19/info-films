@@ -45,20 +45,17 @@ export const Section = ({
       <Container>
         {isPending
           ? Array.from({ length: 8 }).map((_, index) => (
-              <div key={index} className="w-full max-w-60 shrink-0">
-                <CardSkeleton />
-              </div>
+              <CardSkeleton key={index} />
             ))
           : movies?.map((movie) => (
-              <div key={movie.id} className="shrink-0">
-                <MovieCard
-                  id={movie.id}
-                  image={movie.poster_path}
-                  title={"title" in movie ? movie.title : movie.name}
-                  vote_average={movie.vote_average}
-                  vote_count={movie.vote_count}
-                />
-              </div>
+              <MovieCard
+                key={movie.id}
+                id={movie.id}
+                image={movie.poster_path}
+                title={"title" in movie ? movie.title : movie.name}
+                vote_average={movie.vote_average}
+                vote_count={movie.vote_count}
+              />
             ))}
       </Container>
     </div>

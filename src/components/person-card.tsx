@@ -29,7 +29,6 @@ export const PersonCard = ({
         pathname: `/person/${mediaType}/${id}`,
         search: searchParams.toString(),
       }}
-      className="flex-shrink-0"
     >
       <div className="group flex flex-col items-center justify-center">
         <img
@@ -41,7 +40,12 @@ export const PersonCard = ({
         <p className="text-lg font-semibold group-hover:underline group-hover:underline-offset-4">
           {name}
         </p>
-        <p className="max-w-24 text-center text-zinc-500">{character ?? job}</p>
+        <p
+          title={character ?? job}
+          className="max-w-24 truncate text-center text-zinc-500"
+        >
+          {character ?? job}
+        </p>
       </div>
     </Link>
   );
