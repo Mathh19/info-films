@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { TemplatePage } from "../../templates/template-page";
+import { TemplatePageMovies } from "../../templates/template-page-movies";
 import { TrendSelector } from "../../components/trend-selector";
 import { MovieAndTV } from "../../shared-types/media";
 import { getMoviesData } from "../../services/get-media-data";
@@ -10,11 +10,11 @@ export const Trending = () => {
   const trendingParam = urlParams.get("trending") ?? "day";
 
   return (
-    <TemplatePage.Wrapper>
-      <TemplatePage.Header title="Tendências">
+    <TemplatePageMovies.Wrapper>
+      <TemplatePageMovies.Header title="Tendências">
         <TrendSelector />
-      </TemplatePage.Header>
-      <TemplatePage.InfiniteScrollContent
+      </TemplatePageMovies.Header>
+      <TemplatePageMovies.InfiniteScrollContent
         queryKey={["movie", "trending", mediaType, trendingParam]}
         queryFn={(pageParam) =>
           getMoviesData<MovieAndTV[]>(
@@ -22,6 +22,6 @@ export const Trending = () => {
           )
         }
       />
-    </TemplatePage.Wrapper>
+    </TemplatePageMovies.Wrapper>
   );
 };

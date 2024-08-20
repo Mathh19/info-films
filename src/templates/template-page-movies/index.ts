@@ -4,7 +4,7 @@ import { InfiniteScrollContent } from "./infinite-scroll-content";
 import { PaginationContent } from "./pagination-content";
 import { Wrapper } from "./wrapper";
 
-export const TemplatePage = {
+export const TemplatePageMovies = {
   Wrapper: Wrapper,
   Header: Header,
   Content: Content,

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { getMoviesData } from "../../services/get-media-data";
-import { TemplatePage } from "../../templates/template-page";
+import { TemplatePageMovies } from "../../templates/template-page-movies";
 import { usePageParam } from "../../hooks/usePageParam";
 import { Movie } from "../../shared-types/media";
 import { getCategoriesData } from "../../services/get-categories-data";
@@ -20,14 +20,14 @@ export const MovieCategory = () => {
   );
 
   return (
-    <TemplatePage.Wrapper>
+    <TemplatePageMovies.Wrapper>
       {filteredCategory && (
-        <TemplatePage.Header
+        <TemplatePageMovies.Header
           title={filteredCategory.name}
           className="font-semibold"
         />
       )}
-      <TemplatePage.InfiniteScrollContent
+      <TemplatePageMovies.InfiniteScrollContent
         queryKey={["movie", "category", pageParam, id, slug]}
         queryFn={(pageParam) =>
           getMoviesData<Movie[]>(
@@ -35,6 +35,6 @@ export const MovieCategory = () => {
           )
         }
       />
-    </TemplatePage.Wrapper>
+    </TemplatePageMovies.Wrapper>
   );
 };

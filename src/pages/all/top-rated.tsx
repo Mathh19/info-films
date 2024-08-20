@@ -1,6 +1,6 @@
 import { getMoviesData } from "../../services/get-media-data";
 import { MovieAndTV } from "../../shared-types/media";
-import { TemplatePage } from "../../templates/template-page";
+import { TemplatePageMovies } from "../../templates/template-page-movies";
 import { useSearchParams } from "react-router-dom";
 
 export const TopRated = () => {
@@ -8,9 +8,9 @@ export const TopRated = () => {
   const mediaType = urlParams.get("media_type") ?? "movie";
 
   return (
-    <TemplatePage.Wrapper>
-      <TemplatePage.Header title="Mais bem avaliados" />
-      <TemplatePage.InfiniteScrollContent
+    <TemplatePageMovies.Wrapper>
+      <TemplatePageMovies.Header title="Mais bem avaliados" />
+      <TemplatePageMovies.InfiniteScrollContent
         queryKey={["movie", "top-rated", mediaType]}
         queryFn={(pageParam) =>
           getMoviesData<MovieAndTV[]>(
@@ -18,6 +18,6 @@ export const TopRated = () => {
           )
         }
       />
-    </TemplatePage.Wrapper>
+    </TemplatePageMovies.Wrapper>
   );
 };
