@@ -19,6 +19,9 @@ export default {
       transitionDuration: {
         450: "450ms",
       },
+      screens: {
+        xs: "411px",
+      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0", transform: "translateY(-10px)" },

@@ -13,7 +13,7 @@ export const Header = ({ title, className, children }: HeaderProps) => {
   const { filterParams } = useUrlParams();
 
   return (
-    <div className={cn("flex flex-wrap items-center gap-4 px-4", className)}>
+    <div className={cn("flex flex-wrap items-center gap-2 px-5", className)}>
       <Link
         to={{ pathname: "/", search: filterParams(["page", "q"]) }}
         aria-label="voltar para página inicial"
@@ -23,7 +23,7 @@ export const Header = ({ title, className, children }: HeaderProps) => {
       </Link>
       <h2 className="text-4xl">{title}</h2>
 
-      <div className="">{children}</div>
+      <div>{children}</div>
     </div>
   );
 };
