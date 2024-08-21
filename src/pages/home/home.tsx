@@ -55,7 +55,7 @@ export const Home = () => {
       {isError && <p>Ocorreu um erro ao carregar os dados.</p>}
 
       {!isError && (
-        <div className="space-y-8 p-11">
+        <div className="space-y-8 p-6 md:p-9">
           <Section
             title="Tendências"
             movies={trendingMoviesData?.results}
