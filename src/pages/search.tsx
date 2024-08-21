@@ -16,7 +16,7 @@ export const Search = () => {
     <TemplatePageMovies.Wrapper>
       <TemplatePageMovies.Header title={title} />
       <TemplatePageMovies.InfiniteScrollContent
-        queryKey={["movie", mediaType]}
+        queryKey={["movie", mediaType, query]}
         queryFn={(pageParam) =>
           getMoviesData<MovieAndTV[]>(
             `/search/${mediaType}?query=${query}&page=${pageParam}&include_adult=false`,
