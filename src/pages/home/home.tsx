@@ -6,6 +6,7 @@ import { getMoviesData } from "../../services/get-media-data";
 import { useSearchParams } from "react-router-dom";
 import { TrendSelector } from "../../components/trend-selector";
 import { getImages } from "../../utils/get-images";
+import { BackgroundImageSkeleton } from "../../components/UI/skeletons.tsx/background-image-skeleton";
 
 type MediaData = Movie[] | TV[];
 
@@ -46,11 +47,13 @@ export const Home = () => {
 
   const isError = trendingError || popularError || topRatedError;
 
-  const trendingImages = getImages(trendingMoviesData);
-
   return (
     <div>
-      <Slider images={trendingImages} />
+      {trendingMoviesData ? (
+        <Slider images={getImages(trendingMoviesData)} />
+      ) : (
+        <BackgroundImageSkeleton />
+      )}
 
       {isError && <p>Ocorreu um erro ao carregar os dados.</p>}
 

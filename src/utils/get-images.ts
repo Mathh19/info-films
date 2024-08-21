@@ -1,9 +1,7 @@
 import { MoviesResponse } from "../shared-types/api-responses";
 import { Movie, TV } from "../shared-types/media";
 
-export const getImages = (data?: MoviesResponse<Movie[] | TV[]>) => {
-  if (!data) return [];
-
+export const getImages = (data: MoviesResponse<Movie[] | TV[]>) => {
   const images = data.results.map((movie: Movie | TV) => ({
     id: movie.id,
     title: "title" in movie ? movie.title : movie.name,
