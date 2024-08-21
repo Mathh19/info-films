@@ -53,7 +53,7 @@ export const Slider = ({ images }: SliderProps) => {
                 key={image.backdrop_url}
                 src={`${urlImg}/${image.backdrop_url}`}
                 alt={image.alt}
-                width={1200}
+                width={600}
                 height={500}
                 loading="lazy"
                 style={{
