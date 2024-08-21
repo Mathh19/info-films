@@ -53,11 +53,13 @@ export const Slider = ({ images }: SliderProps) => {
                 key={image.backdrop_url}
                 src={`${urlImg}/${image.backdrop_url}`}
                 alt={image.alt}
+                width={1200}
+                height={500}
                 loading="lazy"
                 style={{
                   translate: `${-100 * imageIndex}%`,
                 }}
-                className="relative size-full max-h-[500px] flex-shrink-0 flex-grow-0 object-cover opacity-75 transition-all duration-[400ms] ease-in-out"
+                className="relative aspect-video size-full max-h-[500px] flex-shrink-0 flex-grow-0 object-cover opacity-75 transition-all duration-[400ms] ease-in-out"
               />
             ),
         )}

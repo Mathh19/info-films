@@ -19,7 +19,13 @@ export const PersonInfo = ({ person }: PersonInfoProps) => {
 
   return (
     <div className="flex flex-col">
-      <img src={img} alt={imgAlt} className="w-full rounded-lg" />
+      <img
+        src={img}
+        alt={imgAlt}
+        width={500}
+        height={500}
+        className="w-full rounded-lg"
+      />
 
       <div className="mt-4 space-y-2">
         <div>

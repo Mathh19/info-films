@@ -35,6 +35,8 @@ export const PersonCard = ({
         <img
           src={image}
           data-image={!img}
+          width={128}
+          height={128}
           alt={`${name}/${character ?? job}`}
           className="size-32 rounded-full object-cover object-center data-[image='true']:border data-[image='true']:border-white/25 data-[image='true']:bg-gradient-to-br data-[image='true']:from-cyan-600 data-[image='true']:to-transparent data-[image='true']:to-55%"
         />

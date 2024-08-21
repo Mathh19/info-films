@@ -38,8 +38,10 @@ export const MovieCard = ({
           <img
             src={cardImage}
             alt={`Filme ${title}`}
+            width={240}
+            height={320}
             className={cn(
-              "duration-450 max-h-80 w-full object-cover transition-all ease-in-out group-focus-within:scale-110 group-hover:scale-110",
+              "max-h-80 w-full object-cover transition-all duration-450 ease-in-out group-focus-within:scale-110 group-hover:scale-110",
               !image && "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
             )}
           />
