@@ -26,13 +26,14 @@ export const MovieCard = ({
   const cardImage = image ? `${urlImg}/${image}` : "/no-image.png";
 
   return (
-    <div className="group w-full max-w-60 shrink-0">
+    <div className="group w-full max-w-56 shrink-0">
       <Link
         to={{
           pathname: `/${mediaType}/${id}`,
           search: filterParams(["trending", "page", "q"]),
         }}
         title={title}
+        aria-label={`Ver detalhes de ${title}`}
       >
         <div className="overflow-hidden rounded-lg border border-slate-100">
           <img
@@ -40,8 +41,9 @@ export const MovieCard = ({
             alt={`Filme ${title}`}
             width={240}
             height={320}
+            loading="lazy"
             className={cn(
-              "h-80 w-full object-cover object-center transition-all duration-450 ease-in-out group-focus-within:scale-110 group-hover:scale-110",
+              "aspect-[2/3] size-full transition-all duration-450 ease-in-out group-focus-within:scale-110 group-hover:scale-110",
               !image && "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
             )}
           />

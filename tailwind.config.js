@@ -20,7 +20,7 @@ export default {
         450: "450ms",
       },
       screens: {
-        xs: "458px",
+        xs: "411px",
       },
       keyframes: {
         fadeIn: {
