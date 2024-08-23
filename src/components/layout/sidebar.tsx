@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { SidebarContext } from "../../contexts/sidebar-context";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { X } from "lucide-react";
 import { useUrlParams } from "../../hooks/useUrlParams";
 import { CategoryContainer } from "../category-container";
+import { cn } from "../../utils/cn";
 
 type MediaType = "movie" | "tv";
 
@@ -12,6 +13,7 @@ export const Sidebar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const mediaType = searchParams.get("media_type") ?? "movie";
   const { filterParams } = useUrlParams();
+  const navigate = useNavigate();
 
   const handleSelectMediaType = (mediaType: MediaType) => {
     setSearchParams((state) => {
@@ -22,20 +24,44 @@ export const Sidebar = () => {
     });
   };
 
+  const navigateToHome = () => {
+    navigate({ pathname: "/", search: filterParams(["page", "q"]) });
+    setIsOpen();
+  };
+
   return (
     <div>
+      <div
+        onClick={setIsOpen}
+        className={cn(
+          "fixed inset-0 z-40 cursor-pointer bg-black/40 sm:hidden",
+          !isOpen && "hidden",
+        )}
+      ></div>
+
       <aside
-        data-open={isOpen}
-        className="fixed left-0 z-50 h-screen w-56 border-r border-border-color bg-background px-6 py-4 shadow-lg shadow-black transition-all duration-300 max-sm:-translate-x-full max-sm:data-[open='true']:translate-x-0"
+        className={cn(
+          "fixed left-0 z-50 h-screen w-56 border-r border-border-color bg-background px-6 py-4 shadow-lg shadow-black transition-all duration-300 max-sm:-translate-x-full ",
+          isOpen && "max-sm:translate-x-0",
+        )}
       >
         <div className="flex items-center justify-between">
           <Link
             to={{ pathname: "/", search: filterParams(["page", "q"]) }}
             aria-label="voltar para página de incial"
-            className="font-bebas text-4xl max-sm:cursor-pointer"
+            className="font-bebas text-4xl max-sm:hidden max-sm:cursor-pointer"
           >
             InfoFilms
           </Link>
+
+          <button
+            onClick={navigateToHome}
+            aria-label="voltar para página de incial"
+            className="font-bebas text-4xl sm:hidden"
+          >
+            InfoFilms
+          </button>
+
           <button
             onClick={setIsOpen}
             aria-label="fechar barra de menu lateral"
