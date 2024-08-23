@@ -41,7 +41,7 @@ export const MovieCard = ({
             width={240}
             height={320}
             className={cn(
-              "max-h-80 w-full object-cover transition-all duration-450 ease-in-out group-focus-within:scale-110 group-hover:scale-110",
+              "h-80 w-full object-cover object-center transition-all duration-450 ease-in-out group-focus-within:scale-110 group-hover:scale-110",
               !image && "bg-gradient-to-br from-cyan-600 to-transparent to-55%",
             )}
           />

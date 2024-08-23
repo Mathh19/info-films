@@ -47,7 +47,7 @@ export const InfiniteScrollContent = ({
         <span>Error: {error.message}</span>
       ) : (
         <>
-          <div className="max-xs:grid-cols-1 mt-10 grid grid-cols-3 place-items-center gap-6 max-md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-3 place-items-center gap-6 max-[992px]:grid-cols-2 max-xs:grid-cols-1">
             {data.pages.map((movies, i) => (
               <React.Fragment key={i}>
                 {movies.results.map((movie) => (
