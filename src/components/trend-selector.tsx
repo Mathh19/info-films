@@ -1,50 +1,40 @@
-import { ChangeEvent } from "react";
 import { useUrlParams } from "../hooks/useUrlParams";
+import { motion } from "framer-motion";
+import { cn } from "../utils/cn";
 
 export const TrendSelector = () => {
   const { searchParams, setParams } = useUrlParams();
   const trendingParam = searchParams.get("trending") ?? "day";
+  const motionDiv = trendingParam === "day" ? -120 : 55;
 
-  const handleChangeControll = (e: ChangeEvent<HTMLInputElement>) => {
-    setParams("trending", e.target.value);
+  const handleTrending = (trending: "day" | "week") => {
+    setParams("trending", trending);
   };
 
   return (
-    <div className="flex flex-nowrap overflow-hidden rounded-full border border-cyan-400">
-      <label htmlFor="day" className="cursor-pointer">
-        <input
-          type="radio"
-          name="selector-content"
-          id="day"
-          value="day"
-          checked={trendingParam === "day"}
-          onChange={handleChangeControll}
-          className="peer appearance-none"
-        />
-        <span
-          aria-label="hoje"
-          className="whitespace-nowrap rounded-full p-1 px-2 text-lg font-bold transition-all duration-300 peer-checked:bg-cyan-400 peer-checked:text-background peer-focus-within:outline peer-focus-within:outline-1 peer-focus-within:outline-white peer-hover:outline peer-hover:outline-1 peer-hover:outline-white max-md:text-base max-[674px]:text-sm"
-        >
-          Hoje
-        </span>
-      </label>
-      <label htmlFor="week" className="cursor-pointer">
-        <input
-          type="radio"
-          name="selector-content"
-          id="week"
-          value="week"
-          checked={trendingParam === "week"}
-          onChange={handleChangeControll}
-          className="peer appearance-none"
-        />
-        <span
-          aria-label="nesta semana"
-          className="whitespace-nowrap rounded-full p-1 px-2 text-lg font-bold transition-all duration-300 peer-checked:bg-cyan-400 peer-checked:text-background peer-hover:outline peer-hover:outline-1 peer-hover:outline-white peer-focus:outline peer-focus:outline-1 peer-focus:outline-white max-md:text-base max-[674px]:text-sm"
-        >
-          Nesta semana
-        </span>
-      </label>
+    <div className="relative flex w-full overflow-hidden rounded-full border border-cyan-400">
+      <motion.div
+        animate={{ x: motionDiv }}
+        className="absolute inset-0 w-full rounded-full bg-cyan-400"
+      />
+      <button
+        onClick={() => handleTrending("day")}
+        className={cn(
+          "z-[1] w-full rounded-l-full px-2.5 py-1 font-semibold",
+          trendingParam === "day" && "text-background",
+        )}
+      >
+        Hoje
+      </button>
+      <button
+        onClick={() => handleTrending("week")}
+        className={cn(
+          "z-[1] w-full text-nowrap rounded-r-full px-2.5 py-1 font-semibold",
+          trendingParam === "week" && "text-background",
+        )}
+      >
+        Nesta semana
+      </button>
     </div>
   );
 };
