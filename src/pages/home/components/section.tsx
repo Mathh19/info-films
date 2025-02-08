@@ -32,7 +32,7 @@ export const Section = ({
 
         <Link
           to={{ pathname: `/all/${link}`, search }}
-          className="group whitespace-nowrap text-[#64748B]"
+          className="group whitespace-nowrap"
         >
           ver tudo
           <ChevronRight
